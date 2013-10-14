@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>gor搭建个人博客(github静态博客)</title>
+    <title>配置blog环境</title>
   
     <meta name="author" content="JPH">
 
@@ -64,76 +64,76 @@
 
       <div class="content">
         <div class="page-header">
-  <h1>gor搭建个人博客(github静态博客) </h1>
+  <h1>配置blog环境 </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <p>静态博客 [gor &ndash; Golang编写]</p>
+    <p>ps: 以前习惯把积累的东西用readme文件的形式存在本地,方便查阅
+    现在打算整理成静态blog的形式,简单方便,走到哪儿都可以查阅</p>
 
-<p><a href="https://github.com/wendal/gor">gor源码</a></p>
+<h2><a style="display: block;" name="配置vim(~/.vimrc)" href="#配置vim(~/.vimrc)"></a>配置vim(~/.vimrc)</h2>
 
-<h2><a style="display: block;" name="安装gor" href="#安装gor"></a>安装gor</h2>
+<h3>自动添加mkd文件头</h3>
 
-<pre><code>go get -u github.com/wendal/gor
-go install github.com/wendal/gor/gor
+<h4>1.新建文件(vim xxx.md)</h4>
+
+<pre><code>autocmd BufNewFile *.md exec &quot;:call SetTitle()&quot;
+func! SetTitle()
+    if &amp;filetype == 'mkd'
+        call setline(1,&quot;---&quot;)
+        call append(line(&quot;.&quot;), &quot;title: &quot;)
+        call append(line(&quot;.&quot;)+1, &quot;date: '&quot;.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;).&quot;'&quot;)
+        call append(line(&quot;.&quot;)+2, &quot;permalink: &quot;)
+        call append(line(&quot;.&quot;)+3, &quot;description: &quot;)
+        call append(line(&quot;.&quot;)+4, &quot;categories: &quot;)
+        call append(line(&quot;.&quot;)+5, &quot;- &quot;)
+        call append(line(&quot;.&quot;)+6, &quot;- &quot;)
+        call append(line(&quot;.&quot;)+7, &quot;&quot;)
+        call append(line(&quot;.&quot;)+8, &quot;tags: &quot;)
+        call append(line(&quot;.&quot;)+9, &quot;- &quot;)
+        call append(line(&quot;.&quot;)+10, &quot;---&quot;)
+        call append(line(&quot;.&quot;)+11, &quot;&quot;)
+        call append(line(&quot;.&quot;)+12, &quot;&quot;)
+    endif
+endfunc
 </code></pre>
 
-<h2><a style="display: block;" name="新建站点-生成jphome98.com文件夹" href="#新建站点-生成jphome98.com文件夹"></a>新建站点 生成jphome98.com文件夹</h2>
+<h4>2.更新已有文件(xxx -&gt; xxx.md)</h4>
 
-<pre><code>gor new jphome98.com
+<pre><code>map &lt;F5&gt; :call AddAutoHead()&lt;CR&gt;
+func! AddAutoHead()
+    exec &quot;w&quot;
+    if &amp;filetype == 'mkd'
+        call append(0, &quot;---&quot;)
+        call append(1, &quot;title: &quot;)
+        call append(2, &quot;date: '&quot;.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;).&quot;'&quot;)
+        call append(3, &quot;permalink: &quot;)
+        call append(4, &quot;description: &quot;)
+        call append(5, &quot;categories: &quot;)
+        call append(6, &quot;- &quot;)
+        call append(7, &quot;- &quot;)
+        call append(8, &quot;&quot;)
+        call append(9, &quot;tags:&quot;)
+        call append(10, &quot;- &quot;)
+        call append(11, &quot;---&quot;)
+        call append(12, &quot;&quot;)
+        call append(13, &quot;&quot;)
+        endif
+endfunc
 </code></pre>
 
-<h2><a style="display: block;" name="新建单篇博客" href="#新建单篇博客"></a>新建单篇博客</h2>
+<h3>自动更新当前编辑文件至blog(本地) [按Ctrl+F5]</h3>
 
-<pre><code>cd jphome98.com
-gor post &quot;readme&quot;           ###&lt; 生成博客页 posts/readme.md
-                            ###&lt; 编辑 readme.md
-                            ###&lt; 当然也可以编辑好xxx.md直接放到 posts下
-</code></pre>
-
-<h2><a style="display: block;" name="编译" href="#编译"></a>编译</h2>
-
-<pre><code>gor compile                 ###&lt; 生成的资源放在compiled文件夹
-</code></pre>
-
-<h2><a style="display: block;" name="本地预览" href="#本地预览"></a>本地预览</h2>
-
-<pre><code>gor http
-浏览器输入localhost:8080
-</code></pre>
-
-<h2><a style="display: block;" name="部署到github上---||-e.g:-[hugozhu](https://github.com/hugozhu/blog)" href="#部署到github上---||-e.g:-[hugozhu](https://github.com/hugozhu/blog)"></a>部署到github上   || e.g: <a href="https://github.com/hugozhu/blog">hugozhu</a></h2>
-
-<pre><code>在github上新建repo &quot;jphome.github.com&quot;
-将compiled提交到此repo
-即可通过http://jphome.github.com访问
-</code></pre>
-
-<h2><a style="display: block;" name="基本配置" href="#基本配置"></a>基本配置</h2>
-
-<p>打开站点根目录下的site.yml文件</p>
-
-<pre><code>1. 填入title, 作者等信息
-2. 填入邮箱等信息
-</code></pre>
-
-<p>打开站点根目录下的config.yml文件</p>
-
-<pre><code>1. 设置production_url为你的网站地址, 例如 http://wendal.net 最后面不需要加入/ 生成rss.xml等文件时会用到
-2. summary_lines 首页的文章摘要的长度,按你喜欢的呗
-3. latest 首页显示多少文章
-4. imgs 部分为自动插入 &lt;img&gt; 相关的配置
-    imgtag：要插入的  标签的基本格式，%s 部分会被自动替换为 urlperfix/post_name/img_file_name 的格式
-    urlperfix： 图片地址前缀
-    localdir：图片文件在博客内的本地存放目录
-</code></pre>
-
-<p>打开widgets目录, 可以看到基本的挂件,里面有config.yml配置文件</p>
-
-<pre><code>1. analytics 暂时只支持google analytics, 填入tracking_id
-2. comments 暂时只支持disqus, 请填入short_name
-3. google_prettify 代码高亮,一般不修改
+<pre><code>&quot; 需要事先设置blog_root环境变量
+map &lt;C-F5&gt; :call RunXxx()&lt;CR&gt;
+func! RunXxx()
+    exec &quot;w&quot;
+    if &amp;filetype == 'mkd'
+        exec &quot;!cp % $blog_root/posts&quot;
+        exec &quot;!cd $blog_root &amp;&amp; gor compile&quot;
+    endif
+endfunc
 </code></pre>
 
     <hr>
@@ -141,15 +141,15 @@ gor post &quot;readme&quot;           ###&lt; 生成博客页 posts/readme.md
       <ul>
         <ul>
           
-            <li class="prev"><a href="/blog/2013/10/13/syntax_markdown.html" title="学习markdown语言语法">&larr; Previous</a></li>
           
+            <li class="prev disabled"><a>&larr; Previous</a></li>
           
 
             <li><a href="/archive">Archive</a></li>
 
           
+            <li class="next"><a href="/blog/2013/10/13/syntax_markdown.html" title="学习markdown语言语法">Next &rarr;</a></li>
           
-            <li class="next disabled"><a>Next &rarr;</a>
           
         </ul>
       </ul>
@@ -174,13 +174,13 @@ gor post &quot;readme&quot;           ###&lt; 生成博客页 posts/readme.md
   
   <div class="span4">
     <h4>Published</h4>
-    <div class="date"><span>2013-10-13 22:20:45</span></div>
+    <div class="date"><span>2013-10-14 21:54:42</span></div>
     <br>
     <h4>Categories</h4>
     <ul class="tag_box">
     
       <li>
-  <a href="/categories/#Blog-ref">Blog <span>1</span></a>
+  <a href="/categories/#config-ref">config <span>1</span></a>
 </li>
     
     </ul>
@@ -189,7 +189,7 @@ gor post &quot;readme&quot;           ###&lt; 生成博客页 posts/readme.md
     <ul class="tag_box">
     
       <li>
-  <a href="/tags/#Gor-ref">Gor <span>1</span></a>
+  <a href="/tags/#blog-ref">blog <span>1</span></a>
 </li>
     
     </ul>

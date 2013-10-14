@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>gor搭建个人博客(github静态博客)</title>
+    <title>学习markdown语言语法</title>
   
     <meta name="author" content="JPH">
 
@@ -64,92 +64,88 @@
 
       <div class="content">
         <div class="page-header">
-  <h1>gor搭建个人博客(github静态博客) </h1>
+  <h1>学习markdown语言语法 </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <p>静态博客 [gor &ndash; Golang编写]</p>
+    <p>From: <a href="http://wowubuntu.com/markdown/basic.html">basic</a></p>
 
-<p><a href="https://github.com/wendal/gor">gor源码</a></p>
+<h3>回车</h3>
 
-<h2><a style="display: block;" name="安装gor" href="#安装gor"></a>安装gor</h2>
-
-<pre><code>go get -u github.com/wendal/gor
-go install github.com/wendal/gor/gor
+<pre><code>\&lt;br /&gt;
 </code></pre>
 
-<h2><a style="display: block;" name="新建站点-生成jphome98.com文件夹" href="#新建站点-生成jphome98.com文件夹"></a>新建站点 生成jphome98.com文件夹</h2>
+<h3>标题(两种语法)</h3>
 
-<pre><code>gor new jphome98.com
+<pre><code>Setext      底线形式 === 或 ---
+atx         在行首插入 1 到 6 个 #
 </code></pre>
 
-<h2><a style="display: block;" name="新建单篇博客" href="#新建单篇博客"></a>新建单篇博客</h2>
+<h3>修辞和强调</h3>
 
-<pre><code>cd jphome98.com
-gor post &quot;readme&quot;           ###&lt; 生成博客页 posts/readme.md
-                            ###&lt; 编辑 readme.md
-                            ###&lt; 当然也可以编辑好xxx.md直接放到 posts下
+<pre><code>*emphasized*        ###&lt; 斜体
+_emphasized_        ###&lt; 斜体
+**strong**          ###&lt; strong
+__strong__          ###&lt; strong
 </code></pre>
 
-<h2><a style="display: block;" name="编译" href="#编译"></a>编译</h2>
+<h3>列表(* + - num)</h3>
 
-<pre><code>gor compile                 ###&lt; 生成的资源放在compiled文件夹
+<pre><code>* 1                 ###&lt; 无序列表
+* 2
+* 3
+
++ 1                 ###&lt; 无序列表
++ 2
++ 3
+
+- 1                 ###&lt; 无序列表
+- 2
+- 3
+
+1. a                ###&lt; 有序列表
+2. a
+3. a
 </code></pre>
 
-<h2><a style="display: block;" name="本地预览" href="#本地预览"></a>本地预览</h2>
+<h3>文字链接</h3>
 
-<pre><code>gor http
-浏览器输入localhost:8080
+<pre><code>[xxx's blog](http://xxx.com &quot;title&quot;)    ###&lt; 行内形式
+
+[xxx's blog][id]                        ###&lt; 参考形式
+[id]: http://url_1.com
 </code></pre>
 
-<h2><a style="display: block;" name="部署到github上---||-e.g:-[hugozhu](https://github.com/hugozhu/blog)" href="#部署到github上---||-e.g:-[hugozhu](https://github.com/hugozhu/blog)"></a>部署到github上   || e.g: <a href="https://github.com/hugozhu/blog">hugozhu</a></h2>
+<h3>图片链接</h3>
 
-<pre><code>在github上新建repo &quot;jphome.github.com&quot;
-将compiled提交到此repo
-即可通过http://jphome.github.com访问
+<h4>(打算在blog中使用yunio网盘的图片外链,尚未成功 - - 貌似不被支持了)</h4>
+
+<pre><code>![alt text](/path/to/img.jpg &quot;title&quot;)   ###&lt; 行内形式
+
+![alt text][id]                         ###&lt; 参考形式
+[id]: /path/to/img.jpg &quot;title&quot;
 </code></pre>
 
-<h2><a style="display: block;" name="基本配置" href="#基本配置"></a>基本配置</h2>
-
-<p>打开站点根目录下的site.yml文件</p>
-
-<pre><code>1. 填入title, 作者等信息
-2. 填入邮箱等信息
-</code></pre>
-
-<p>打开站点根目录下的config.yml文件</p>
-
-<pre><code>1. 设置production_url为你的网站地址, 例如 http://wendal.net 最后面不需要加入/ 生成rss.xml等文件时会用到
-2. summary_lines 首页的文章摘要的长度,按你喜欢的呗
-3. latest 首页显示多少文章
-4. imgs 部分为自动插入 &lt;img&gt; 相关的配置
-    imgtag：要插入的  标签的基本格式，%s 部分会被自动替换为 urlperfix/post_name/img_file_name 的格式
-    urlperfix： 图片地址前缀
-    localdir：图片文件在博客内的本地存放目录
-</code></pre>
-
-<p>打开widgets目录, 可以看到基本的挂件,里面有config.yml配置文件</p>
-
-<pre><code>1. analytics 暂时只支持google analytics, 填入tracking_id
-2. comments 暂时只支持disqus, 请填入short_name
-3. google_prettify 代码高亮,一般不修改
-</code></pre>
+<p><br />
+<br />
+<img src="http://pic.baike.soso.com/p/20130304/bki-20130304161213-1881616484.jpg" alt="yunio" title="yunio" />
+</p>
 
     <hr>
     <div class="pagination">
       <ul>
         <ul>
           
-            <li class="prev"><a href="/blog/2013/10/13/syntax_markdown.html" title="学习markdown语言语法">&larr; Previous</a></li>
+            <li class="prev"><a href="/blog/2013/10/14/config_blog.html" title="配置blog环境">&larr; Previous</a></li>
           
           
 
             <li><a href="/archive">Archive</a></li>
 
           
+            <li class="next"><a href="/blog/2013/10/13/readme_blog_init.html" title="gor搭建个人博客(github静态博客)">Next &rarr;</a></li>
           
-            <li class="next disabled"><a>Next &rarr;</a>
           
         </ul>
       </ul>
@@ -174,13 +170,13 @@ gor post &quot;readme&quot;           ###&lt; 生成博客页 posts/readme.md
   
   <div class="span4">
     <h4>Published</h4>
-    <div class="date"><span>2013-10-13 22:20:45</span></div>
+    <div class="date"><span>2013-10-13 22:45:44</span></div>
     <br>
     <h4>Categories</h4>
     <ul class="tag_box">
     
       <li>
-  <a href="/categories/#Blog-ref">Blog <span>1</span></a>
+  <a href="/categories/#script-ref">script <span>1</span></a>
 </li>
     
     </ul>
@@ -189,7 +185,7 @@ gor post &quot;readme&quot;           ###&lt; 生成博客页 posts/readme.md
     <ul class="tag_box">
     
       <li>
-  <a href="/tags/#Gor-ref">Gor <span>1</span></a>
+  <a href="/tags/#markdown-ref">markdown <span>1</span></a>
 </li>
     
     </ul>
