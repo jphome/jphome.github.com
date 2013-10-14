@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url>
+		<loc>http://sample.com/</loc>
+	</url>
+	<url>
+		<loc>http://sample.com/2013/readme_blog_init.html</loc>
+		<lastmod>2013-10-13 22:20:45</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+</urlset>
