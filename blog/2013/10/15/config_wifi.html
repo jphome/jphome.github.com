@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>gor搭建个人博客(github静态博客)</title>
+    <title>树莓派USB无线网卡配置</title>
   
     <meta name="author" content="JPH">
 
@@ -64,92 +64,67 @@
 
       <div class="content">
         <div class="page-header">
-  <h1>gor搭建个人博客(github静态博客) </h1>
+  <h1>树莓派USB无线网卡配置 </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <p>静态博客 [gor &ndash; Golang编写]</p>
+    <h3><a href="http://www.2fz1.com/?p=353">zz: 2fz1</a></h3>
 
-<p><a href="https://github.com/wendal/gor">gor源码</a></p>
+<p>购置无线网卡
+手头本来有一个RT3070,可是怎么都搞不定
+后淘了个<a href="http://detail.tmall.com/item.htm?id=14795585956">EDUP的EP-N8508GS</a></p>
 
-<h2><a style="display: block;" name="安装gor" href="#安装gor"></a>安装gor</h2>
+<h3>1.查看插入的无线网卡驱动有没有加载</h3>
 
-<pre><code>go get -u github.com/wendal/gor
-go install github.com/wendal/gor/gor
+<pre><code>lsusb
 </code></pre>
 
-<h2><a style="display: block;" name="新建站点-生成jphome98.com文件夹" href="#新建站点-生成jphome98.com文件夹"></a>新建站点 生成jphome98.com文件夹</h2>
+<h4>我的显示如下无线网卡信息</h4>
 
-<pre><code>gor new jphome98.com
+<pre><code>Bus 001 Device 004: ID 0bda:8176 Realtek Semiconductor Corp. RTL8188CUS 802.11n WLAN Adapter
 </code></pre>
 
-<h2><a style="display: block;" name="新建单篇博客" href="#新建单篇博客"></a>新建单篇博客</h2>
+<h3>2.配置网卡配置文件</h3>
 
-<pre><code>cd jphome98.com
-gor post &quot;readme&quot;           ###&lt; 生成博客页 posts/readme.md
-                            ###&lt; 编辑 readme.md
-                            ###&lt; 当然也可以编辑好xxx.md直接放到 posts下
+<pre><code>cd /etc/network
+cp interfaces interfaces.bak
+sudo vi interfaces 
 </code></pre>
 
-<h2><a style="display: block;" name="编译" href="#编译"></a>编译</h2>
+<h4>内容如下</h4>
 
-<pre><code>gor compile                 ###&lt; 生成的资源放在compiled文件夹
+<pre><code>auto lo
+iface lo inet loopback
+iface eth0 inet dhcp
+
+auto wlan0
+allow-hotplug wlan0
+iface wlan0 inet dhcp
+wpa-ssid &quot;SSID&quot;
+wpa-psk &quot;PASSWORD&quot;
 </code></pre>
 
-<h2><a style="display: block;" name="本地预览" href="#本地预览"></a>本地预览</h2>
+<h3>3.配置路由器为树莓派静态分配ip</h3>
 
-<pre><code>gor http
-浏览器输入localhost:8080
-</code></pre>
+<p><br \></p>
 
-<h2><a style="display: block;" name="部署到github上---||-e.g:-[hugozhu](https://github.com/hugozhu/blog)" href="#部署到github上---||-e.g:-[hugozhu](https://github.com/hugozhu/blog)"></a>部署到github上   || e.g: <a href="https://github.com/hugozhu/blog">hugozhu</a></h2>
-
-<pre><code>在github上新建repo &quot;jphome.github.com&quot;
-将compiled提交到此repo
-即可通过http://jphome.github.com访问
-</code></pre>
-
-<h2><a style="display: block;" name="基本配置" href="#基本配置"></a>基本配置</h2>
-
-<p>打开站点根目录下的site.yml文件</p>
-
-<pre><code>1. 填入title, 作者等信息
-2. 填入邮箱等信息
-</code></pre>
-
-<p>打开站点根目录下的config.yml文件</p>
-
-<pre><code>1. 设置production_url为你的网站地址, 例如 http://wendal.net 最后面不需要加入/ 生成rss.xml等文件时会用到
-2. summary_lines 首页的文章摘要的长度,按你喜欢的呗
-3. latest 首页显示多少文章
-4. imgs 部分为自动插入 &lt;img&gt; 相关的配置
-    imgtag：要插入的  标签的基本格式，%s 部分会被自动替换为 urlperfix/post_name/img_file_name 的格式
-    urlperfix： 图片地址前缀
-    localdir：图片文件在博客内的本地存放目录
-</code></pre>
-
-<p>打开widgets目录, 可以看到基本的挂件,里面有config.yml配置文件</p>
-
-<pre><code>1. analytics 暂时只支持google analytics, 填入tracking_id
-2. comments 暂时只支持disqus, 请填入short_name
-3. google_prettify 代码高亮,一般不修改
-</code></pre>
+<h5>存在的问题: 网卡插入后设备自动重启,略讨厌,不过总归有网上了</h5>
 
     <hr>
     <div class="pagination">
       <ul>
         <ul>
           
-            <li class="prev"><a href="/blog/2013/10/13/syntax_markdown.html" title="学习markdown语言语法">&larr; Previous</a></li>
           
+            <li class="prev disabled"><a>&larr; Previous</a></li>
           
 
             <li><a href="/archive">Archive</a></li>
 
           
+            <li class="next"><a href="/blog/2013/10/14/config_blog.html" title="配置blog环境">Next &rarr;</a></li>
           
-            <li class="next disabled"><a>Next &rarr;</a>
           
         </ul>
       </ul>
@@ -174,7 +149,7 @@ gor post &quot;readme&quot;           ###&lt; 生成博客页 posts/readme.md
   
   <div class="span4">
     <h4>Published</h4>
-    <div class="date"><span>2013-10-13 22:20:45</span></div>
+    <div class="date"><span>2013-10-15 21:03:24</span></div>
     <br>
     <h4>Categories</h4>
     <ul class="tag_box">
@@ -189,7 +164,11 @@ gor post &quot;readme&quot;           ###&lt; 生成博客页 posts/readme.md
     <ul class="tag_box">
     
       <li>
-  <a href="/tags/#blog-ref">blog <span>2</span></a>
+  <a href="/tags/#raspberry-pi-ref">raspberry pi <span>1</span></a>
+</li>
+    
+      <li>
+  <a href="/tags/#wifi-ref">wifi <span>1</span></a>
 </li>
     
     </ul>
