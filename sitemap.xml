@@ -4,6 +4,11 @@
 		<loc>http://sample.com/</loc>
 	</url>
 	<url>
+		<loc>http://sample.com/blog/2013/10/16/readme_git.html</loc>
+		<lastmod>2013-10-16 21:37:03</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
 		<loc>http://sample.com/blog/2013/10/15/config_wifi.html</loc>
 		<lastmod>2013-10-15 21:03:24</lastmod>
 		<changefreq>weekly</changefreq>

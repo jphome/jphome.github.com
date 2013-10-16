@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>树莓派USB无线网卡配置</title>
+    <title>git使用相关</title>
   
     <meta name="author" content="JPH">
 
@@ -64,66 +64,101 @@
 
       <div class="content">
         <div class="page-header">
-  <h1>树莓派USB无线网卡配置 </h1>
+  <h1>git使用相关 </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <h3><a href="http://www.2fz1.com/?p=353">zz: 2fz1</a></h3>
+    <h3>1. 安装</h3>
 
-<p>购置无线网卡
-手头本来有一个RT3070,可是怎么都搞不定
-后淘了个<a href="http://detail.tmall.com/item.htm?id=14795585956">EDUP的EP-N8508GS</a></p>
-
-<h3>1.查看插入的无线网卡驱动有没有加载</h3>
-
-<pre><code>lsusb
+<pre><code>sudo apt-get install git git-core
 </code></pre>
 
-<h4>我的显示如下无线网卡信息</h4>
+<h3>2. 配置 设置你的名字和email(提交commit时的签名)</h3>
 
-<pre><code>Bus 001 Device 004: ID 0bda:8176 Realtek Semiconductor Corp. RTL8188CUS 802.11n WLAN Adapter
+<pre><code>git config --global user.name &quot;jphome&quot;
+git config --global user.email &quot;jphome98@gmail.com&quot;
 </code></pre>
 
-<h3>2.配置网卡配置文件</h3>
+<h4>执行了上面的命令后,会在你的主目录(home directory)建立一个叫 ~/.gitconfig 的文件</h4>
 
-<pre><code>cd /etc/network
-cp interfaces interfaces.bak
-sudo vi interfaces 
+<h5>内容一般像下面这样:</h5>
+
+<pre><code>[user]
+    name = jphome
+    email = jphome98@gmail.com
 </code></pre>
 
-<h4>内容如下</h4>
+<p>注:这样的设置是全局设置,会影响此用户建立的每个项目.</p>
 
-<pre><code>auto lo
-iface lo inet loopback
-iface eth0 inet dhcp
+<h3>3. git命令</h3>
 
-auto wlan0
-allow-hotplug wlan0
-iface wlan0 inet dhcp
-wpa-ssid &quot;SSID&quot;
-wpa-psk &quot;PASSWORD&quot;
+<pre><code>git clone https://github.com/jphome/hSmart.git
+git add *
+git commit
+git remote add origin https://github.com/jphome/hSmart.git
+git push -u origin master
+
+
+本地编辑前
+git pull
+如果有冲突就会提示 处理冲突
+然后 git ci -a
+然后 git push 同步github上的数据
+
+
+编辑完了后
+git ci -a
+git push
+
+
+当本地与远程冲突时
+git fetch origin            ###&lt; 获取冲突
+git merge origin            ###&lt; 如果merge失败 手动编辑修改
+git ci -a
+git add *
+git push
+
+
+git init
+git add file1 file2 file3   ###&lt; 将更新的内容（修改 &amp; 新增）添加到索引中
+
+git commit -a               ###&lt; 自动把所有内容被修改的文件(不包括新创建的文件)都添加到索引中,并且同时把它们提交
+git diff --cached           ###&lt; 查看哪些文件将被提交（commit）
+git diff                    ###&lt; 查看当前你所有已做的但没有加入到索引里的修改
+git diff HEAD               ###&lt; 显示你工作目录与上次提交时之间的所有差别
+git commit                  ###&lt; 提交到本地
+
+
+git push                    ###&lt; 推到网上仓库
+git pull                    ###&lt; 从远程仓库down更新 = git fetch + git merge
+                            ###&lt; 当本地与远程都编辑了 git pull就会失败
+
+
+git branch experimental     ###&lt; 新建分支
+git branch                  ###&lt; 查看所有分支（*为当前所处分支）
+git checkout experimental   ###&lt; 切换分支
+git merge experimental      ###&lt; 合并分支experimental到当前分支
+git branch -d experimental  ###&lt; 删除分支experimental
+gitk                        ###&lt; 图形界面显示项目历史
+git reset --hard HEAD       ###&lt; 回到合并之前的状态
+git diff master..test       ###&lt; 显示两个分支间的差异
+git diff master...test      ###&lt; 显示‘master’,‘test’的共有 父分支和'test'分支之间的差异
 </code></pre>
-
-<h3>3.配置路由器为树莓派静态分配ip</h3>
-
-<p><br \></p>
-
-<h5>存在的问题: 网卡插入后设备自动重启,略讨厌,不过总归有网上了</h5>
 
     <hr>
     <div class="pagination">
       <ul>
         <ul>
           
-            <li class="prev"><a href="/blog/2013/10/16/readme_git.html" title="git使用相关">&larr; Previous</a></li>
           
+            <li class="prev disabled"><a>&larr; Previous</a></li>
           
 
             <li><a href="/archive">Archive</a></li>
 
           
-            <li class="next"><a href="/blog/2013/10/14/config_blog.html" title="配置blog环境">Next &rarr;</a></li>
+            <li class="next"><a href="/blog/2013/10/15/config_wifi.html" title="树莓派USB无线网卡配置">Next &rarr;</a></li>
           
           
         </ul>
@@ -149,27 +184,19 @@ wpa-psk &quot;PASSWORD&quot;
   
   <div class="span4">
     <h4>Published</h4>
-    <div class="date"><span>2013-10-15 21:03:24</span></div>
+    <div class="date"><span>2013-10-16 21:37:03</span></div>
     <br>
     <h4>Categories</h4>
     <ul class="tag_box">
     
       <li>
-  <a href="/categories/#%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3-ref">技术相关 <span>4</span></a>
+  <a href="/categories/#default-ref">default <span>1</span></a>
 </li>
     
     </ul>
     <br>
     <h4>Tags</h4>
     <ul class="tag_box">
-    
-      <li>
-  <a href="/tags/#raspberry-pi-ref">raspberry pi <span>1</span></a>
-</li>
-    
-      <li>
-  <a href="/tags/#wifi-ref">wifi <span>1</span></a>
-</li>
     
     </ul>
   </div>
