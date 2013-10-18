@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>树莓派USB无线网卡配置</title>
+    <title>About Me</title>
   
     <meta name="author" content="JPH">
 
@@ -49,9 +49,9 @@
 
             
               
+  <li class="active"><a href="/description" class="active">About Me</a></li>
 
 
-  <li><a href="/about">说明</a></li>
 
 
             
@@ -70,115 +70,40 @@
     <div class="container">
 
       <div class="content">
-        <div class="page-header">
-  <h1>树莓派USB无线网卡配置 </h1>
+        
+<div class="page-header">
+  <h1>About Me </h1>
 </div>
 
 <div class="row">
-  <div class="span8">
-    <h3><a href="http://www.2fz1.com/?p=353">zz: 2fz1</a></h3>
+  <div class="span12">
+    <p><img src="http://www.danasoft.com/sig/471140129712.jpg" alt="your ip" title="your ip" />
 
-<p>购置无线网卡
-手头本来有一个RT3070,可是怎么都搞不定
-后淘了个<a href="http://detail.tmall.com/item.htm?id=14795585956">EDUP的EP-N8508GS</a></p>
-
-<h3>1.查看插入的无线网卡驱动有没有加载</h3>
-
-<pre><code>lsusb
-</code></pre>
-
-<h4>我的显示如下无线网卡信息</h4>
-
-<pre><code>Bus 001 Device 004: ID 0bda:8176 Realtek Semiconductor Corp. RTL8188CUS 802.11n WLAN Adapter
-</code></pre>
-
-<h3>2.配置网卡配置文件</h3>
-
-<pre><code>cd /etc/network
-cp interfaces interfaces.bak
-sudo vi interfaces 
-</code></pre>
-
-<h4>内容如下</h4>
-
-<pre><code>auto lo
-iface lo inet loopback
-iface eth0 inet dhcp
-
-auto wlan0
-allow-hotplug wlan0
-iface wlan0 inet dhcp
-wpa-ssid &quot;SSID&quot;
-wpa-psk &quot;PASSWORD&quot;
-</code></pre>
-
-<h3>3.配置路由器为树莓派静态分配ip</h3>
+<img src="http://imglf0.ph.126.net/hg4XFA6Vcg5ZKm6FWMMAHw==/2008323958930836300.png" alt="logo" title="my logo" />
+</p>
 
 <p><br \></p>
 
-<h5>存在的问题: 网卡插入后设备自动重启,略讨厌,不过总归有网上了</h5>
+<h2><a style="display: block;" name="此博客仅仅是个人本地文件的转换,并push至github,以方便查阅" href="#此博客仅仅是个人本地文件的转换,并push至github,以方便查阅"></a>此博客仅仅是个人本地文件的转换,并push至github,以方便查阅</h2>
 
-    <hr>
-    <div class="pagination">
-      <ul>
-        <ul>
-          
-            <li class="prev"><a href="/blog/2013/10/16/readme_git.html" title="git使用相关">&larr; Previous</a></li>
-          
-          
+<h3>readme -&gt; readme.md -&gt; readme.html</h3>
 
-            <li><a href="/archive">Archive</a></li>
+<p><br \>
+<br \>
+联系方式:</p>
 
-          
-            <li class="next"><a href="/blog/2013/10/14/config_blog.html" title="配置blog环境">Next &rarr;</a></li>
-          
-          
-        </ul>
-      </ul>
-    </div>
-    <hr>
-    
-<div id="disqus_thread"></div>
-<script>
-    var disqus_developer = 1;
-    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+<pre><code>name:       JPH
+E-mail:     dc -e 2373671104547083924717618664129412341368319242P
+</code></pre>
 
-  </div>
-  
-  <div class="span4">
-    <h4>发布时间</h4>
-    <div class="date"><span>2013-10-15 21:03:24</span></div>
-    <br>
-    <h4>分类(Categories)</h4>
-    <ul class="tag_box">
-    
-      <li>
-  <a href="/categories/#%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3-ref">技术相关 <span>6</span></a>
-</li>
-    
-    </ul>
-    <br>
-    <h4>标签(Tags)</h4>
-    <ul class="tag_box">
-    
-      <li>
-  <a href="/tags/#raspberry-pi-ref">raspberry pi <span>1</span></a>
-</li>
-    
-      <li>
-  <a href="/tags/#wifi-ref">wifi <span>1</span></a>
-</li>
-    
-    </ul>
+<hr />
+
+<p>电脑:</p>
+
+<pre><code>配置:       Lenovo IdeaPad Y450(4G DDR3, 320G 5400转 HDD)
+操作系统:   Ubuntu 12.04 LTS
+</code></pre>
+
   </div>
 </div>
 
