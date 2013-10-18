@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
-		<loc>http://sample.com/</loc>
+		<loc>http://jphome.github.com/</loc>
 	</url>
 	<url>
-		<loc>http://sample.com/blog/2013/10/16/readme_python.html</loc>
+		<loc>http://jphome.github.com/blog/2013/10/16/readme_python.html</loc>
 		<lastmod>2013-10-16 23:24:31</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>http://sample.com/blog/2013/10/16/readme_git.html</loc>
+		<loc>http://jphome.github.com/blog/2013/10/16/readme_git.html</loc>
 		<lastmod>2013-10-16 21:37:03</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>http://sample.com/blog/2013/10/15/config_wifi.html</loc>
+		<loc>http://jphome.github.com/blog/2013/10/15/config_wifi.html</loc>
 		<lastmod>2013-10-15 21:03:24</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>http://sample.com/blog/2013/10/14/config_blog.html</loc>
+		<loc>http://jphome.github.com/blog/2013/10/14/config_blog.html</loc>
 		<lastmod>2013-10-14 21:54:42</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>http://sample.com/blog/2013/10/13/syntax_markdown.html</loc>
+		<loc>http://jphome.github.com/blog/2013/10/13/syntax_markdown.html</loc>
 		<lastmod>2013-10-13 22:45:44</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>http://sample.com/blog/2013/10/13/readme_blog_init.html</loc>
+		<loc>http://jphome.github.com/blog/2013/10/13/readme_blog_init.html</loc>
 		<lastmod>2013-10-13 22:20:45</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
