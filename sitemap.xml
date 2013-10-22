@@ -4,6 +4,11 @@
 		<loc>http://jphome.github.com/</loc>
 	</url>
 	<url>
+		<loc>http://jphome.github.com/blog/2013/10/22/test.html</loc>
+		<lastmod>2013-10-22 21:48:39</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
 		<loc>http://jphome.github.com/blog/2013/10/16/readme_python.html</loc>
 		<lastmod>2013-10-16 23:24:31</lastmod>
 		<changefreq>weekly</changefreq>
