@@ -2,12 +2,12 @@
 <rss version="2.0">  <channel>
     <title>小蒋</title>
     <link>http://jphome.github.com</link>
-    <pubDate>22 Oct 13 21:52 CST</pubDate>
+    <pubDate>22 Oct 13 22:33 CST</pubDate>
     <item>
       <title>测试html</title>
       <link>http://jphome.github.com/blog/2013/10/22/test.html</link>
       <pubDate>2013-10-22 09:48:39 +0800</pubDate>
-      <description>&lt;p&gt;&lt;img src=&#34;/asserts/media/img/rider.png&#34; alt=&#34;test_img&#34; /&gt;&#xA;&lt;/p&gt;&#xA;</description>
+      <description>&lt;p&gt;&lt;img src=&#34;/assets/media/img/rider.png&#34; alt=&#34;test_img&#34; /&gt;&#xA;&lt;/p&gt;&#xA;</description>
     </item>
     <item>
       <title>readme_python</title>
