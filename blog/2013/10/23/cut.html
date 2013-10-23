@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>gor搭建个人博客(github静态博客)</title>
+    <title>cut工具的使用方法</title>
   
     <meta name="author" content="JPH">
 
@@ -71,76 +71,45 @@
 
       <div class="content">
         <div class="page-header">
-  <h1>gor搭建个人博客(github静态博客) </h1>
+  <h1>cut工具的使用方法 </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <p>静态博客 [gor &ndash; Golang编写]</p>
+    <h2><a style="display: block;" name="cut作用:用来裁剪数据" href="#cut作用:用来裁剪数据"></a>cut作用:用来裁剪数据</h2>
 
-<p><a href="https://github.com/wendal/gor">gor源码</a></p>
+<h3>参数</h3>
 
-<h2><a style="display: block;" name="安装gor" href="#安装gor"></a>安装gor</h2>
-
-<pre><code>go get -u github.com/wendal/gor
-go install github.com/wendal/gor/gor
+<pre><code>-b      字节(bytes)
+-c      字符(characters)
+-f      域(fields)
 </code></pre>
 
-<h2><a style="display: block;" name="新建站点-生成jphome98.com文件夹" href="#新建站点-生成jphome98.com文件夹"></a>新建站点 生成jphome98.com文件夹</h2>
+<h2><a style="display: block;" name="1.-按字节(bytes)" href="#1.-按字节(bytes)"></a>1. 按字节(bytes)</h2>
 
-<pre><code>gor new jphome98.com
+<h3>一个汉字算3个字节</h3>
+
+<pre><code>date | cut -b 1-4           ###&lt; 取前4B
+date | cut -b 1-4,10        ###&lt; 取前4B和第10个B
+date | cut -b -4            ###&lt; 取1-4B
+date | cut -b 4-            ###&lt; 取第4个B到行尾
 </code></pre>
 
-<h2><a style="display: block;" name="新建单篇博客" href="#新建单篇博客"></a>新建单篇博客</h2>
+<h2><a style="display: block;" name="2.-按字符(characters)" href="#2.-按字符(characters)"></a>2. 按字符(characters)</h2>
 
-<pre><code>cd jphome98.com
-gor post &quot;readme&quot;           ###&lt; 生成博客页 posts/readme.md
-                            ###&lt; 编辑 readme.md
-                            ###&lt; 当然也可以编辑好xxx.md直接放到 posts下
+<h3>中文字符和空格都算一个字符</h3>
+
+<pre><code>date | cut -c 1-5
 </code></pre>
 
-<h2><a style="display: block;" name="编译" href="#编译"></a>编译</h2>
+<h2><a style="display: block;" name="3.-按域(fields)" href="#3.-按域(fields)"></a>3. 按域(fields)</h2>
 
-<pre><code>gor compile                 ###&lt; 生成的资源放在compiled文件夹
-</code></pre>
+<h3>-d 制定域分隔符(默认为Tab)</h3>
 
-<h2><a style="display: block;" name="本地预览" href="#本地预览"></a>本地预览</h2>
+<h3>-f 制定要剪出哪几个域</h3>
 
-<pre><code>gor http
-浏览器输入localhost:8080
-</code></pre>
-
-<h2><a style="display: block;" name="部署到github上---||-e.g:-[hugozhu](https://github.com/hugozhu/blog)" href="#部署到github上---||-e.g:-[hugozhu](https://github.com/hugozhu/blog)"></a>部署到github上   || e.g: <a href="https://github.com/hugozhu/blog">hugozhu</a></h2>
-
-<pre><code>在github上新建repo &quot;jphome.github.com&quot;
-将compiled提交到此repo
-即可通过http://jphome.github.com访问
-</code></pre>
-
-<h2><a style="display: block;" name="基本配置" href="#基本配置"></a>基本配置</h2>
-
-<p>打开站点根目录下的site.yml文件</p>
-
-<pre><code>1. 填入title, 作者等信息
-2. 填入邮箱等信息
-</code></pre>
-
-<p>打开站点根目录下的config.yml文件</p>
-
-<pre><code>1. 设置production_url为你的网站地址, 例如 http://wendal.net 最后面不需要加入/ 生成rss.xml等文件时会用到
-2. summary_lines 首页的文章摘要的长度,按你喜欢的呗
-3. latest 首页显示多少文章
-4. imgs 部分为自动插入 &lt;img&gt; 相关的配置
-    imgtag：要插入的  标签的基本格式，%s 部分会被自动替换为 urlperfix/post_name/img_file_name 的格式
-    urlperfix： 图片地址前缀
-    localdir：图片文件在博客内的本地存放目录
-</code></pre>
-
-<p>打开widgets目录, 可以看到基本的挂件,里面有config.yml配置文件</p>
-
-<pre><code>1. analytics 暂时只支持google analytics, 填入tracking_id
-2. comments 暂时只支持disqus, 请填入short_name
-3. google_prettify 代码高亮,一般不修改
+<pre><code>head -n5 /etc/passwd | cut -d: -f1,3-5      ###&lt; 对passwd文件的前5行进行裁剪
+cut -d&quot; &quot; -f2                               ###&lt; 空格表示
 </code></pre>
 
     <hr>
@@ -148,15 +117,15 @@ gor post &quot;readme&quot;           ###&lt; 生成博客页 posts/readme.md
       <ul>
         <ul>
           
-            <li class="prev"><a href="/blog/2013/10/13/syntax_markdown.html" title="学习markdown语言语法">&larr; Previous</a></li>
           
+            <li class="prev disabled"><a>&larr; Previous</a></li>
           
 
             <li><a href="/archive">Archive</a></li>
 
           
+            <li class="next"><a href="/blog/2013/10/22/test.html" title="测试html">Next &rarr;</a></li>
           
-            <li class="next disabled"><a>Next &rarr;</a>
           
         </ul>
       </ul>
@@ -181,7 +150,7 @@ gor post &quot;readme&quot;           ###&lt; 生成博客页 posts/readme.md
   
   <div class="span4">
     <h4>发布时间</h4>
-    <div class="date"><span>2013-10-13 22:20:45</span></div>
+    <div class="date"><span>2013-10-23 22:12:30</span></div>
     <br>
     <h4>分类(Categories)</h4>
     <ul class="tag_box">
@@ -196,7 +165,7 @@ gor post &quot;readme&quot;           ###&lt; 生成博客页 posts/readme.md
     <ul class="tag_box">
     
       <li>
-  <a href="/tags/#blog-ref">blog <span>2</span></a>
+  <a href="/tags/#cut-ref">cut <span>1</span></a>
 </li>
     
     </ul>
