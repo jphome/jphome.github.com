@@ -76,14 +76,11 @@
 
 <div class="row">
   <div class="span8">
-    <p>ps: 以前习惯把积累的东西用readme文件的形式存在本地,方便查阅
-    现在打算整理成静态blog的形式,简单方便,走到哪儿都可以查阅</p>
+    <h3>配置vim(~/.vimrc)</h3>
 
-<h2><a style="display: block;" name="配置vim(~/.vimrc)" href="#配置vim(~/.vimrc)"></a>配置vim(~/.vimrc)</h2>
+<h4>自动添加mkd文件头</h4>
 
-<h3>自动添加mkd文件头</h3>
-
-<h4>1.新建文件(vim xxx.md)</h4>
+<h5>1.新建文件(vim xxx.md)</h5>
 
 <pre><code>autocmd BufNewFile *.md exec &quot;:call SetTitle()&quot;
 func! SetTitle()

@@ -76,22 +76,27 @@
 
 <div class="row">
   <div class="span8">
-    <p>静态博客 [gor &ndash; Golang编写]</p>
+    <h3>简介:</h3>
 
-<p><a href="https://github.com/wendal/gor">gor源码</a></p>
+<p>以前习惯把积累的东西用readme文件的形式存在本地,方便查阅
+现在打算整理成静态blog的形式,简单方便,走到哪儿都可以查阅</p>
 
-<h2><a style="display: block;" name="安装gor" href="#安装gor"></a>安装gor</h2>
+<hr />
+
+<p>静态博客 [<a href="https://github.com/wendal/gor">gor</a> &ndash; Golang编写]</p>
+
+<h3>安装gor</h3>
 
 <pre><code>go get -u github.com/wendal/gor
 go install github.com/wendal/gor/gor
 </code></pre>
 
-<h2><a style="display: block;" name="新建站点-生成jphome98.com文件夹" href="#新建站点-生成jphome98.com文件夹"></a>新建站点 生成jphome98.com文件夹</h2>
+<h3>新建站点 生成jphome98.com文件夹</h3>
 
 <pre><code>gor new jphome98.com
 </code></pre>
 
-<h2><a style="display: block;" name="新建单篇博客" href="#新建单篇博客"></a>新建单篇博客</h2>
+<h3>新建单篇博客</h3>
 
 <pre><code>cd jphome98.com
 gor post &quot;readme&quot;           ###&lt; 生成博客页 posts/readme.md
@@ -99,25 +104,25 @@ gor post &quot;readme&quot;           ###&lt; 生成博客页 posts/readme.md
                             ###&lt; 当然也可以编辑好xxx.md直接放到 posts下
 </code></pre>
 
-<h2><a style="display: block;" name="编译" href="#编译"></a>编译</h2>
+<h3>编译</h3>
 
 <pre><code>gor compile                 ###&lt; 生成的资源放在compiled文件夹
 </code></pre>
 
-<h2><a style="display: block;" name="本地预览" href="#本地预览"></a>本地预览</h2>
+<h3>本地预览</h3>
 
 <pre><code>gor http
 浏览器输入localhost:8080
 </code></pre>
 
-<h2><a style="display: block;" name="部署到github上---||-e.g:-[hugozhu](https://github.com/hugozhu/blog)" href="#部署到github上---||-e.g:-[hugozhu](https://github.com/hugozhu/blog)"></a>部署到github上   || e.g: <a href="https://github.com/hugozhu/blog">hugozhu</a></h2>
+<h3>部署到github上   || e.g: <a href="https://github.com/hugozhu/blog">hugozhu</a></h3>
 
 <pre><code>在github上新建repo &quot;jphome.github.com&quot;
 将compiled提交到此repo
 即可通过http://jphome.github.com访问
 </code></pre>
 
-<h2><a style="display: block;" name="基本配置" href="#基本配置"></a>基本配置</h2>
+<h3>基本配置</h3>
 
 <p>打开站点根目录下的site.yml文件</p>
 

@@ -78,7 +78,7 @@
   <div class="span8">
     <h2><a style="display: block;" name="cut作用:用来裁剪数据" href="#cut作用:用来裁剪数据"></a>cut作用:用来裁剪数据</h2>
 
-<h3>参数</h3>
+<h4>参数</h4>
 
 <pre><code>-b      字节(bytes)
 -c      字符(characters)
@@ -87,7 +87,7 @@
 
 <h2><a style="display: block;" name="1.-按字节(bytes)" href="#1.-按字节(bytes)"></a>1. 按字节(bytes)</h2>
 
-<h3>一个汉字算3个字节</h3>
+<h4>一个汉字算3个字节</h4>
 
 <pre><code>date | cut -b 1-4           ###&lt; 取前4B
 date | cut -b 1-4,10        ###&lt; 取前4B和第10个B
@@ -97,16 +97,16 @@ date | cut -b 4-            ###&lt; 取第4个B到行尾
 
 <h2><a style="display: block;" name="2.-按字符(characters)" href="#2.-按字符(characters)"></a>2. 按字符(characters)</h2>
 
-<h3>中文字符和空格都算一个字符</h3>
+<h4>中文字符和空格都算一个字符</h4>
 
 <pre><code>date | cut -c 1-5
 </code></pre>
 
 <h2><a style="display: block;" name="3.-按域(fields)" href="#3.-按域(fields)"></a>3. 按域(fields)</h2>
 
-<h3>-d 制定域分隔符(默认为Tab)</h3>
+<h4>-d 制定域分隔符(默认为Tab)</h4>
 
-<h3>-f 制定要剪出哪几个域</h3>
+<h4>-f 制定要剪出哪几个域</h4>
 
 <pre><code>head -n5 /etc/passwd | cut -d: -f1,3-5      ###&lt; 对passwd文件的前5行进行裁剪
 cut -d&quot; &quot; -f2                               ###&lt; 空格表示
@@ -117,8 +117,8 @@ cut -d&quot; &quot; -f2                               ###&lt; 空格表示
       <ul>
         <ul>
           
+            <li class="prev"><a href="/blog/2013/10/27/install_ppstream.html" title="ubuntu12.04安装PPStream">&larr; Previous</a></li>
           
-            <li class="prev disabled"><a>&larr; Previous</a></li>
           
 
             <li><a href="/archive">Archive</a></li>
