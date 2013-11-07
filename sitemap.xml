@@ -4,6 +4,21 @@
 		<loc>http://jphome.github.com/</loc>
 	</url>
 	<url>
+		<loc>http://jphome.github.com/blog/2013/11/07/shortcut.html</loc>
+		<lastmod>2013-11-07 23:01:24</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
+		<loc>http://jphome.github.com/blog/2013/11/07/python_data_struct.html</loc>
+		<lastmod>2013-11-07 22:44:06</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
+		<loc>http://jphome.github.com/blog/2013/11/06/readme.html</loc>
+		<lastmod>2013-11-06 22:58:35</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
 		<loc>http://jphome.github.com/blog/2013/10/27/install_ppstream.html</loc>
 		<lastmod>2013-10-27 17:58:45</lastmod>
 		<changefreq>weekly</changefreq>

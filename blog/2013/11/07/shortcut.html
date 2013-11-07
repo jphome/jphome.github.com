@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>vim按键</title>
+  
+    <meta name="author" content="JPH">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/twitter/stylesheets/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/style.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/widgets/google_prettify/stylesheets/twitter-bootstrap.css" type="text/css" rel="stylesheet" media="all">
+ 
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">小蒋</a>
+          <ul class="nav">
+            
+              
+
+
+  <li><a href="/categories">Categories</a></li>
+
+
+            
+              
+
+
+  <li><a href="/tags">Tags</a></li>
+
+
+            
+              
+
+
+  <li><a href="/about">说明</a></li>
+
+
+            
+              
+
+
+  <li><a href="/rss">RSS</a></li>
+
+
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        <div class="page-header">
+  <h1>vim按键 </h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <p><a href="http://hi.baidu.com/sevkm/item/b6becb46f47b4016896d10ff">网上参考</a></p>
+
+<h3>vim教程</h3>
+
+<p>:help tutor@cn</p>
+
+<h3>常用按键</h3>
+
+<pre><code>d                              ###&lt; 剪切
+y                              ###&lt; 复制
+c                              ###&lt; 剪切并进入insert模式
+p                              ###&lt; 粘帖
+</code></pre>
+
+<h3>自动编排格式</h3>
+
+<p>可视模式选中代码行后按&rsquo;=&rsquo;</p>
+
+<h3>重复操作</h3>
+
+<h6>在按键前加数字</h6>
+
+<pre><code>10dd
+</code></pre>
+
+<h3>缩进代码</h3>
+
+<pre><code>&gt;&gt;
+&lt;&lt;
+</code></pre>
+
+<h3>移动、跳转</h3>
+
+<pre><code>    k
+h       l
+    j
+w                              ###&lt; 光标往前移动一个词
+b                              ###&lt; 光标往后移动一个词
+0                              ###&lt; 移动光标到当前行首
+^                              ###&lt; 移动光标到当前行的第一个字母位置
+$                              ###&lt; 移动光标到行尾
+)                              ###&lt; 移动光标到下一个句子
+(                              ###&lt; 移动光标到上一个句子
+H                              ###&lt; 移动光标到屏幕上面
+M                              ###&lt; 移动光标到屏幕中间
+L                              ###&lt; 移动光标到屏幕下面
+
+b, w                           ###&lt; 移动到上，下一个词
+gg, G                          ###&lt; 跳到文档开头，结尾
+%                              ###&lt; 跳到括号匹配处
+</code></pre>
+
+<h3>书签</h3>
+
+<pre><code>ma                             ###&lt; 在当前光标的位置标记一个书签，名字为a(书签名只能是小写字母)
+`a                             ###&lt; 到书签a处
+`.                             ###&lt; 到你上次编辑文件的地方
+</code></pre>
+
+<h3>插入</h3>
+
+<pre><code>i                              ###&lt; 在当前字符的左边插入
+I                              ###&lt; 在当前行首插入
+a                              ###&lt; 在当前字符的右边插入
+A                              ###&lt; 在当前行尾插入
+o                              ###&lt; 在当前行下面插入一个新行
+O                              ###&lt; 在当前行上面插入一个新行
+c{motion}                      ###&lt; 删除motion命令跨过的字符并进入insert模式
+d{motion}                      ###&lt; 删除motion命令跨过的字符
+</code></pre>
+
+<h3>退出：</h3>
+
+<pre><code>:q!                             ###&lt; 不保存退出
+:wq                             ###&lt; 保存退出
+ZZ                              ###&lt; 保存并退出
+</code></pre>
+
+<h3>undo &amp; redo</h3>
+
+<pre><code>u                              ###&lt; undo
+C+R                            ###&lt; redo
+</code></pre>
+
+<h3>复制粘帖剪切：</h3>
+
+<pre><code>p                              ###&lt; 粘帖
+]p                             ###&lt; 粘帖 自动调整被粘贴的文本的缩进去适应当前代码的位置
+dd                             ###&lt; 剪切整行
+S                              ###&lt; 剪切整行后进入insert模式
+dw                             ###&lt; 剪切一个单词
+cw                             ###&lt; 剪切一个单词后进入insert模式
+s                              ###&lt; 剪切一个字符
+x                              ###&lt; 剪切一个字符后进入insert模式
+D                              ###&lt; 剪切至行尾
+xp                             ###&lt; 交换两个字符
+ddp                            ###&lt; 交换两行
+yy，Y                          ###&lt; 复制一行
+</code></pre>
+
+<h3>可视模式即选择模式 配合y（复制），p（粘帖）</h3>
+
+<pre><code>v                              ###&lt; 进入基于字符的可视模式
+V                              ###&lt; 进入基于行的可视模式
+y                              ###&lt; 复制选择的部分
+d                              ###&lt; 剪切选择的部分
+</code></pre>
+
+<h3>翻页</h3>
+
+<pre><code>C+f, C+b                            ###&lt; 向下，上翻页
+C+d, C+u                            ###&lt; 向下，上半翻页
+</code></pre>
+
+<h3>跳到第23行</h3>
+
+<h6>23gg，23G，:23</h6>
+
+<h3>查找替换</h3>
+
+<pre><code>C-w f                          ###&lt; 查找词
+gf                             ###&lt; 查找词
+/text                          ###&lt; 从当前光标处开始搜索字符串text
+?text                          ###&lt; 和上面类似，但是是反方向
+#                              ###&lt; 从光标向后查找整个关键词
+*                              ###&lt; 从光标向前查找整个关键词
+:s/if/else                     ###&lt; 查找替换下一个if
+:%s/if/else                    ###&lt; 查找替换所有if
+:s/if/else/g                   ###&lt; 只对当前行有效
+:1,3 s/if/else/g               ###&lt; 只对1，3行有效
+正则表达区别：词头锚定用\而不是^
+:grep /\&lt;main\&gt;/ src/*.c       ###&lt;
+:vimgrep /\&lt;main\&gt;/ src/*.c    ###&lt;
+</code></pre>
+
+<h3>窗口</h3>
+
+<pre><code>:split/vsplit                  ###&lt; 分隔一个窗口
+:new/vnew                      ###&lt; 创建一个新的窗口
+:sf xxx                        ###&lt; 在新窗口中打开xxx文件
+:close                         ###&lt; 关闭当前窗口
+:only                          ###&lt; 关闭除当前窗口外所有窗口
+C-w v                          ###&lt; 分割
+C-w h                         ###&lt; 到左面的窗口
+C-w j                         ###&lt; 到下面的窗口
+C-w k                         ###&lt; 到上面的窗口
+C-w l                         ###&lt; 到右面的窗口
+C-w t                         ###&lt; 到顶部的窗口
+C-w b                         ###&lt; 到底部的窗口
+C-w w                         ###&lt; 切换窗口
+C-w &gt;                         ###&lt; 调整窗口大小
+C-w &lt;                         ###&lt; 调整窗口大小
+</code></pre>
+
+<h3>跳转</h3>
+
+<pre><code>[[ 向前跳到顶格的第一个&quot;{&quot;
+[] 向前跳到顶格的第一个&quot;}&quot;
+][ 向后跳到顶格的第一个&quot;{&quot;
+]] 向后跳到顶格的第一个&quot;}&quot;
+[{ 跳到本代码块(由{}界定)的开头
+[} 跳到本代码块的结尾
+</code></pre>
+
+<h3>NERD Commenter注释代码</h3>
+
+<pre><code>,c Space                       ###&lt; 注释代码
+,c u                           ###&lt; 取消注释
+,c c                           ###&lt; 注释当前行
+</code></pre>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+        <ul>
+          
+          
+            <li class="prev disabled"><a>&larr; Previous</a></li>
+          
+
+            <li><a href="/archive">Archive</a></li>
+
+          
+            <li class="next"><a href="/blog/2013/11/07/python_data_struct.html" title="python数据结构">Next &rarr;</a></li>
+          
+          
+        </ul>
+      </ul>
+    </div>
+    <hr>
+    
+<div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+  
+  <div class="span4">
+    <h4>发布时间</h4>
+    <div class="date"><span>2013-11-07 23:01:24</span></div>
+    <br>
+    <h4>分类(Categories)</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/categories/#%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3-ref">技术相关 <span>11</span></a>
+</li>
+    
+    </ul>
+    <br>
+    <h4>标签(Tags)</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/tags/#vim-ref">vim <span>2</span></a>
+</li>
+    
+    </ul>
+  </div>
+</div>
+
+      </div>
+
+      <footer>
+      <!--
+        <p>&copy; JPH 2013 
+          with help from <a href="http://github.com/wendal/gor" target="_blank" title="Gor -- Fast Blog">Gor</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+		  and Idea from <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">ruhoh</a>
+          </p>
+       -->
+        <a id="Header1_HeaderTitle" class="headermaintitle" href="http://jphome.github.com">
+            <marquee style="FONT-SIZE: 20pt; FILTER: alpha(opacity=100,style=3); WIDTH: 100%; LINE-HEIGHT: 100%; FONT-FAMILY: 华文行楷" scrollamount="3" font="">
+                <b>人生苦短, 我却用C</b>
+            </marquee>
+        </a>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+
+    
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-123-12']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </body>
+</html>

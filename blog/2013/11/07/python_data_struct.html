@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>python数据结构</title>
+  
+    <meta name="author" content="JPH">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/twitter/stylesheets/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/style.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/widgets/google_prettify/stylesheets/twitter-bootstrap.css" type="text/css" rel="stylesheet" media="all">
+ 
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">小蒋</a>
+          <ul class="nav">
+            
+              
+
+
+  <li><a href="/categories">Categories</a></li>
+
+
+            
+              
+
+
+  <li><a href="/tags">Tags</a></li>
+
+
+            
+              
+
+
+  <li><a href="/about">说明</a></li>
+
+
+            
+              
+
+
+  <li><a href="/rss">RSS</a></li>
+
+
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        <div class="page-header">
+  <h1>python数据结构 </h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <pre><code>#!/usr/bin/env python
+# -*- coding=utf-8 -*-
+#########################################################################
+# File Name: data_struct.py
+# Author: jphome
+# mail: jphome98@gmail.com
+# Created Time: Fri 06 Sep 2013 10:16:51 PM CST
+#########################################################################
+</code></pre>
+
+<h3>字符串</h3>
+
+<ul>
+<li>单引号&rsquo;</li>
+<li>双引号&rdquo;</li>
+
+<li><p>三引号&rdquo;&lsquo;或&rdquo;&ldquo;&rdquo;      ###&lt; 可以多行，中间可以使用&rsquo;和&rdquo;</p>
+
+<h6>转义 &lsquo;What\&rsquo;s &lsquo; &lsquo;your name?&rsquo;     ==&gt;     &lsquo;What\&rsquo;s your name?&rsquo;</h6></li>
+</ul>
+
+<pre><code>name = 'Swaroop';
+if name.startswith('Swa'):
+    print 'xxx';
+if 'a' in name:
+    print 'xxx';
+if name.find('war') != -1:
+    print 'xxx';
+delimiter = '_*_';
+mylist = ['B', 'R', 'I', 'C'];
+print delimiter.join(mylist);   ###&lt; B_*_R_*_I_*_C
+</code></pre>
+
+<h3>列表list</h3>
+
+<h6>列表可修改</h6>
+
+<pre><code>list = ['apple', 'mango'];
+print list;                 ###&lt; 打印 ['apple', 'mango']
+len(list);                  ###&lt; item个数
+for item in list:           ###&lt; 遍历list
+    print item;
+list.append('rice');        ###&lt; 添加item
+list.sort();                ###&lt; 排序list
+olditem = list[0];          ###&lt; 提取item
+del list[0];                ###&lt; 删除item
+
+list.extend(L);             ###&lt; 用链表来扩充链表
+                            ###&lt; 相当于list[len(list):] = L
+list.remove(x);             ###&lt; 移除值为x的元素
+list.pop(3);                ###&lt; 
+list.pop();                 ###&lt; 弹出最后一个元素
+list.index(x);              ###&lt; 返回列表中第一个值为x的索引
+list.count(x);              ###&lt; 返回x在列表中出现的次数
+list.reverse();             ###&lt; 列表逆序
+</code></pre>
+
+<blockquote>
+<h3>堆栈stack</h3>
+
+<pre><code>stack = [];
+stack.append(3);
+stack.pop();
+</code></pre>
+
+<h3>队列queue</h3>
+
+<pre><code>queue = [];
+queue.append(4);
+queue.pop(0);
+</code></pre>
+
+<h3>列表综合</h3>
+
+<pre><code>listone = [2, 3, 4];
+listtwo = [2*i for i in listone if i&gt;2];    ###&lt; [6, 8]
+</code></pre>
+</blockquote>
+
+<h3>元组</h3>
+
+<h6>元组不可变,无法修改</h6>
+
+<pre><code>empty = ();                     ###&lt; 空元组
+singleton = (2, );              ###&lt; 单元素的元组,必须加,
+
+zoo = ('wolf', 'elephant');
+print zoo;                      ###&lt; 打印 ('wolf', 'elephant')
+len(zoo);                       ###&lt; item个数
+new_zoo = (zoo, 'monkey');      ###&lt; 转移
+print new_zoo;                  ###&lt; (('wolf', 'elephant'), 'monkey')
+print new_zoo[0][0];            ###&lt; wolf
+</code></pre>
+
+<pre><code># print格式化输出
+age = 22;
+name = 'jph';
+print '%s is %d years old' % (name, age);           ###&lt; 使用元组定制字符串
+print '%s is playing python' % name;                ###&lt; 只需要一个参数时可以不加()
+</code></pre>
+
+<h3>字典dict</h3>
+
+<h6>键值对,键必须唯一</h6>
+
+<h6>只能使用不可变的对象(比如字符串)作为键</h6>
+
+<h6>形式: d = {key1:val1, key2:val2};</h6>
+
+<pre><code>dict = {
+    'j' : &quot;jj&quot;,
+    'p' : 'pp',
+    'h' : 'hh'
+};
+dict['j'] = 'jb';                           ###&lt; 修改item
+del dict['p'];                              ###&lt; 删除item
+len(dict);                                  ###&lt; item个数
+keys = dict.keys();
+vals = dict.values();
+xxx = dict.get('a', &quot;a_default_val&quot;);       ###&lt; 查找'a'对应的val,没有则返回&quot;a_default_val&quot;
+for key, val in dict.items():               ###&lt; 遍历dict
+    print 'Contact %s =&gt; %s' % (key, val);
+if 'j' in dict:                             ###&lt; 判断是否存在key
+    print &quot;j's val is %s&quot; % dict['j'];
+if dict.has_key('j'):                       ###&lt; 判断是否存在key
+    print &quot;j's val is %s&quot; % dict['j'];
+</code></pre>
+
+<h3>序列</h3>
+
+<h6>列表,元组,字符串都是序列</h6>
+
+<h6>序列的 索引操作符 &amp; 切片操作符 (index &amp; slicing)</h6>
+
+<pre><code>list = ['apple', 'mango', 'banana', 'pan'];
+list[0];                    ###&lt; 访问第一个item
+list[-1];                   ###&lt; 访问最后一个item
+list[-2];                   ###&lt; 访问倒数第二个item
+list[1:2];                  ###&lt; 切片 [1]
+list[:3];                   ###&lt; 从头到[2]
+list[2:];                   ###&lt; [2]到尾
+</code></pre>
+
+<h3>参考</h3>
+
+<h6>即变量名,指向对象存储的内存</h6>
+
+<pre><code>list = ['a', 'b', 'c'];
+mylist1 = list;                 ###&lt; 别名
+mylist2 = list[:];              ###&lt; 切片拷贝
+del mylist1[0];                 ###&lt; 会影响到list
+del mylist2[0];                 ###&lt; 不会影响到list
+</code></pre>
+
+<h3>集合set</h3>
+
+<pre><code>s = set('ab');                  ###&lt; set(['a', 'b'])
+len(s);
+if 'a' in s:
+if 'c' not in s:
+if s.issubset(ss):              ###&lt; 判断是否s为ss的子集
+if s &lt;= ss:                     ###&lt; 判断是否s为ss的子集
+if ss.issuperset(s):            ###&lt; 判断是否ss为ss的超集
+if ss &gt;= s:                     ###&lt; 判断是否ss为ss的超集
+u = s.union(t);                 ###&lt; 返回并集
+u = s | t;                      ###&lt; 返回并集
+a = s.intersection(t);          ###&lt; 返回交集
+a = s &amp; t;                      ###&lt; 返回交集
+s.difference(t);                ###&lt; 返回s 中有但是 t 中没有的
+s.symmetric_difference(t)       ###&lt; 返回 s 和 t 中不重复的元素
+s ^ t                           ###&lt; 返回 s 和 t 中不重复的元素
+</code></pre>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+        <ul>
+          
+            <li class="prev"><a href="/blog/2013/11/07/shortcut.html" title="vim按键">&larr; Previous</a></li>
+          
+          
+
+            <li><a href="/archive">Archive</a></li>
+
+          
+            <li class="next"><a href="/blog/2013/11/06/readme.html" title="vim的相关使用">Next &rarr;</a></li>
+          
+          
+        </ul>
+      </ul>
+    </div>
+    <hr>
+    
+<div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+  
+  <div class="span4">
+    <h4>发布时间</h4>
+    <div class="date"><span>2013-11-07 22:44:06</span></div>
+    <br>
+    <h4>分类(Categories)</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/categories/#%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3-ref">技术相关 <span>11</span></a>
+</li>
+    
+    </ul>
+    <br>
+    <h4>标签(Tags)</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/tags/#python-ref">python <span>2</span></a>
+</li>
+    
+    </ul>
+  </div>
+</div>
+
+      </div>
+
+      <footer>
+      <!--
+        <p>&copy; JPH 2013 
+          with help from <a href="http://github.com/wendal/gor" target="_blank" title="Gor -- Fast Blog">Gor</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+		  and Idea from <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">ruhoh</a>
+          </p>
+       -->
+        <a id="Header1_HeaderTitle" class="headermaintitle" href="http://jphome.github.com">
+            <marquee style="FONT-SIZE: 20pt; FILTER: alpha(opacity=100,style=3); WIDTH: 100%; LINE-HEIGHT: 100%; FONT-FAMILY: 华文行楷" scrollamount="3" font="">
+                <b>人生苦短, 我却用C</b>
+            </marquee>
+        </a>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+
+    
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-123-12']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </body>
+</html>

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>ubuntu12.04安装PPStream</title>
+    <title>vim的相关使用</title>
   
     <meta name="author" content="JPH">
 
@@ -71,35 +71,142 @@
 
       <div class="content">
         <div class="page-header">
-  <h1>ubuntu12.04安装PPStream </h1>
+  <h1>vim的相关使用 </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <h3>简介:</h3>
+    <h3>说明</h3>
 
-<p>摘自about: PPS网络电视是一款基于P2P技术的流媒体直播软件,能够为宽带用户提供稳定和流畅的视频直播节目。PPS网络电视采用P2P-Streaming技术的流媒体直播</p>
+<p>摘录vim编辑器的使用</p>
 
 <hr />
 
-<h3>1.安装qt4依赖包</h3>
+<h3>vim模式</h3>
 
-<pre><code>sudo apt-get install libqt4-core libqt4-gui libqt4-webkit
+<ul>
+<li>nromal</li>
+<li>visual（选择）</li>
+<li>insert</li>
+<li>cmd-line/Ex
+
+<ul>
+<li>&lsquo;:&lsquo;进入cmd-line模式</li>
+<li>&lsquo;Q&rsquo;进入Ex模式（多cmd-line模式）</li>
+</ul></li>
+</ul>
+
+<h3>常规插件安装方法</h3>
+
+<pre><code>下载插件包xxx.zip
+解压zip： xxx.txt -&gt; ~/.vim/doc
+          xxx.vim -&gt; ~/.vim/plugin
+进~/.vim/doc
+:helptags .                 ###&lt; 把新的xxx.txt加入helptags
 </code></pre>
 
-<h3>2.<a href="http://dawndiy.com/archives/52/">解决Ubuntu12.04下PPStream一直缓冲后跳到下一个问题</a></h3>
+<h3>map命令相关：</h3>
 
-<pre><code>sudo apt-get install libjpeg62
+<blockquote>
+<h4>在设置map时按键名</h4>
+
+<pre><code>&lt;C-a&gt;       Ctrl+a
+&lt;A-a&gt;       Alt+a
+&lt;C-A-a&gt;     Ctrl+Alt+a
 </code></pre>
 
-<h3>3.下载安装包</h3>
+<h4>map命令前缀</h4>
 
-<pre><code>wget http://download.ppstream.com/linux/PPStream.deb
+<pre><code>默认的map命令影响到normal和visual模式
+nore        表示非递归
+n           表示在普通模式下生效
+v           表示在可视模式下生效
+i           表示在插入模式下生效
+c           表示在命令行模式下生效
 </code></pre>
 
-<h3>4.安装PPStream</h3>
+<h4>非递归说明</h4>
 
-<pre><code>sudo dpkg -i PPStream.deb
+<pre><code>:map a b
+:map c a
+对于c等效于
+:map c b
+:noremap c a                   ###&lt; 这种就指定了非递归map
+</code></pre>
+
+<h4>清除map</h4>
+
+<pre><code>:unmap c                       ###&lt; 删除映射
+:mapclear                      ###&lt; 直接清除相关模式下的所有映射
+</code></pre>
+</blockquote>
+
+<h3>taglist.vim中使用的tags生成</h3>
+
+<pre><code>ctags -R ./src              ###&lt; 生成tags
+ctags -R *
+</code></pre>
+
+<h3>保存当前的编辑状态</h3>
+
+<h6>要恢复上次的编辑环境，需要保存session或viminfo</h6>
+
+<blockquote>
+<h4>使用Session</h4>
+
+<pre><code>:mksession [file.vim]       ###&lt; 保存session,默认session文件名为Session.vim
+:mksession!                 ###&lt; 已存在Session.vim的情况下
+:source Session.vim         ###&lt; 恢复vim状态
+vim -S Session.vim          ###&lt; 启动vim时回复session
+</code></pre>
+
+<h4>使用viminfo</h4>
+
+<pre><code>:wviminfo hsmart.viminfo    ###&lt; 保存viminfo
+:rviminfo hsmart.viminfo    ###&lt; 读入保存的viminfo文件
+</code></pre>
+</blockquote>
+
+<h3>设置编码格式</h3>
+
+<pre><code>encoding:       vim内部使用的字符编码方式，包括viｍ的buffer、菜单文本、消息文本等
+fileencoding:   vim中当前编辑的文件的字符编码方式，vim保存文件时也会将文件保存为这种编码方式
+fileencodings:  vim启动时会按照它所列出的字符编码方式逐一探测即将打开的文件的字符编码方式，并且将fileencoding设置为最终探测到的字符编码方式。因此最好将unicode编码方式放到这个列表的最前面，将拉丁语系编码方式latin1放到最后面
+</code></pre>
+
+<h3>函数</h3>
+
+<h6>内部调用还是得声明在先</h6>
+
+<pre><code>:call test()
+
+func! test()
+endfunc
+
+func test()
+endfunc
+
+function! Test()
+  if
+  else
+  endif
+endfunction
+</code></pre>
+
+<h3>插件管理vundle</h3>
+
+<p>git clone <a href="https://github.com/gmarik/vundle.git">https://github.com/gmarik/vundle.git</a> ~/.vim/bundle/vundle
+:BundleInstall</p>
+
+<h3>杂项</h3>
+
+<pre><code>Ctrl+z/:suspend                ###&lt; 在shell下是挂起vim; gui下是最小化窗口
+:!{command}                    ###&lt; 执行shell命令
+:shell                         ###&lt; 开一个新的shell
+:!time {command}               ###&lt; 跑完显示运行时间
+:r !date                       ###&lt; 将shell执行结果读到正在编辑的文件
+:1,4!sort                      ###&lt; 将几行排序
+:set fileencoding              ###&lt; 查看变量
 </code></pre>
 
     <hr>
@@ -107,14 +214,14 @@
       <ul>
         <ul>
           
-            <li class="prev"><a href="/blog/2013/11/06/readme.html" title="vim的相关使用">&larr; Previous</a></li>
+            <li class="prev"><a href="/blog/2013/11/07/python_data_struct.html" title="python数据结构">&larr; Previous</a></li>
           
           
 
             <li><a href="/archive">Archive</a></li>
 
           
-            <li class="next"><a href="/blog/2013/10/23/cut.html" title="cut工具的使用方法">Next &rarr;</a></li>
+            <li class="next"><a href="/blog/2013/10/27/install_ppstream.html" title="ubuntu12.04安装PPStream">Next &rarr;</a></li>
           
           
         </ul>
@@ -140,13 +247,13 @@
   
   <div class="span4">
     <h4>发布时间</h4>
-    <div class="date"><span>2013-10-27 17:58:45</span></div>
+    <div class="date"><span>2013-11-06 22:58:35</span></div>
     <br>
     <h4>分类(Categories)</h4>
     <ul class="tag_box">
     
       <li>
-  <a href="/categories/#%E7%94%9F%E6%B4%BB-ref">生活 <span>1</span></a>
+  <a href="/categories/#%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3-ref">技术相关 <span>11</span></a>
 </li>
     
     </ul>
@@ -155,7 +262,7 @@
     <ul class="tag_box">
     
       <li>
-  <a href="/tags/#PPStream-ref">PPStream <span>1</span></a>
+  <a href="/tags/#vim-ref">vim <span>2</span></a>
 </li>
     
     </ul>
