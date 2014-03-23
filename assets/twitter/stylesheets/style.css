@@ -2,6 +2,13 @@
 html, body {
   background-color: #eee;
 }
+
+.brand {
+  background: url(/assets/media/img/logo.png);
+  background-size: 60px 40px;
+  background-repeat: no-repeat;
+}
+
 .navbar {
   margin-bottom: 0;
 }

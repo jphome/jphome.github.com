@@ -30,14 +30,14 @@
     <div class="navbar">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="/">{{ site.title }}</a>
+          <a class="brand" href="/" style="padding-left:67px;">{{ site.title }}</a>
           <ul class="nav">
             {{# site.navigation?to_pages }}
               {{> pages_list }}
             {{/ site.navigation?to_pages }}
             <li>
-            <a href="/static/">static</a>
-            </li>           
+            <a href="/static">static</a>
+            </li>
           </ul>
         </div>
       </div>
