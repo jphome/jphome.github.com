@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>vim的相关使用</title>
+  
+    <meta name="author" content="JPH">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/twitter/stylesheets/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/style.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/widgets/google_prettify/stylesheets/twitter-bootstrap.css" type="text/css" rel="stylesheet" media="all">
+ 
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/" style="padding-left:67px;">小蒋</a>
+          <ul class="nav">
+            
+              
+
+
+  <li><a href="/categories">Categories</a></li>
+
+
+            
+              
+
+
+  <li><a href="/tags">Tags</a></li>
+
+
+            
+              
+
+
+  <li><a href="/about">说明</a></li>
+
+
+            
+            <li>
+            <a href="/static">static</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        <div class="page-header">
+  <h1>vim的相关使用 </h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <h3>说明</h3>
+
+<p>摘录vim编辑器的使用</p>
+
+<hr />
+
+<h3>vim模式</h3>
+
+<ul>
+<li>nromal</li>
+<li>visual（选择）</li>
+<li>insert</li>
+<li>cmd-line/Ex
+
+<ul>
+<li>&lsquo;:&lsquo;进入cmd-line模式</li>
+<li>&lsquo;Q&rsquo;进入Ex模式（多cmd-line模式）</li>
+</ul></li>
+</ul>
+
+<h3>常规插件安装方法</h3>
+
+<pre><code>下载插件包xxx.zip
+解压zip： xxx.txt -&gt; ~/.vim/doc
+          xxx.vim -&gt; ~/.vim/plugin
+进~/.vim/doc
+:helptags .                 ###&lt; 把新的xxx.txt加入helptags
+</code></pre>
+
+<h3>map命令相关：</h3>
+
+<blockquote>
+<h4>在设置map时按键名</h4>
+
+<pre><code>&lt;C-a&gt;       Ctrl+a
+&lt;A-a&gt;       Alt+a
+&lt;C-A-a&gt;     Ctrl+Alt+a
+</code></pre>
+
+<h4>map命令前缀</h4>
+
+<pre><code>默认的map命令影响到normal和visual模式
+nore        表示非递归
+n           表示在普通模式下生效
+v           表示在可视模式下生效
+i           表示在插入模式下生效
+c           表示在命令行模式下生效
+</code></pre>
+
+<h4>非递归说明</h4>
+
+<pre><code>:map a b
+:map c a
+对于c等效于
+:map c b
+:noremap c a                   ###&lt; 这种就指定了非递归map
+</code></pre>
+
+<h4>清除map</h4>
+
+<pre><code>:unmap c                       ###&lt; 删除映射
+:mapclear                      ###&lt; 直接清除相关模式下的所有映射
+</code></pre>
+</blockquote>
+
+<h3>taglist.vim中使用的tags生成</h3>
+
+<pre><code>ctags -R ./src              ###&lt; 生成tags
+ctags -R *
+</code></pre>
+
+<h3>保存当前的编辑状态</h3>
+
+<h6>要恢复上次的编辑环境，需要保存session或viminfo</h6>
+
+<blockquote>
+<h4>使用Session</h4>
+
+<pre><code>:mksession [file.vim]       ###&lt; 保存session,默认session文件名为Session.vim
+:mksession!                 ###&lt; 已存在Session.vim的情况下
+:source Session.vim         ###&lt; 恢复vim状态
+vim -S Session.vim          ###&lt; 启动vim时回复session
+</code></pre>
+
+<h4>使用viminfo</h4>
+
+<pre><code>:wviminfo hsmart.viminfo    ###&lt; 保存viminfo
+:rviminfo hsmart.viminfo    ###&lt; 读入保存的viminfo文件
+</code></pre>
+</blockquote>
+
+<h3>设置编码格式</h3>
+
+<pre><code>encoding:       vim内部使用的字符编码方式，包括viｍ的buffer、菜单文本、消息文本等
+fileencoding:   vim中当前编辑的文件的字符编码方式，vim保存文件时也会将文件保存为这种编码方式
+fileencodings:  vim启动时会按照它所列出的字符编码方式逐一探测即将打开的文件的字符编码方式，并且将fileencoding设置为最终探测到的字符编码方式。因此最好将unicode编码方式放到这个列表的最前面，将拉丁语系编码方式latin1放到最后面
+</code></pre>
+
+<h3>函数</h3>
+
+<h6>内部调用还是得声明在先</h6>
+
+<pre><code>:call test()
+
+func! test()
+endfunc
+
+func test()
+endfunc
+
+function! Test()
+  if
+  else
+  endif
+endfunction
+</code></pre>
+
+<h3>插件管理vundle</h3>
+
+<p>git clone <a href="https://github.com/gmarik/vundle.git">https://github.com/gmarik/vundle.git</a> ~/.vim/bundle/vundle
+:BundleInstall</p>
+
+<h3>杂项</h3>
+
+<pre><code>Ctrl+z/:suspend                ###&lt; 在shell下是挂起vim; gui下是最小化窗口
+:!{command}                    ###&lt; 执行shell命令
+:shell                         ###&lt; 开一个新的shell
+:!time {command}               ###&lt; 跑完显示运行时间
+:r !date                       ###&lt; 将shell执行结果读到正在编辑的文件
+:1,4!sort                      ###&lt; 将几行排序
+:set fileencoding              ###&lt; 查看变量
+</code></pre>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+        <ul>
+          
+            <li class="prev"><a href="/blog/2013/11/07/python_data_struct.html" title="python数据结构">&larr; Previous</a></li>
+          
+          
+
+            <li><a href="/archive">Archive</a></li>
+
+          
+            <li class="next"><a href="/blog/2013/10/27/install_ppstream.html" title="ubuntu12.04安装PPStream">Next &rarr;</a></li>
+          
+          
+        </ul>
+      </ul>
+    </div>
+    <hr>
+    <!-- 
+<div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+ -->
+  </div>
+  
+  <div class="span4">
+    <h4>发布时间</h4>
+    <div class="date"><span>2013-11-06 22:58:35</span></div>
+    <br>
+    <h4>分类(Categories)</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/categories/#%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3-ref">技术相关 <span>12</span></a>
+</li>
+    
+    </ul>
+    <br>
+    <h4>标签(Tags)</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/tags/#vim-ref">vim <span>2</span></a>
+</li>
+    
+    </ul>
+  </div>
+</div>
+
+      </div>
+
+      <footer>
+        <p>&copy; JPH 2014 
+          with help from <a href="http://github.com/wendal/gor" target="_blank" title="Gor -- Fast Blog">Gor</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+          </p>
+        <a id="Header1_HeaderTitle" class="headermaintitle" href="http://jphome.github.com">
+            <marquee style="FONT-SIZE: 20pt; FILTER: alpha(opacity=100,style=3); WIDTH: 100%; LINE-HEIGHT: 100%; FONT-FAMILY: 华文行楷" scrollamount="3" font="">
+                <b>人生苦短, 我却用C</b>
+            </marquee>
+        </a>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+
+    
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-123-12']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </body>
+</html>

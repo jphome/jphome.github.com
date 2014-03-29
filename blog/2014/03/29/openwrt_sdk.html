@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>使用openwrt sdk开发ipk</title>
+  
+    <meta name="author" content="JPH">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/twitter/stylesheets/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/style.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/widgets/google_prettify/stylesheets/twitter-bootstrap.css" type="text/css" rel="stylesheet" media="all">
+ 
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/" style="padding-left:67px;">小蒋</a>
+          <ul class="nav">
+            
+              
+
+
+  <li><a href="/categories">Categories</a></li>
+
+
+            
+              
+
+
+  <li><a href="/tags">Tags</a></li>
+
+
+            
+              
+
+
+  <li><a href="/about">说明</a></li>
+
+
+            
+            <li>
+            <a href="/static">static</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        <div class="page-header">
+  <h1>使用openwrt sdk开发ipk </h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <h3>说明</h3>
+
+<h4>几年前想编译一个helloworld.ipk,由于以下原因当年尝试失败了</h4>
+
+<pre><code>当年太水(现在还是很湿)
+学校网络太操蛋(ubuntu下借脚本连闪讯,时断时序,编译个固件要纯手工6+H,想想都是泪)
+太jb费时间(一个helloworld整了几天没整出来,灰心了)
+</code></pre>
+
+<hr/>
+
+<h4>1. 下载openwrt trunk代码</h4>
+
+<pre><code>svn co svn://svn.openwrt.org/openwrt/trunk/
+</code></pre>
+
+<h4>2. 编译openwrt brcm63xx固件,注意勾上sdk</h4>
+
+<pre>
+make menuconfig
+make V=99
+</pre>
+
+<h4>3. 使用brcm63xx平台sdk编译ipk</h4>
+
+<h5>解压 sdk <code>bin/OpenWrt-SDK-xxx.tar.bz2</code></h5>
+
+<pre>
+tar xvf OpenWrt-SDK-xxx.tar.bz2
+</pre>
+
+<h5>在package路径下建立helloworld工程</h5>
+
+<pre>
+    package
+    ├── helloworld
+    │   ├── Makefile
+    │   └── src
+    │       ├── helloworld.c
+    │       └── Makefile
+    └── Makefile
+</pre>
+
+<h5>建立staging_dir链接(涉及到ipkg-build等工具)</h5>
+
+<pre>
+cd sdk
+ln -s ../trunk/staging_dir ./staging_dir
+</pre>
+
+<h5>编译</h5>
+
+<pre>
+make distclean
+make menuconfig
+make V=99
+</pre>
+
+<pre>
+bin
+├── brcm63xx
+│   └── packages
+│       ├── helloworld_1.0-1_brcm63xx.ipk
+│       ├── Packages
+│       └── Packages.gz
+└── packages
+</pre>
+
+<hr/>
+
+<h3>代码</h3>
+
+<h5>package/helloworld/Makefile</h5>
+
+<pre>
+include $(TOPDIR)/rules.mk
+include $(INCLUDE_DIR)/package.mk
+
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
+
+PKG_NAME:=helloworld
+# Version: 1.0-1
+PKG_VERSION:=1.0
+PKG_RELEASE:=1
+PKG_MAINTAINER:=JPH <jphome98@gmail.com>
+# PKG_SOURCE_URL:=
+
+define Package/helloworld
+    SECTION:=utils
+    CATEGORY:=Utilities
+    DEFAULT:=y
+    TITLE:=Helloworld -- prints a snarky message
+    # DEPENDS:=+libmath
+endef
+
+define Build/Prepare
+    @echo "############## Build/Prepare"
+    $(Build/Prepare/Default)
+    $(CP) ./src/* $(PKG_BUILD_DIR)  
+endef
+
+define Package/helloworld/install
+    @echo "############## Package/helloworld/install"
+    $(INSTALL_DIR) $(1)/usr/bin
+    $(INSTALL_BIN) $(PKG_BUILD_DIR)/helloworld $(1)/usr/bin
+endef
+
+$(eval $(call BuildPackage,helloworld))
+</pre>
+
+<h5>package/helloworld/src/helloworld.c</h5>
+
+<pre>
+#include <stdio.h>
+
+int main(int argc, const char *argv[])
+{
+    printf("hello world! \n");
+
+    return 0;
+}
+</pre>
+
+<h5>package/helloworld/src/Makefile</h5>
+
+<pre>
+helloworld: helloworld.o
+    $(CC) helloworld.o -o helloworld
+
+helloworld.o: helloworld.c
+    $(CC) -c helloworld.c
+
+clean:
+    rm *.o helloworld
+</pre>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+        <ul>
+          
+            <li class="prev"><a href="/blog/2014/03/29/readme_opkg.html" title="用u盘扩展openwrt路由器存储">&larr; Previous</a></li>
+          
+          
+
+            <li><a href="/archive">Archive</a></li>
+
+          
+            <li class="next"><a href="/blog/2013/11/07/shortcut_vim.html" title="vim按键">Next &rarr;</a></li>
+          
+          
+        </ul>
+      </ul>
+    </div>
+    <hr>
+    <!-- 
+<div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+ -->
+  </div>
+  
+  <div class="span4">
+    <h4>发布时间</h4>
+    <div class="date"><span>2014-03-29 16:07:24</span></div>
+    <br>
+    <h4>分类(Categories)</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/categories/#%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3-ref">技术相关 <span>12</span></a>
+</li>
+    
+    </ul>
+    <br>
+    <h4>标签(Tags)</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/tags/#openwrt-ref">openwrt <span>2</span></a>
+</li>
+    
+    </ul>
+  </div>
+</div>
+
+      </div>
+
+      <footer>
+        <p>&copy; JPH 2014 
+          with help from <a href="http://github.com/wendal/gor" target="_blank" title="Gor -- Fast Blog">Gor</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+          </p>
+        <a id="Header1_HeaderTitle" class="headermaintitle" href="http://jphome.github.com">
+            <marquee style="FONT-SIZE: 20pt; FILTER: alpha(opacity=100,style=3); WIDTH: 100%; LINE-HEIGHT: 100%; FONT-FAMILY: 华文行楷" scrollamount="3" font="">
+                <b>人生苦短, 我却用C</b>
+            </marquee>
+        </a>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+
+    
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-123-12']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </body>
+</html>
