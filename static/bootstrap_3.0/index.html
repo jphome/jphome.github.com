@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bootstrap index.html</title>
+    <meta http-equiv="content-type" content="width=device-width, initial-scale=1.0; text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" media="screen" href="bootstrap_3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap_3.0/css/master.css">
+</head>
+
+<body>
+	<script src="bootstrap_3.0/js/jquery.js"></script>
+	<script src="bootstrap_3.0/js/bootstrap.min.js"></script>
+	
+
+	<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+  	<div class="container">
+    	<div class="navbar-header">
+      <!-- <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button> -->
+      	<a href="#" class="navbar-brand">Bootstrap</a>
+    	</div>
+	    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+	      <ul class="nav navbar-nav">
+	        <li class="active">
+	          <a href="#">link1</a>
+	        </li>
+	        <li>
+	          <a href="#">link2</a>
+	        </li>
+	        <li>
+	          <a href="#">link3</a>
+	        </li>
+	        <li>
+	          <a href="#">link4</a>
+	        </li>
+	        <li>
+	          <a href="#">link5</a>
+	        </li>
+	      </ul>
+	    </nav>
+  	</div>
+	</header>
+
+	<div class="bs-header jumbotron" id="content">
+      <div class="container">
+        <h1>bootstrap_3.0</h1>
+        <p>在学习bootstrap_3.0的时候的一些记录</p>
+      </div>
+    </div>
+
+	<div class="container bs-docs-container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="bs-sidebar hidden-print affix-top" role="complementary">
+            <ul class="nav bs-sidenav">
+                <li class>
+					<li class=""><a href="#grid">栅格系统</a></li>
+					<li class=""><a href="#type">排版</a></li>
+					<li class=""><a href="#tables">表格</a></li>
+					<li class=""><a href="#forms">表单</a></li>
+					<li class=""><a href="#buttons">按钮</a></li>
+					<li class=""><a href="#process">进度条</a></li>
+					<li class=""><a href="#icons">图标</a></li>
+					<li class=""><a href="#images">图片</a></li>
+					<li class=""><a href="#nav">导航</a></li>
+					<li class=""><a href="#za">杂七杂八</a></li>
+				</li>
+			</ul>
+		  </div>
+		</div>
+
+      	<div class="col-md-9" role="main">
+			<div id="grid">
+				<h1><b><code>栅格系统</code></b></h1>
+				<div class="row show-grid">
+			        <div class="col-md-1">.col-md-1</div>
+			        <div class="col-md-1">.col-md-1</div>
+			        <div class="col-md-1">.col-md-1</div>
+			        <div class="col-md-1">.col-md-1</div>
+			        <div class="col-md-1">.col-md-1</div>
+			        <div class="col-md-1">.col-md-1</div>
+			        <div class="col-md-1">.col-md-1</div>
+			        <div class="col-md-1">.col-md-1</div>
+			        <div class="col-md-1">.col-md-1</div>
+			        <div class="col-md-1">.col-md-1</div>
+			        <div class="col-md-1">.col-md-1</div>
+			        <div class="col-md-1">.col-md-1</div>		    
+			    </div>
+			    <hr/>
+			    <div class="row show-grid">
+			        <div class="col-md-8"><code>2/3</code>.col-md-8</div>
+			        <div class="col-md-4"><code>1/3</code>.col-md-4</div>
+			    </div>
+			    <hr/>
+			    <div class="row show-grid">
+			        <div class="col-md-4"><code>1/3</code>.col-md-4</div>
+			        <div class="col-md-4"><code>1/3</code>.col-md-4</div>
+			        <div class="col-md-4"><code>1/3</code>.col-md-4</div>
+			    </div>
+			    <hr/>
+			    <div class="row show-grid">
+			        <div class="col-md-6"><code>1/2</code>.col-md-6</div>
+			        <div class="col-md-6"><code>1/2</code>.col-md-6</div>
+			    </div>
+			    <hr/>
+			</div>
+			<hr/>
+			<br/>
+			<br/>
+
+			<div id="type">
+				<h1><b><code>排版</code></b></h1>
+				<h1>h1. 正标题 <small>small用以标记副标题</small></h1>
+				<h2>h2. 正标题 <small>small用以标记副标题</small></h2>
+				<h3>h3. 正标题 <small>small用以标记副标题</small></h3>
+				<h4>h4. 正标题 <small>small用以标记副标题</small></h4>
+				<h5>h5. 正标题 <small>small用以标记副标题</small></h5>
+				<h6>h6. 正标题 <small>small用以标记副标题</small></h6>
+				<hr/>
+
+				<p><b>段落一：段落之间1/2行高外边距</b> Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
+				<p class="lead">段落二：<code>.lead可以让段落突出显示</code>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
+				<hr/>
+
+				<small>small 小号文本</small>
+				<br/>
+				<strong>strong 强调文本</strong>
+				<br/>
+				<em>em 斜体强调文本</em>
+				<br/>
+				<b>b 不增加额外重要性的同事将词或短于高亮显示</b>
+				<br/>
+				<br/>
+
+				<p class="text-left">p的.text-left 左对齐</p>
+				<p class="text-center">p的.text-center 居中</p>
+				<p class="text-right">p的.text-right 右对齐</p>
+
+				<div class="row">
+					<div class="col-md-6">
+						<p class="text-muted">p的.text-muted</p>
+						<p class="text-primary">p的.text-primary</p>
+						<p class="text-success">p的.text-success</p>
+						<p class="text-info">p的.text-info</p>
+						<p class="text-warning">p的.text-warning</p>
+						<p class="text-danger">p的.text-danger</p>
+					</div>
+					<div class="col-md-6">
+						<p><span class="label label-muted">span.label-muted</span></p>
+						<p><span class="label label-primary">span.label-primary</span></p>
+						<p><span class="label label-success">span.label-success</span></p>
+						<p><span class="label label-info">span.label-info</span></p>
+						<p><span class="label label-warning">span.label-warning</span></p>
+						<p><span class="label label-danger">span.label-danger</span></p>
+				</div>
+				<br/>
+
+				<abbr title="abbr的title熟悉用以展开缩略内容">缩略语</abbr>
+				<br/>
+				<br/>
+
+				<blockquote>
+					<p>blockquote作为引用  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+					<small>来源：<cite title="cite的title属性展开来源名称">鼠标显示具体来源名称</cite></small>
+				</blockquote>
+				<blockquote class="pull-right">
+					<p>blockquote的.pull-right让引用右对齐  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+					<small>来源：<cite title="cite的title属性展开来源名称">鼠标显示具体来源名称</cite></small>
+				</blockquote>				
+				<br/>
+				<br/>
+
+
+				<div class="row">
+					<div class="col-md-6">
+						<dl>
+						<dt>短语1</dt>
+						<dd>短语对应的描述 带自动换行cription list is perfect for defining terms.</dd>
+						<dt>短语222222</dt>
+						<dd>短语对应的描述 cription list is perfect for defining terms.</dd>
+						</dl>
+					</div>
+					<div class="col-md-6">
+						<dl class="dl-horizontal">
+							<dt>短语1</dt>
+							<dd>dl的dl-horizontal属性使短语跟描述排在同一行</dd>
+							<dt>短语222222</dt>
+							<dd>短语对应的描述 cription list is perfect for defining terms.</dd>
+						</dl>
+					</div>
+				</div>
+
+
+				<p><code>code</code>标签包裹内联样式代码片段</p>
+				<pre class=".pre-scrollable">
+				pre标签用以展示多行代码
+				.pre-scrollable设置max-height为350px，并在垂直方向展示滚动条
+				</pre>	
+			</div>
+			<hr/>
+			<br/>
+			<br/>
+
+			<div id="tables">
+				<h1><b><code>表格</code></b></h1>
+				<table class="table table-striped table-bordered table-hover">
+			        <caption>表格标题</caption>
+			        <tr>
+			            <th>xx</th>
+			            <th>xx</th>
+			            <th class="danger">xx</th>
+			        </tr>
+			        <tr class="success">
+			            <td>100</td>
+			            <td>200</td>
+			            <td>300</td>
+			        </tr>
+			        <tr>
+			            <td class="warning">400</td>
+			            <td>500</td>
+			            <td>600</td>
+			        </tr>
+			    </table>			    
+		    </div>
+		    <hr/>
+
+			<h2>表格标签示例</h2>
+			<hr/>
+
+			<h3>1. 默认表格样式</h3>
+			<div class="row">
+				<div class="col-md-4">
+				  <p>表格元素会自动设置一些基本的边框样式，以保证结构的可读性和维护性。更多的样式效果需要添加<code>.table</code>样式名。</p>
+				</div>
+				<div class="col-md-8">
+				  <table class="table">
+				    <thead>
+				      <tr>
+				        <th>#</th>
+				        <th>First Name</th>
+				        <th>Last Name</th>
+				        <th>Username</th>
+				      </tr>
+				    </thead>
+				    <tbody>
+				      <tr>
+				        <td>1</td>
+				        <td>Mark</td>
+				        <td>Otto</td>
+				        <td>@mdo</td>
+				      </tr>
+				      <tr>
+				        <td>2</td>
+				        <td>Jacob</td>
+				        <td>Thornton</td>
+				        <td>@fat</td>
+				      </tr>
+				      <tr>
+				        <td>3</td>
+				        <td>Larry</td>
+				        <td>the Bird</td>
+				        <td>@twitter</td>
+				      </tr>
+				    </tbody>
+				  </table>
+				</div>
+			</div>
+			<hr/>
+
+			<h3>2. 条纹表格</h3>
+			<div class="row">
+			    <div class="col-md-4">
+			      <p>通过给表格添加样式名<code>.table-striped</code>来添加一些美妙的斑马线效果。</p>
+			      <p class="muted"><strong>注意：</strong>条纹表格的实现使用了<code>:nth-child</code>样式选择器，在IE7-IE8下是无效的。</p>
+			    </div>
+			    <div class="col-md-8">
+			      <table class="table table-striped">
+			        <thead>
+			          <tr>
+			            <th>#</th>
+			            <th>First Name</th>
+			            <th>Last Name</th>
+			            <th>Username</th>
+			          </tr>
+			        </thead>
+			        <tbody>
+			          <tr>
+			            <td>1</td>
+			            <td>Mark</td>
+			            <td>Otto</td>
+			            <td>@mdo</td>
+			          </tr>
+			          <tr>
+			            <td>2</td>
+			            <td>Jacob</td>
+			            <td>Thornton</td>
+			            <td>@fat</td>
+			          </tr>
+			          <tr>
+			            <td>3</td>
+			            <td>Larry</td>
+			            <td>the Bird</td>
+			            <td>@twitter</td>
+			          </tr>
+			        </tbody>
+			      </table>
+			    </div>
+			</div>
+			<hr/>
+
+			<h3>3. 有边框的表格</h3>
+			<div class="row">
+			    <div class="col-md-4">
+			      <p>给整个表格添加圆角和边框来达到美化的效果。</p>
+			    </div>
+			    <div class="col-md-4">
+			      <table class="table table-bordered">
+			        <thead>
+			          <tr>
+			            <th>#</th>
+			            <th>First Name</th>
+			            <th>Last Name</th>
+			            <th>Username</th>
+			          </tr>
+			        </thead>
+			        <tbody>
+			          <tr>
+			            <td rowspan="2">1</td>
+			            <td>Mark</td>
+			            <td>Otto</td>
+			            <td>@mdo</td>
+			          </tr>
+			          <tr>
+			            <td>Mark</td>
+			            <td>Otto</td>
+			            <td>@TwBootstrap</td>
+			          </tr>
+			          <tr>
+			            <td>2</td>
+			            <td>Jacob</td>
+			            <td>Thornton</td>
+			            <td>@fat</td>
+			          </tr>
+			          <tr>
+			            <td>3</td>
+			            <td colspan="2">Larry the Bird</td>
+			            <td>@twitter</td>
+			          </tr>
+			        </tbody>
+			      </table>
+			    </div>
+			</div>
+			<hr/>
+
+			<h3>4. 紧凑的表格</h3>
+			<div class="row">
+			    <div class="col-md-4">
+			      <p>通过添加样式名<code>.table-condensed</code>将单元格的内补白减半（从8像素减小到4像素），使得表格看起来更加的紧凑。</p>
+			    </div>
+			    <div class="col-md-8">
+			      <table class="table table-condensed">
+			        <thead>
+			          <tr>
+			            <th>#</th>
+			            <th>First Name</th>
+			            <th>Last Name</th>
+			            <th>Username</th>
+			          </tr>
+			        </thead>
+			        <tbody>
+			          <tr>
+			            <td>1</td>
+			            <td>Mark</td>
+			            <td>Otto</td>
+			            <td>@mdo</td>
+			          </tr>
+			          <tr>
+			            <td>2</td>
+			            <td>Jacob</td>
+			            <td>Thornton</td>
+			            <td>@fat</td>
+			          </tr>
+			          <tr>
+			            <td>3</td>
+			            <td colspan="2">Larry the Bird</td>
+			            <td>@twitter</td>
+			          </tr>
+			        </tbody>
+			      </table>
+			    </div>
+			</div>
+			<hr/>
+
+			<h3>5. 将它们都组合起来</h3>
+			<div class="row">
+			    <div class="col-md-4">
+			      <p>随意的将这些有效的样式名组合起来，展现出表格的不同效果。</p>
+			    </div>
+			    <div class="col-md-8
+
+			    ">
+			      <table class="table table-striped table-bordered table-condensed">
+			        <thead>
+			          <tr>
+			            <th></th>
+			            <th colspan="2">Full name</th>
+			            <th></th>
+			          </tr>
+			          <tr>
+			            <th>#</th>
+			            <th>First Name</th>
+			            <th>Last Name</th>
+			            <th>Username</th>
+			          </tr>
+			        </thead>
+			        <tbody>
+			          <tr>
+			          </tr><tr>
+			            <td>1</td>
+			            <td>Mark</td>
+			            <td>Otto</td>
+			            <td>@mdo</td>
+			          </tr>
+			          <tr>
+			            <td>2</td>
+			            <td>Jacob</td>
+			            <td>Thornton</td>
+			            <td>@fat</td>
+			          </tr>
+			          <tr>
+			            <td>3</td>
+			            <td colspan="2">Larry the Bird</td>
+			            <td>@twitter</td>
+			          </tr>
+			        </tbody>
+			      </table>
+			    </div>
+			</div>
+
+		    <hr/>
+			<br/>
+			<br/>
+
+		    <div id="forms">
+		    	<h1><b><code>表单</code></b></h1>
+		    	<hr/>
+
+		    	<h2><b>基础表单</b></h2>
+				<form role="form">
+					<div class="form-group">
+						<label for="exampleInputEmail1">Email address</label>
+						<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+					</div>
+					<div class="form-group">
+						<label for="exampleInputPassword1">Password</label>
+						<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+					</div>
+					<div class="form-group">
+						<label for="exampleInputFile">File input</label>
+						<input type="file" id="exampleInputFile">
+						<p class="help-block">在p.help-block中显示帮助信息</p>
+					</div>
+					<div class="checkbox">
+						<label>
+						<input type="checkbox">复选框
+						</label>
+					</div>
+					<button type="submit" class="btn btn-default">提交</button>
+				</form>			
+				<br/>
+				<hr/>
+
+				<h2><b>内联表单form.form-inline</b></h2>
+				<form class="form-inline" role="form">
+					<div class="form-group">
+						<label class="sr-only" for="exampleInputEmail2">Email address</label>
+						<input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
+					</div>
+					<div class="form-group">
+						<label class="sr-only" for="exampleInputPassword2">Password</label>
+						<input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox"> Remember me
+						</label>
+					</div>
+					<button type="submit" class="btn btn-default">Sign in</button>
+				</form>
+				<hr/>
+
+				<h2><b>搜索表单</b></h2>
+				<form class="well form-search">
+					<input type="text" class="input-medium search-query">
+					<button type="submit" class="btn">搜索</button>
+				</form>
+				<hr/>
+
+				<h2><b>水平对齐的表单</b></h2>
+				<div class="row">
+					<div class="col-md-4">
+						<p>我们默认支持的是表单控件在右边的展示样式。列表如下：</p>
+						<ul>
+					        <li>文本输入框(text, password, email, etc)</li>
+					        <li>复选框</li>
+					        <li>单选框</li>
+					        <li>下拉菜单</li>
+					        <li>多选菜单</li>
+					        <li>文件上传表单</li>
+					        <li>多行文本输入框</li>
+				      	</ul>
+					</div>
+					<div class="col-md-8">
+						<form class="form-horizontal">
+					        <fieldset>
+					          <div class="control-group">
+					            <label class="control-label" for="input01">Text input</label>
+					            <div class="controls">
+					              <input type="text" class="input-xlarge" id="input01">
+					              <p class="help-block">用来添加任意文本的表单，所有HTML5中用来输入文本的输入框都是像这样的效果。</p>
+					            </div>
+					          </div>
+					          <div class="control-group">
+					            <label class="control-label" for="optionsCheckbox">Checkbox</label>
+					            <div class="controls">
+					              <label class="checkbox">
+					                <input type="checkbox" id="optionsCheckbox" value="option1">
+					                Option one is this and that—be sure to include why it's great
+					              </label>
+					            </div>
+					          </div>
+					          <div class="control-group">
+					            <label class="control-label" for="select01">Select list</label>
+					            <div class="controls">
+					              <select id="select01">
+					                <option>something</option>
+					                <option>2</option>
+					                <option>3</option>
+					                <option>4</option>
+					                <option>5</option>
+					              </select>
+					            </div>
+					          </div>
+					          <div class="control-group">
+					            <label class="control-label" for="multiSelect">Multicon-select</label>
+					            <div class="controls">
+					              <select multiple="multiple" id="multiSelect">
+					                <option>1</option>
+					                <option>2</option>
+					                <option>3</option>
+					                <option>4</option>
+					                <option>5</option>
+					              </select>
+					            </div>
+					          </div>
+					          <div class="control-group">
+					            <label class="control-label" for="fileInput">File input</label>
+					            <div class="controls">
+					              <input class="input-file" id="fileInput" type="file">
+					            </div>
+					          </div>
+					          <div class="control-group">
+					            <label class="control-label" for="textarea">Textarea</label>
+					            <div class="controls">
+					              <textarea class="input-xlarge" id="textarea" rows="3" style="margin: 0px; height: 67px; width: 307px;"></textarea>
+					            </div>
+					          </div>
+					          <div class="form-actions">
+					            <button type="submit" class="btn btn-primary">Save changes</button>
+					            <button class="btn">Cancel</button>
+					          </div>
+					        </fieldset>
+					    </form>
+					</div>
+				</div>
+				<hr/>
+
+				<h2><b>输入框组</b></h2>
+				<div class="input-group">
+				  <span class="input-group-addon">@</span>
+				  <input type="text" class="form-control" placeholder="Username">
+				</div>
+
+				<div class="input-group">
+				  <input type="text" class="form-control">
+				  <span class="input-group-addon">.00</span>
+				</div>
+
+				<div class="input-group">
+				  <span class="input-group-addon">$</span>
+				  <input type="text" class="form-control">
+				  <span class="input-group-addon">.00</span>
+				</div>				
+
+				<div class="row">
+				  <div class="col-lg-6">
+				    <div class="input-group">
+				      <span class="input-group-addon">
+				        <input type="checkbox">
+				      </span>
+				      <input type="text" class="form-control">
+				    </div><!-- /input-group -->
+				  </div><!-- /.col-lg-6 -->
+				  <div class="col-lg-6">
+				    <div class="input-group">
+				      <span class="input-group-addon">
+				        <input type="radio">
+				      </span>
+				      <input type="text" class="form-control">
+				    </div><!-- /input-group -->
+				  </div><!-- /.col-lg-6 -->
+				</div><!-- /.row -->
+
+				<div class="row">
+				  <div class="col-lg-6">
+				    <div class="input-group">
+				      <span class="input-group-btn">
+				        <button class="btn btn-default" type="button">Go!</button>
+				      </span>
+				      <input type="text" class="form-control">
+				    </div><!-- /input-group -->
+				  </div><!-- /.col-lg-6 -->
+				  <div class="col-lg-6">
+				    <div class="input-group">
+				      <input type="text" class="form-control">
+				      <span class="input-group-btn">
+				        <button class="btn btn-default" type="button">Go!</button>
+				      </span>
+				    </div><!-- /input-group -->
+				  </div><!-- /.col-lg-6 -->
+				</div><!-- /.row -->
+
+				<div class="row">
+				  <div class="col-lg-6">
+				    <div class="input-group">
+				      <div class="input-group-btn">
+				        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
+				        <ul class="dropdown-menu">
+				          <li><a href="#">Action</a></li>
+				          <li><a href="#">Another action</a></li>
+				          <li><a href="#">Something else here</a></li>
+				          <li class="divider"></li>
+				          <li><a href="#">Separated link</a></li>
+				        </ul>
+				      </div><!-- /btn-group -->
+				      <input type="text" class="form-control">
+				    </div><!-- /input-group -->
+				  </div><!-- /.col-lg-6 -->
+				  <div class="col-lg-6">
+				    <div class="input-group">
+				      <input type="text" class="form-control">
+				      <div class="input-group-btn">
+				        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
+				        <ul class="dropdown-menu pull-right">
+				          <li><a href="#">Action</a></li>
+				          <li><a href="#">Another action</a></li>
+				          <li><a href="#">Something else here</a></li>
+				          <li class="divider"></li>
+				          <li><a href="#">Separated link</a></li>
+				        </ul>
+				      </div><!-- /btn-group -->
+				    </div><!-- /input-group -->
+				  </div><!-- /.col-lg-6 -->
+				</div><!-- /.row -->
+
+				<div class="input-group">
+				  <div class="input-group-btn">
+				    <div class="input-group-btn">
+		              <button type="button" class="btn btn-default" tabindex="-1">Action</button>
+		              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+		                <span class="caret"></span>
+		                <span class="sr-only">Toggle Dropdown</span>
+		              </button>
+		              <ul class="dropdown-menu" role="menu">
+		                <li><a href="#">Action</a></li>
+		                <li><a href="#">Another action</a></li>
+		                <li><a href="#">Something else here</a></li>
+		                <li class="divider"></li>
+		                <li><a href="#">Separated link</a></li>
+		              </ul>
+		            </div>
+				  </div>
+				  <input type="text" class="form-control">
+				</div>
+
+				<div class="input-group">
+				  <input type="text" class="form-control">
+				  <div class="input-group-btn">
+				    <button type="button" class="btn btn-default" tabindex="-1">Action</button>
+		              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+		                <span class="caret"></span>
+		                <span class="sr-only">Toggle Dropdown</span>
+		              </button>
+		              <ul class="dropdown-menu" role="menu">
+		                <li><a href="#">Action</a></li>
+		                <li><a href="#">Another action</a></li>
+		                <li><a href="#">Something else here</a></li>
+		                <li class="divider"></li>
+		                <li><a href="#">Separated link</a></li>
+		              </ul>
+		          </div>				  
+				</div>
+				<hr/>
+
+				<h2><b>登陆表单，需要自己写css控制表单大小</b></h2>
+				<div class="container">
+					<form class="form-signin">
+				        <h2 class="form-signin-heading">Please sign in</h2>
+				        <input type="text" class="form-control" placeholder="Email address">
+				        <input type="password" class="form-control" placeholder="Password">
+				        <label class="checkbox">
+				          <input type="checkbox" value="remember-me"> Remember me
+				        </label>
+				        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+				    </form>
+				</div>
+			</div>
+			<hr/>
+			<br/>
+			<br/>
+
+			<div id="buttons">
+				<h1><b><code>按钮</code></b></h1>
+				<button type="button" class="btn btn-default">默认button.btn btn-default</button>
+				<br/>
+				<button type="button" class="btn btn-primary">主要button.btn btn-primary</button>
+				<br/>
+				<button type="button" class="btn btn-success">成功button.btn btn-success</button>
+				<br/>
+				<button type="button" class="btn btn-info">信息button.btn btn-info</button>
+				<br/>
+				<button type="button" class="btn btn-warning">警告button.btn btn-warning</button>
+				<br/>
+				<button type="button" class="btn btn-danger">危险button.btn btn-danger</button>
+				<br/>
+				<button type="button" class="btn btn-inverse">无语意button.btn btn-inverse</button>
+				<br/>
+				<button type="button" class="btn btn-link">链接button.btn btn-link</button>
+				<hr/>
+
+				<p>
+					<b>不同表示方法</b>
+					<a href="#" class="btn btn-primary btn-lg disabled" role="button">Link_a</a>
+					<button type="button" class="btn btn-primary btn-lg active" disabled="disabled">Button</button>
+					<input class="btn" type="button" value="Input">
+					<input class="btn" type="Submit" value="Submit">
+				</p>
+				<hr/>
+
+				<p>
+					<b>按钮尺寸</b>(按钮的宽度不同，长度一样):
+					<button type="button" class="btn btn-success btn-lg">大.btn-lg</button>
+					<button type="button" class="btn btn-success">默认大小</button>
+					<button type="button" class="btn btn-success btn-sm">小.btn-sm</button>
+					<button type="button" class="btn btn-success btn-xs">更小.btn-xs</button>
+				</p>
+				<hr/>
+
+				<button type="button" class="btn btn-primary btn-lg btn-block">尺寸充满父节点.btn-block</button>
+				<hr/>
+
+				<p>
+					<b>按钮状态：</b>
+					<button type="button" class="btn btn-success">默认状态</button>
+					<button type="button" class="btn btn-success active">active状态</button>
+					<button type="button" class="btn btn-success active" disabled="disabled">disabled状态</button>
+				</p>
+				<hr/>
+
+				<p>
+					<b>按钮组(.btn-group)：</b>
+					<div class="btn-group btn-group-xs">
+					  <button type="button" class="btn btn-default">←</button>
+					  <button type="button" class="btn btn-default">中</button>
+					  <button type="button" class="btn btn-default">→</button>
+					</div>
+				</p>
+				<hr/>
+
+				<p>
+					<b>按钮工具栏(.btn-toolbar)：</b>
+					<div class="btn-toolbar" role="toolbar">
+						<div class="btn-group">
+						  <button type="button" class="btn btn-default">1</button>
+						  <button type="button" class="btn btn-default">2</button>
+						  <button type="button" class="btn btn-default">3</button>
+						</div>
+						<div class="btn-group">
+						  <button type="button" class="btn btn-default">4</button>
+						  <button type="button" class="btn btn-default">5</button>
+						  <button type="button" class="btn btn-default">6</button>
+						</div>
+					</div>
+				</p>
+				<hr/>
+
+				<div class="row">
+					<div class="col-md-6">
+						<b>嵌套：</b>
+						<div class="btn-group">
+							<button type="button" class="btn btn-default">1</button>
+							<button type="button" class="btn btn-default">2</button>
+							<div class="btn-group">
+								<button id="btnGroupDrop1" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+									Dropdown
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu" aria-labelledby="btnGroupDrop1">
+									<li><a href="#">Dropdown link</a></li>
+									<li><a href="#">Dropdown link</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<b>垂直排列(.btn-group-vertical)：</b>
+						<div class="btn-group-vertical">
+							<button type="button" class="btn btn-default">1</button>
+							<button type="button" class="btn btn-default">2</button>
+							<div class="btn-group">
+								<button id="btnGroupDrop1" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+									Dropdown
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu" aria-labelledby="btnGroupDrop1">
+									<li><a href="#">Dropdown link</a></li>
+									<li><a href="#">Dropdown link</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<hr/>
+
+				<div class="row">
+					<div class="col-md-4">
+						<b>单按钮式下拉菜单：</b>
+						<div class="btn-group">
+						  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+						    Action <span class="caret"></span>
+						  </button>
+						  <ul class="dropdown-menu" role="menu">
+						    <li><a href="#">Action</a></li>
+						    <li><a href="#">Another action</a></li>
+						    <li class="divider"></li>
+						    <li><a href="#">Separated link</a></li>
+						  </ul>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<b>分裂式按钮下拉菜单：</b>
+						<div class="btn-group">
+						  <button type="button" class="btn btn-danger">Action</button>
+						  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+						    <span class="caret"></span>
+						    <span class="sr-only">Toggle Dropdown</span>
+						  </button>
+						  <ul class="dropdown-menu" role="menu">
+						    <li><a href="#">Action</a></li>
+						    <li><a href="#">Another action</a></li>
+						    <li class="divider"></li>
+						    <li><a href="#">Separated link</a></li>
+						  </ul>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<b>向上弹出式菜单：</b>
+						<div class="btn-group dropup">
+						  <button type="button" class="btn btn-default">Dropup</button>
+						  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+						    <span class="caret"></span>
+						    <span class="sr-only">Toggle Dropdown</span>
+						  </button>
+						  <ul class="dropdown-menu">
+						    <li><a href="#">Action</a></li>
+						    <li><a href="#">Another action</a></li>
+						    <li class="divider"></li>
+						    <li><a href="#">Separated link</a></li>
+						  </ul>
+						</div>
+					</div>
+				</div>				
+			</div>
+			<hr/>
+			<br/>
+			<br/>
+
+			<div id="process">
+				<h1><b><code>进度条</code></b></h1>
+
+				<h2><b>基础效果</b></h2>
+				<div class="progress">
+				  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+				    <span class="sr-only">60% Complete</span>
+				  </div>
+				</div>
+				<div class="progress">
+				  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+				    <span class="sr-only">40% Complete (success)</span>
+				  </div>
+				</div>
+				<div class="progress">
+				  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+				    <span class="sr-only">20% Complete</span>
+				  </div>
+				</div>
+				<div class="progress">
+				  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+				    <span class="sr-only">60% Complete (warning)</span>
+				  </div>
+				</div>
+				<div class="progress">
+				  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+				    <span class="sr-only">80% Complete</span>
+				  </div>
+				</div>
+				<hr/>
+
+				<h2><b>条纹效果.progress-striped</b></h2>
+				<div class="progress progress-striped">
+				  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+				    <span class="sr-only">40% Complete (success)</span>
+				  </div>
+				</div>				
+				<div class="progress progress-striped">
+				  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+				    <span class="sr-only">20% Complete</span>
+				  </div>
+				</div>
+				<div class="progress progress-striped">
+				  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+				    <span class="sr-only">60% Complete (warning)</span>
+				  </div>
+				</div>
+				<div class="progress progress-striped">
+				  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+				    <span class="sr-only">80% Complete (danger)</span>
+				  </div>
+				</div>
+				<hr/>
+
+				<h2><b>运动效果.progress-striped active</b></h2>
+				<div class="progress progress-striped active">
+				  <div class="progress-bar"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+				    <span class="sr-only">45% Complete</span>
+				  </div>
+				</div>
+				<hr/>
+
+				<h2><b>堆叠效果</b></h2>
+				<div class="progress">
+				  <div class="progress-bar progress-bar-success" style="width: 35%">
+				    <span class="sr-only">35% Complete (success)</span>
+				  </div>
+				  <div class="progress-bar progress-bar-warning" style="width: 20%">
+				    <span class="sr-only">20% Complete (warning)</span>
+				  </div>
+				  <div class="progress-bar progress-bar-danger" style="width: 10%">
+				    <span class="sr-only">10% Complete (danger)</span>
+				  </div>
+				</div>
+			</div>
+			<hr/>
+			<br/>
+			<br/>
+
+			<div id="icons">
+				<h1><b><code>图标<small>由<a href="http://glyphicons.com" target="_blank">Glyphicons</a>提供</small></code></b></h1>
+				<div class="row">
+					<div class="col-md-3">
+						<ul class="nav">
+					      <li><span class="glyphicon glyphicon-adjust"></span> djust</li>
+					      <li><span class="glyphicon glyphicon-align-center"></span> align-center</li>
+					      <li><span class="glyphicon glyphicon-align-justify"></span> align-justify</li>
+					      <li><span class="glyphicon glyphicon-align-left"></span> align-left</li>
+					      <li><span class="glyphicon glyphicon-align-right"></span> align-right</li>
+					      <li><span class="glyphicon glyphicon-arrow-down"></span> arrow-down</li>
+					      <li><span class="glyphicon glyphicon-arrow-left"></span> arrow-left</li>
+					      <li><span class="glyphicon glyphicon-arrow-right"></span> arrow-right</li>
+					      <li><span class="glyphicon glyphicon-arrow-up"></span> arrow-up</li>
+					      <li><span class="glyphicon glyphicon-asterisk"></span> asterisk</li>
+					      <li><span class="glyphicon glyphicon-backward"></span> backward</li>
+					      <li><span class="glyphicon glyphicon-ban-circle"></span> ban-circle</li>
+					      <li><span class="glyphicon glyphicon-barcode"></span> barcode</li>
+					      <li><span class="glyphicon glyphicon-bell"></span> bell</li>
+					      <li><span class="glyphicon glyphicon-bold"></span> bold</li>
+					      <li><span class="glyphicon glyphicon-book"></span> book</li>
+					      <li><span class="glyphicon glyphicon-bookmark"></span> bookmark</li>
+					      <li><span class="glyphicon glyphicon-briefcase"></span> briefcase</li>
+					      <li><span class="glyphicon glyphicon-bullhorn"></span> bullhorn</li>
+					      <li><span class="glyphicon glyphicon-calendar"></span> calendar</li>
+					      <li><span class="glyphicon glyphicon-camera"></span> camera</li>
+					      <li><span class="glyphicon glyphicon-certificate"></span> certificate</li>
+					      <li><span class="glyphicon glyphicon-check"></span> check</li>
+					      <li><span class="glyphicon glyphicon-chevron-down"></span> chevron-down</li>
+					      <li><span class="glyphicon glyphicon-chevron-left"></span> chevron-left</li>
+					      <li><span class="glyphicon glyphicon-chevron-right"></span> chevron-right</li>
+					      <li><span class="glyphicon glyphicon-chevron-up"></span> chevron-up</li>
+					      <li><span class="glyphicon glyphicon-circle-arrow-down"></span> circle-arrow-down</li>
+					      <li><span class="glyphicon glyphicon-circle-arrow-left"></span> circle-arrow-left</li>
+					      <li><span class="glyphicon glyphicon-circle-arrow-right"></span> circle-arrow-right</li>
+					      <li><span class="glyphicon glyphicon-circle-arrow-up"></span> circle-arrow-up</li>
+					      <li><span class="glyphicon glyphicon-cloud"></span> cloud</li>
+					      <li><span class="glyphicon glyphicon-cloud-download"></span> cloud-download</li>
+					      <li><span class="glyphicon glyphicon-cloud-upload"></span> cloud-upload</li>
+					      <li><span class="glyphicon glyphicon-cog"></span> cog setting</li>
+					      <li><span class="glyphicon glyphicon-collapse-down"></span> collapse-down</li>
+					      <li><span class="glyphicon glyphicon-collapse-up"></span> collapse-up</li>
+					      <li><span class="glyphicon glyphicon-comment"></span> comment</li>
+					      <li><span class="glyphicon glyphicon-compressed"></span> compressed</li>
+					      <li><span class="glyphicon glyphicon-copyright-mark"></span> copyright-mark</li>
+					      <li><span class="glyphicon glyphicon-credit-card"></span> credit-card</li>
+					      <li><span class="glyphicon glyphicon-cutlery"></span> cutlery</li>
+					      <li><span class="glyphicon glyphicon-dashboard"></span> dashboard</li>
+					      <li><span class="glyphicon glyphicon-download"></span> download</li>
+					      <li><span class="glyphicon glyphicon-download-alt"></span> download-alt</li>
+					      <li><span class="glyphicon glyphicon-earphone"></span> earphone</li>
+					      <li><span class="glyphicon glyphicon-edit"></span> edit</li>
+					      <li><span class="glyphicon glyphicon-eject"></span> eject</li>
+					      <li><span class="glyphicon glyphicon-envelope"></span> envelope</li>
+					      <li><span class="glyphicon glyphicon-euro"></span> euro</li>      		      
+					    </ul>
+					</div>
+
+					<div class="col-md-3">
+						<ul class="nav">
+						  <li><span class="glyphicon glyphicon-exclamation-sign"></span> exclamation-sign</li>
+					      <li><span class="glyphicon glyphicon-expand"></span> expand</li>
+					      <li><span class="glyphicon glyphicon-export"></span> export</li>
+					      <li><span class="glyphicon glyphicon-eye-close"></span> eye-close</li>
+					      <li><span class="glyphicon glyphicon-eye-open"></span> eye-open</li>
+					      <li><span class="glyphicon glyphicon-facetime-video"></span> facetime-video</li>
+					      <li><span class="glyphicon glyphicon-fast-backward"></span> fast-backward</li>
+					      <li><span class="glyphicon glyphicon-fast-forward"></span> fast-forward</li>
+					      <li><span class="glyphicon glyphicon-file"></span> file</li>
+					      <li><span class="glyphicon glyphicon-film"></span> film</li>
+					      <li><span class="glyphicon glyphicon-filter"></span> filter</li>
+					      <li><span class="glyphicon glyphicon-fire"></span> fire</li>
+					      <li><span class="glyphicon glyphicon-flag"></span> flag</li>
+					      <li><span class="glyphicon glyphicon-flash"></span> flash</li>
+					      <li><span class="glyphicon glyphicon-floppy-disk"></span> floppy-disk</li>
+					      <li><span class="glyphicon glyphicon-floppy-open"></span> floppy-open</li>
+					      <li><span class="glyphicon glyphicon-floppy-remove"></span> floppy-remove</li>
+					      <li><span class="glyphicon glyphicon-floppy-save"></span> floppy-save</li>
+					      <li><span class="glyphicon glyphicon-floppy-saved"></span> floppy-saved</li>
+					      <li><span class="glyphicon glyphicon-folder-close"></span> folder-close</li>
+					      <li><span class="glyphicon glyphicon-folder-open"></span> folder-open</li>
+					      <li><span class="glyphicon glyphicon-font"></span> font</li>
+					      <li><span class="glyphicon glyphicon-forward"></span> forward</li>
+					      <li><span class="glyphicon glyphicon-fullscreen"></span> fullscreen</li>
+					      <li><span class="glyphicon glyphicon-gbp"></span> gbp</li>
+					      <li><span class="glyphicon glyphicon-gift"></span> gift</li>
+					      <li><span class="glyphicon glyphicon-glass"></span> glass</li>
+					      <li><span class="glyphicon glyphicon-globe"></span> globe</li>
+					      <li><span class="glyphicon glyphicon-hand-down"></span> hand-down</li>
+					      <li><span class="glyphicon glyphicon-hand-left"></span> hand-left</li>
+					      <li><span class="glyphicon glyphicon-hand-right"></span> hand-right</li>
+					      <li><span class="glyphicon glyphicon-hand-up"></span> hand-up</li>
+					      <li><span class="glyphicon glyphicon-hd-video"></span> hd-video</li>
+					      <li><span class="glyphicon glyphicon-hdd"></span> hdd</li>
+					      <li><span class="glyphicon glyphicon-header"></span> header</li>
+					      <li><span class="glyphicon glyphicon-headphones"></span> headphones</li>
+					      <li><span class="glyphicon glyphicon-heart"></span> heart</li>
+					      <li><span class="glyphicon glyphicon-heart-empty"></span> heart-empty</li>
+					      <li><span class="glyphicon glyphicon-home"></span> home</li>
+					      <li><span class="glyphicon glyphicon-import"></span> import</li>
+					      <li><span class="glyphicon glyphicon-inbox"></span> inbox</li>
+					      <li><span class="glyphicon glyphicon-indent-left"></span> indent-left</li>
+					      <li><span class="glyphicon glyphicon-indent-right"></span> indent-right</li>
+					      <li><span class="glyphicon glyphicon-info-sign"></span> info-sign</li>
+					      <li><span class="glyphicon glyphicon-italic"></span> italic</li>
+					      <li><span class="glyphicon glyphicon-leaf"></span> leaf</li>
+					      <li><span class="glyphicon glyphicon-link"></span> link</li>
+					      <li><span class="glyphicon glyphicon-list"></span> list</li>
+					      <li><span class="glyphicon glyphicon-list-alt"></span> list-alt</li>
+					      <li><span class="glyphicon glyphicon-lock"></span> lock</li>
+					    </ul>
+					</div>
+
+					<div class="col-md-3">
+						<ul class="nav">
+						  <li><span class="glyphicon glyphicon-log-in"></span> log-in</li>
+					      <li><span class="glyphicon glyphicon-log-out"></span> log-out</li>
+					      <li><span class="glyphicon glyphicon-magnet"></span> magnet</li>
+					      <li><span class="glyphicon glyphicon-map-marker"></span> map-marker</li>
+					      <li><span class="glyphicon glyphicon-minus"></span> minus</li>
+					      <li><span class="glyphicon glyphicon-minus-sign"></span> minus-sign</li>
+					      <li><span class="glyphicon glyphicon-move"></span> move</li>
+					      <li><span class="glyphicon glyphicon-music"></span> music</li>
+					      <li><span class="glyphicon glyphicon-new-window"></span> new-window</li>
+					      <li><span class="glyphicon glyphicon-off"></span> off</li>
+					      <li><span class="glyphicon glyphicon-ok"></span> ok</li>
+					      <li><span class="glyphicon glyphicon-ok-circle"></span> ok-circle</li>
+					      <li><span class="glyphicon glyphicon-ok-sign"></span> ok-sign</li>
+					      <li><span class="glyphicon glyphicon-open"></span> open</li>
+					      <li><span class="glyphicon glyphicon-paperclip"></span> paperclip</li>
+					      <li><span class="glyphicon glyphicon-pause"></span> pause</li>
+					      <li><span class="glyphicon glyphicon-pencil"></span> pencil</li>
+					      <li><span class="glyphicon glyphicon-phone"></span> phone</li>
+					      <li><span class="glyphicon glyphicon-phone-alt"></span> phone-alt</li>
+					      <li><span class="glyphicon glyphicon-picture"></span> picture</li>
+					      <li><span class="glyphicon glyphicon-plane"></span> plane</li>
+					      <li><span class="glyphicon glyphicon-play"></span> play</li>
+					      <li><span class="glyphicon glyphicon-play-circle"></span> play-circle</li>
+					      <li><span class="glyphicon glyphicon-plus"></span> plus</li>
+					      <li><span class="glyphicon glyphicon-plus-sign"></span> plus-sign</li>
+					      <li><span class="glyphicon glyphicon-print"></span> print</li>
+					      <li><span class="glyphicon glyphicon-pushpin"></span> pushpin</li>
+					      <li><span class="glyphicon glyphicon-qrcode"></span> qrcode</li>
+					      <li><span class="glyphicon glyphicon-question-sign"></span> question-sign</li>
+					      <li><span class="glyphicon glyphicon-random"></span> random</li>
+					      <li><span class="glyphicon glyphicon-record"></span> record</li>
+					      <li><span class="glyphicon glyphicon-refresh"></span> refresh</li>
+					      <li><span class="glyphicon glyphicon-registration-mark"></span> registration-mark</li>
+					      <li><span class="glyphicon glyphicon-remove"></span> remove</li>
+					      <li><span class="glyphicon glyphicon-remove-circle"></span> remove-circle</li>
+					      <li><span class="glyphicon glyphicon-remove-sign"></span> remove-sign</li>
+					      <li><span class="glyphicon glyphicon-repeat"></span> repeat</li>
+					      <li><span class="glyphicon glyphicon-resize-full"></span> resize-full</li>
+					      <li><span class="glyphicon glyphicon-resize-horizontal"></span> resize-horizontal</li>
+					      <li><span class="glyphicon glyphicon-resize-small"></span> resize-small</li>
+					      <li><span class="glyphicon glyphicon-resize-vertical"></span> resize-vertical</li>
+					      <li><span class="glyphicon glyphicon-retweet"></span> retweet</li>
+					      <li><span class="glyphicon glyphicon-road"></span> road</li>
+					      <li><span class="glyphicon glyphicon-save"></span> save</li>
+					      <li><span class="glyphicon glyphicon-saved"></span> saved</li>
+					      <li><span class="glyphicon glyphicon-screenshot"></span> screenshot</li>
+					      <li><span class="glyphicon glyphicon-sd-video"></span> sd-video</li>
+					      <li><span class="glyphicon glyphicon-search"></span> search</li>
+					      <li><span class="glyphicon glyphicon-send"></span> send</li>
+					      <li><span class="glyphicon glyphicon-share"></span> share</li>
+					    </ul>
+					</div>
+
+					<div class="col-md-3">
+						<ul class="nav">
+						  <li><span class="glyphicon glyphicon-share-alt"></span> share-alt</li>
+					      <li><span class="glyphicon glyphicon-shopping-cart"></span> shopping-cart</li>
+					      <li><span class="glyphicon glyphicon-signal"></span> signal</li>
+					      <li><span class="glyphicon glyphicon-sort"></span> sort</li>
+					      <li><span class="glyphicon glyphicon-sort-by-alphabet"></span> sort-by-alphabet</li>
+					      <li><span class="glyphicon glyphicon-sort-by-alphabet-alt"></span> sort-by-alphabet-alt</li>
+					      <li><span class="glyphicon glyphicon-sort-by-attributes"></span> sort-by-attributes</li>
+					      <li><span class="glyphicon glyphicon-sort-by-attributes-alt"></span> sort-by-attributes-alt</li>
+					      <li><span class="glyphicon glyphicon-sort-by-order"></span> sort-by-order</li>
+					      <li><span class="glyphicon glyphicon-sort-by-order-alt"></span> sort-by-order-alt</li>
+					      <li><span class="glyphicon glyphicon-sound-5-1"></span> sound-5-1</li>
+					      <li><span class="glyphicon glyphicon-sound-6-1"></span> sound-6-1</li>
+					      <li><span class="glyphicon glyphicon-sound-7-1"></span> sound-7-1</li>
+					      <li><span class="glyphicon glyphicon-sound-dolby"></span> sound-dolby</li>
+					      <li><span class="glyphicon glyphicon-sound-stereo"></span> sound-stereo</li>
+					      <li><span class="glyphicon glyphicon-star"></span> star</li>
+					      <li><span class="glyphicon glyphicon-star-empty"></span> star-empty</li>
+					      <li><span class="glyphicon glyphicon-stats"></span> stats</li>
+					      <li><span class="glyphicon glyphicon-step-backward"></span> step-backward</li>
+					      <li><span class="glyphicon glyphicon-step-forward"></span> step-forward</li>
+					      <li><span class="glyphicon glyphicon-stop"></span> stop</li>
+					      <li><span class="glyphicon glyphicon-subtitles"></span> subtitles</li>
+					      <li><span class="glyphicon glyphicon-tag"></span> tag</li>
+					      <li><span class="glyphicon glyphicon-tags"></span> tags</li>
+					      <li><span class="glyphicon glyphicon-tasks"></span> tasks</li>
+					      <li><span class="glyphicon glyphicon-text-height"></span> text-height</li>
+					      <li><span class="glyphicon glyphicon-text-width"></span> text-width</li>
+					      <li><span class="glyphicon glyphicon-th"></span> th</li>
+					      <li><span class="glyphicon glyphicon-th-large"></span> th-large</li>
+					      <li><span class="glyphicon glyphicon-th-list"></span> th-list</li>
+					      <li><span class="glyphicon glyphicon-thumbs-down"></span> thumbs-down</li>
+					      <li><span class="glyphicon glyphicon-thumbs-up"></span> thumbs-up</li>
+					      <li><span class="glyphicon glyphicon-time"></span> time</li>
+					      <li><span class="glyphicon glyphicon-tint"></span> tint</li>
+					      <li><span class="glyphicon glyphicon-tower"></span> tower</li>
+					      <li><span class="glyphicon glyphicon-transfer"></span> transfer</li>
+					      <li><span class="glyphicon glyphicon-trash"></span> trash</li>
+					      <li><span class="glyphicon glyphicon-tree-conifer"></span> tree-conifer</li>
+					      <li><span class="glyphicon glyphicon-tree-deciduous"></span> tree-deciduous</li>
+					      <li><span class="glyphicon glyphicon-unchecked"></span> unchecked</li>
+					      <li><span class="glyphicon glyphicon-upload"></span> upload</li>
+					      <li><span class="glyphicon glyphicon-usd"></span> usd</li>
+					      <li><span class="glyphicon glyphicon-user"></span> user</li>
+					      <li><span class="glyphicon glyphicon-volume-down"></span> volume-down</li>
+					      <li><span class="glyphicon glyphicon-volume-off"></span> volume-off</li>
+					      <li><span class="glyphicon glyphicon-volume-up"></span> volume-up</li>
+					      <li><span class="glyphicon glyphicon-warning-sign"></span> warning-sign</li>
+					      <li><span class="glyphicon glyphicon-wrench"></span> wrench</li>
+					      <li><span class="glyphicon glyphicon-zoom-in"></span> zoom-in</li>
+					      <li><span class="glyphicon glyphicon-zoom-out"></span> zoom-out</li>
+					    </ul>
+					</div>
+				</div>
+				<hr/>
+				<h2><b>示例:</b></h2>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="btn-group">
+							<button class="btn btn-default"><span class="glyphicon glyphicon-align-left"></span></button>
+							<button class="btn btn-info"><span class="glyphicon glyphicon-align-center"></span></button>
+							<button class="btn btn-warning"><span class="glyphicon glyphicon-align-right"></span></button>
+							<button class="btn btn-danger"><span class="glyphicon glyphicon-align-justify"></span></button>
+						</div>
+						<br/>
+						<br/>
+						<div class="btn-group">
+							<button class="btn"><span class="glyphicon glyphicon-user"></span> User</button>
+							<a href="#" class="btn btn-primary" role="button">
+								<span class="glyphicon glyphicon-user"></span> User
+							</a>
+							<a class="btn btn-primary">	
+								<span class="glyphicon glyphicon-collapse-down"></span>
+							</a>
+						</div>
+						<br/>
+						<br/>
+						<p>
+							<a class="btn btn-default"><span class="glyphicon glyphicon-refresh"></span> Refresh</a>
+							<a class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span> Checkout</a>
+							<a class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+						</p>
+						<p>
+					        <a class="btn btn-lg btn-default"><span class="glyphicon glyphicon-comment"></span> Comment</a>
+					        <a class="btn btn-sm btn-default"><span class="glyphicon glyphicon-cog"></span> Settings</a>
+					        <a class="btn btn-sm btn-info"><span class="glyphicon glyphicon-info-sign"></span> More Info</a>
+					    </p>
+					</div>
+					<div class="col-md-6">
+						<div class="well" style="padding: 8px 0;">
+					        <ul class="nav">
+					          <li><a><span class="glyphicon glyphicon-home"></span> Home</a></li>
+					          <li><a><span class="glyphicon glyphicon-book"></span> Library</a></li>
+					          <li><a><span class="glyphicon glyphicon-pencil"></span> Applications</a></li>
+					          <li><a>Misc</a></li>
+					        </ul>
+					    </div>
+					</div>
+				</div>
+
+			</div>
+			<hr/>
+			<br/>
+			<br/>
+
+			<div id="dropdowns">
+				<h1><b><code>下拉菜单</code></b></h1>				
+			</div>
+			<hr/>
+			<br/>
+			<br/>
+
+			<div id="images">
+				<h1><b><code>图片</code></b></h1>
+				<!-- <p>.img-rounded <img src="./logo.png" alt="..." class="img-rounded" style="width: 140px; height: 140px;"></p>
+				<p>.img-circle  <img src="./logo.png" alt="..." class="img-circle" style="width: 140px; height: 140px;"></p>
+				<p>.img-thumbnail <img src="./logo.png" alt="..." class="img-thumbnail" style="width: 140px; height: 140px;"></p> -->
+			</div>
+			<hr/>
+			<br/>
+			<br/>
+
+			<div id="well">
+				<h1><b><code>Well嵌入效果</code></b></h1>
+				<div class="well">
+					<p>Well 默认嵌入效果</p>
+				</div>
+				<div class="well well-lg">
+					<p>Well well-lg嵌入效果</p>
+				</div>
+				<div class="well well-sm">
+					<p>Well well-sm嵌入效果</p>
+				</div>
+			</div>
+			<hr/>
+			<br/>
+			<br/>
+
+			<div id="nav">
+				<h1><b><code>导航</code></b></h1>
+
+				<h2><b>标签页.nav-tabs</b></h2>
+				<div>
+					<ul class="nav nav-tabs pull-right">
+					  <li class="active"><a href="#nav">Home</a></li>
+					  <li><a href="#nav">Profile</a></li>
+					  <li class="disabled"><a>Messages</a></li>
+					  <li class="dropdown">
+					    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+					      导航 <span class="caret"></span>
+					    </a>
+					    <ul class="dropdown-menu" role="menu">
+						    <li><a href="#nav">Action</a></li>
+						    <li><a href="#nav">Another action</a></li>
+						    <li class="divider"></li>
+						    <li><a href="#nav">Separated link</a></li>
+						</ul>
+				  	  </li>
+					</ul>
+					<h3 class="text-muted">Project name</h3>
+				</div>
+				<hr/>
+
+				<h2><b>标签页对齐.nav-tabs</b></h2>
+				<ul class="nav nav-tabs nav-justified">
+				  <li class="active"><a href="#nav">Home</a></li>
+				  <li><a href="#nav">Profile</a></li>
+				  <li class="disabled"><a>Messages</a></li>
+				  <li class="dropdown">
+				    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+				      导航 <span class="caret"></span>
+				    </a>
+				    <ul class="dropdown-menu" role="menu">
+					    <li><a href="#nav">Action</a></li>
+					    <li><a href="#nav">Another action</a></li>
+					    <li class="divider"></li>
+					    <li><a href="#nav">Separated link</a></li>
+					</ul>
+				  </li>
+				</ul>
+				<hr/>
+
+				<h2><b>胶囊式标签页.nav-pills</b></h2>
+				<ul class="nav nav-pills">
+				  <li class="active"><a href="#nav">Home</a></li>
+				  <li><a href="#nav">Profile</a></li>
+				  <li class="disabled"><a>Messages</a></li>
+				  <li class="dropdown">
+				    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+				      导航 <span class="caret"></span>
+				    </a>
+				    <ul class="dropdown-menu" role="menu">
+					    <li><a href="#nav">Action</a></li>
+					    <li><a href="#nav">Another action</a></li>
+					    <li class="divider"></li>
+					    <li><a href="#nav">Separated link</a></li>
+					</ul>
+				  </li>
+				</ul>
+				<hr/>
+
+				<h2><b>胶囊式标签页对齐.nav-pills</b></h2>
+				<ul class="nav nav-pills nav-justified">
+				  <li class="active"><a href="#nav">Home</a></li>
+				  <li><a href="#nav">Profile</a></li>
+				  <li class="disabled"><a>Messages</a></li>
+				  <li class="dropdown">
+				    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+				      导航 <span class="caret"></span>
+				    </a>
+				    <ul class="dropdown-menu" role="menu">
+					    <li><a href="#nav">Action</a></li>
+					    <li><a href="#nav">Another action</a></li>
+					    <li class="divider"></li>
+					    <li><a href="#nav">Separated link</a></li>
+					</ul>
+				  </li>
+				</ul>
+				<hr/>
+
+				<h2><b>竖直堆叠 胶囊式标签页.nav-pills</b></h2>
+				<ul class="nav nav-pills nav-stacked">
+				  <li class="active"><a href="#nav">Home</a></li>
+				  <li><a href="#nav">Profile</a></li>
+				  <li class="disabled"><a>Messages</a></li>
+				  <li class="dropdown">
+				    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+				      导航 <span class="caret"></span>
+				    </a>
+				    <ul class="dropdown-menu" role="menu">
+					    <li><a href="#nav">Action</a></li>
+					    <li><a href="#nav">Another action</a></li>
+					    <li class="divider"></li>
+					    <li><a href="#nav">Separated link</a></li>
+					</ul>
+				  </li>
+				</ul>
+				<hr/>
+
+				<h2><b>面包屑导航</b></h2>
+				<ol class="breadcrumb">
+				  <li><a href="#nav">Home</a></li>
+				  <li><a href="#nav">Library</a></li>
+				  <li class="active">Data</li>
+				</ol>
+				<hr/>
+
+				<h2><b>导航栏</b></h2>
+				<div class="navbar navbar-default">
+			        <div class="navbar-header">
+			          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+			            <span class="icon-bar"></span>
+			            <span class="icon-bar"></span>
+			            <span class="icon-bar"></span>
+			          </button>
+			          <a class="navbar-brand" href="#nav">Project name</a>
+			        </div>
+			        <div class="navbar-collapse collapse">
+			          <ul class="nav navbar-nav">
+			            <li class="active"><a href="#nav">Link</a></li>
+			            <li><a href="#nav">Link</a></li>
+			            <li><a href="#nav">Link</a></li>
+			            <li class="dropdown">
+			              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+			              <ul class="dropdown-menu">
+			                <li><a href="#nav">Action</a></li>
+			                <li><a href="#nav">Another action</a></li>
+			                <li><a href="#nav">Something else here</a></li>
+			                <li class="divider"></li>
+			                <li class="dropdown-header">Nav header</li>
+			                <li><a href="#nav">Separated link</a></li>
+			                <li><a href="#nav">One more separated link</a></li>
+			              </ul>
+			            </li>
+			          </ul>
+			          <ul class="nav navbar-nav navbar-right">
+			            <li class="active"><a href="#nav">Default</a></li>
+			            <li><a href="#nav">Static top</a></li>
+			            <li><a href="#nav">Fixed top</a></li>
+			          </ul>
+			        </div><!--/.nav-collapse -->
+			    </div>
+			</div>
+			<hr/>
+			<br/>
+			<br/>
+
+			<div id="za">
+				<h1><b><code>杂七杂八</code></b></h1>
+				<h2><b>警告框</b></h2>
+				<div class="alert alert-success">alert-success</div>
+				<div class="alert alert-info">alert-info</div>
+				<div class="alert alert-warning">alert-warning</div>
+				<div class="alert alert-danger alert-dismissable">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					<strong>alert-danger <a href="#" class="alert-link">警告框中的链接.alert-link</a></strong>
+				</div>
+				<hr/>
+
+				<h2><b>大屏幕介绍</b></h2>
+				<div class="jumbotron">
+				    <h1>Hello, world!</h1>
+				    <p>扩展整个视角，展示您站点上的关键内容<br/>
+				    要让大屏幕介绍是屏幕宽度，请别把它包括在.container<br/>
+				把它放在容器内会让它与您的其它内容宽度相同，并且有圆角。</p>
+				    <p><a class="btn btn-primary btn-lg" role="button">更多</a></p>
+				</div>
+				<hr/>
+
+				<h2><b>标签</b></h2>
+				<span class="label label-default">label-default</span>
+				<span class="label label-primary">label-primary</span>
+				<span class="label label-success">label-success</span>
+				<span class="label label-info">label-info</span>
+				<span class="label label-warning">label-warning</span>
+				<span class="label label-danger">label-danger</span>
+				<hr/>
+
+				<h2><b>徽章</b></h2>
+				<a href="#">未读文章 <span class="badge">42</span></a>
+				<ul class="nav nav-pills">
+				  <li class="active">
+				    <a href="#za">
+				      <span class="badge pull-right">42</span>
+				      Home
+				    </a>
+				  </li>
+				</ul>
+
+				<h2><b>胶囊式标签页 徽章</b></h2>
+				<ul class="nav nav-pills">
+				  <li class="active"><a href="#nav"><span class="badge pull-right">42</span>Home</a></li>
+				  <li><a href="#nav">Profile</a></li>
+				  <li class="disabled"><a>Messages</a></li>
+				  <li class="dropdown">
+				    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+				      导航 <span class="caret"></span>
+				    </a>
+				    <ul class="dropdown-menu" role="menu">
+					    <li><a href="#nav"><span class="badge pull-right">42</span>Action</a></li>
+					    <li><a href="#nav">Another action</a></li>
+					    <li class="divider"></li>
+					    <li><a href="#nav">Separated link</a></li>
+					</ul>
+				  </li>
+				</ul>
+				<hr/>
+
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<div class="footer">
+    <div class="jumbotron">
+        <p class="text-center">
+            Designed by jph
+        </p>
+        <p class="text-center"
+            Powered by 
+            <a href="http://webpy.org">Webpy</a>
+            &amp;&amp;
+            <a href="http://getbootstrap.com">Bootstrap</a>
+        </p>
+    </div> 
+</div>
+
+</body>
+
+</html>
+
+
+

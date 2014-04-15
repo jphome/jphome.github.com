@@ -2,7 +2,13 @@
 <rss version="2.0">  <channel>
     <title>小蒋</title>
     <link>http://jphome.github.com</link>
-    <pubDate>02 Apr 14 23:10 CST</pubDate>
+    <pubDate>16 Apr 14 00:09 CST</pubDate>
+    <item>
+      <title>安装使用slickedit</title>
+      <link>http://jphome.github.com/blog/2014/04/13/readme_slickedit.html</link>
+      <pubDate>2014-04-13 10:06:37 +0800</pubDate>
+      <description>&lt;h3&gt;类似&lt;code&gt;SourceInsight&lt;/code&gt;编辑器,尝个鲜&lt;/h3&gt;&#xA;&#xA;&lt;hr/&gt;&#xA;&#xA;&lt;h4&gt;官网下载v18.0.1版本&lt;/h4&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;wget http://www.slickedit.com/assets/trial/se_18000102_linux32.tar.gz&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;h4&gt;安装&lt;/h4&gt;&#xA;&#xA;&lt;pre&gt;&#xA;    tar xvf se_18000102_linux32.tar.gz&#xA;    cd se_18000102_linux32 &#xA;    sudo ./vsinst&#xA;    安装到/opt/slickedit路径下&#xA;&lt;/pre&gt;&#xA;&#xA;&lt;h4&gt;破解 &lt;a href=&#34;http://blog.book41.net/?p=751&#34;&gt;REF&lt;/a&gt;&lt;/h4&gt;&#xA;&#xA;&lt;pre&gt;&#xA;    cd /opt/slickedit/bin&#xA;    sudo cp vs_exe vs_exe.bak       ###&lt; 备份&#xA;    sudo chmod 775 vs_exe           ###&lt; 加w权限&#xA;    sudo vim vs_exe -b              ###&lt; 编辑二进制,不加换行符&#xA;    :%!xxd                          ###&lt; 进入十六进制编辑模式&#xA;    /009D370                        ###&lt; 搜索地址&#xA;    修改5个字节                     ###&lt; 具体见下图&#xA;    :%!xxd -r                       ###&lt; 转回二进制&#xA;    :wq                             ###&lt; 保存退出&#xA;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;&lt;img src=&#34;/assets/media/img/img_readme_slickedit_0.png&#34; alt=&#34;from&#34; /&gt;&#xA;&#xA;&lt;br/&gt;&#xA;&lt;br/&gt;&#xA;&lt;img src=&#34;/assets/media/img/img_readme_slickedit_1.png&#34; alt=&#34;to&#34; /&gt;&#xA;&lt;/p&gt;&#xA;</description>
+    </item>
     <item>
       <title>Linux 下查看局域网内所有主机IP和MAC</title>
       <link>http://jphome.github.com/blog/2014/03/29/readme_nmap.html</link>

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>用u盘扩展openwrt路由器存储</title>
+    <title>Static</title>
   
     <meta name="author" content="JPH">
 
@@ -74,64 +74,28 @@
 
       <div class="content">
         <div class="page-header">
-  <h1>用u盘扩展openwrt路由器存储 </h1>
+  <h1>Static </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <h3>说明</h3>
+    <h3>学习web相关 html css javascript</h3>
 
-<p>由于flash太小,可以用<code>读卡器+sd卡/U盘/移动硬盘</code>来扩展路由器的存储
-<hr/></p>
-
-<h4>1. 将usb存储格式化成ext3文件系统</h4>
-
-<pre><code>mkfs.ext3 /dev/sdb
-</code></pre>
-
-<h4>2. 挂载sd卡</h4>
-
-<pre><code>mkdir /mnt/sda1
-mount -t ext3 /dev/sda1 /mnt/sda1
-mkdir /mnt/sda1/packages
-</code></pre>
-
-<h4>3. 修改opkg配置文件</h4>
-
-<pre><code>echo dest usb /mnt/sda1/packages &gt;&gt; /etc/opkg.conf
-</code></pre>
-
-<h4>4. opkg更新</h4>
-
-<pre><code>opkg update
-</code></pre>
-
-<h4>5. 修改PATH环境变量</h4>
-
-<p>vim /etc/profile</p>
-
-<pre><code>export PATH=$PATH:/mnt/sda1/packages/usr/bin:/mnt/sda1/packages/usr/sbin
-</code></pre>
-
-<h4>6. 安装软件</h4>
-
-<pre><code>opkg --dest usb install python
-opkg --dest usb install helloworld.ipk
-</code></pre>
+<p><a href="/static/bootstrap_3.0/index.html">bootstrap_3.0</a></p>
 
     <hr>
     <div class="pagination">
       <ul>
         <ul>
           
-            <li class="prev"><a href="/blog/2014/03/29/readme_nmap.html" title="Linux 下查看局域网内所有主机IP和MAC">&larr; Previous</a></li>
           
+            <li class="prev disabled"><a>&larr; Previous</a></li>
           
 
             <li><a href="/archive">Archive</a></li>
 
           
-            <li class="next"><a href="/blog/2014/03/29/openwrt_sdk.html" title="使用openwrt sdk开发ipk">Next &rarr;</a></li>
+            <li class="next"><a href="/blog/2014/04/13/readme_slickedit.html" title="安装使用slickedit">Next &rarr;</a></li>
           
           
         </ul>
@@ -157,23 +121,19 @@ opkg --dest usb install helloworld.ipk
   
   <div class="span4">
     <h4>发布时间</h4>
-    <div class="date"><span>2014-03-29 21:36:20</span></div>
+    <div class="date"><span>2014-04-15 23:41:53</span></div>
     <br>
     <h4>分类(Categories)</h4>
     <ul class="tag_box">
     
       <li>
-  <a href="/categories/#%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3-ref">技术相关 <span>14</span></a>
+  <a href="/categories/#default-ref">default <span>1</span></a>
 </li>
     
     </ul>
     <br>
     <h4>标签(Tags)</h4>
     <ul class="tag_box">
-    
-      <li>
-  <a href="/tags/#openwrt-ref">openwrt <span>2</span></a>
-</li>
     
     </ul>
   </div>
