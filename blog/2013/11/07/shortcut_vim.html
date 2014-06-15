@@ -95,7 +95,7 @@
 
 <pre><code>d                              ###&lt; 剪切
 y                              ###&lt; 复制
-c                              ###&lt; 剪切并进入insert模式
+s                              ###&lt; 剪切并进入insert模式
 p                              ###&lt; 粘帖
 </code></pre>
 
@@ -105,9 +105,9 @@ p                              ###&lt; 粘帖
 
 <h3>重复操作</h3>
 
-<h6>在按键前加数字</h6>
-
-<pre><code>10dd
+<pre><code>.                               ###&lt; 重复上次的命令
+10dd                            ###&lt; 在按键前加数字(重复次数)
+100iinsert[ESC]                 ###&lt; 插入100个insert
 </code></pre>
 
 <h3>缩进代码</h3>
@@ -134,7 +134,12 @@ L                              ###&lt; 移动光标到屏幕下面
 
 b, w                           ###&lt; 移动到上，下一个词
 gg, G                          ###&lt; 跳到文档开头，结尾
+100G                           ###&lt; 跳到第100行
+
 %                              ###&lt; 跳到括号匹配处
+*                              ###&lt; 匹配当前单词,移动到下一个匹配单词
+#                              ###&lt; 匹配当前单词,移动到上一个匹配单词
+
 </code></pre>
 
 <h3>书签</h3>
@@ -158,15 +163,15 @@ d{motion}                      ###&lt; 删除motion命令跨过的字符
 
 <h3>退出：</h3>
 
-<pre><code>:q!                             ###&lt; 不保存退出
-:wq                             ###&lt; 保存退出
-ZZ                              ###&lt; 保存并退出
+<pre><code>:q!                            ###&lt; 不保存退出
+:wq                            ###&lt; 保存退出
+ZZ                             ###&lt; 保存并退出
 </code></pre>
 
 <h3>undo &amp; redo</h3>
 
 <pre><code>u                              ###&lt; undo
-C+R                            ###&lt; redo
+&lt;C+r&gt;                          ###&lt; redo
 </code></pre>
 
 <h3>复制粘帖剪切：</h3>
@@ -195,8 +200,8 @@ d                              ###&lt; 剪切选择的部分
 
 <h3>翻页</h3>
 
-<pre><code>C+f, C+b                            ###&lt; 向下，上翻页
-C+d, C+u                            ###&lt; 向下，上半翻页
+<pre><code>&lt;C+f&gt;, &lt;C+b&gt;                   ###&lt; 向下，上翻页
+&lt;C+d&gt;, &lt;C+u&gt;                   ###&lt; 向下，上半翻页
 </code></pre>
 
 <h3>跳到第23行</h3>
@@ -205,7 +210,7 @@ C+d, C+u                            ###&lt; 向下，上半翻页
 
 <h3>查找替换</h3>
 
-<pre><code>C-w f                          ###&lt; 查找词
+<pre><code>&lt;C-w&gt; f                        ###&lt; 查找词
 gf                             ###&lt; 查找词
 /text                          ###&lt; 从当前光标处开始搜索字符串text
 ?text                          ###&lt; 和上面类似，但是是反方向
@@ -227,16 +232,16 @@ gf                             ###&lt; 查找词
 :sf xxx                        ###&lt; 在新窗口中打开xxx文件
 :close                         ###&lt; 关闭当前窗口
 :only                          ###&lt; 关闭除当前窗口外所有窗口
-C-w v                          ###&lt; 分割
-C-w h                         ###&lt; 到左面的窗口
-C-w j                         ###&lt; 到下面的窗口
-C-w k                         ###&lt; 到上面的窗口
-C-w l                         ###&lt; 到右面的窗口
-C-w t                         ###&lt; 到顶部的窗口
-C-w b                         ###&lt; 到底部的窗口
-C-w w                         ###&lt; 切换窗口
-C-w &gt;                         ###&lt; 调整窗口大小
-C-w &lt;                         ###&lt; 调整窗口大小
+&lt;C-w&gt; v                        ###&lt; 分割
+&lt;C-w&gt; h                        ###&lt; 到左面的窗口
+&lt;C-w&gt; j                        ###&lt; 到下面的窗口
+&lt;C-w&gt; k                        ###&lt; 到上面的窗口
+&lt;C-w&gt; l                        ###&lt; 到右面的窗口
+&lt;C-w&gt; t                        ###&lt; 到顶部的窗口
+&lt;C-w&gt; b                        ###&lt; 到底部的窗口
+&lt;C-w&gt; w                        ###&lt; 切换窗口
+&lt;C-w&gt; &gt;                        ###&lt; 调整窗口大小
+&lt;C-w&gt; &lt;                        ###&lt; 调整窗口大小
 </code></pre>
 
 <h3>跳转</h3>
