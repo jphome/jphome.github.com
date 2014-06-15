@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>sed</title>
+  
+    <meta name="author" content="JPH">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/twitter/stylesheets/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/style.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/widgets/google_prettify/stylesheets/twitter-bootstrap.css" type="text/css" rel="stylesheet" media="all">
+ 
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/" style="padding-left:67px;">小蒋</a>
+          <ul class="nav">
+            
+              
+
+
+  <li><a href="/categories">Categories</a></li>
+
+
+            
+              
+
+
+  <li><a href="/tags">Tags</a></li>
+
+
+            
+              
+
+
+  <li><a href="/about">About</a></li>
+
+
+            
+              
+
+
+  <li><a href="/static">Static</a></li>
+
+
+            
+            <li>
+            <!-- <a href="/static">Static</a> -->
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        <div class="page-header">
+  <h1>sed </h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <h3>说明</h3>
+
+<p>摘录sed工具的使用</p>
+
+<hr />
+
+<h3>url:</h3>
+
+<pre>
+http://blog.csdn.net/a81895898/article/details/8482387
+http://coolshell.cn/articles/9104.html
+http://tsnc.zhongaokao.com/tsnc_wgrj/doc/sed.htm
+http://kodango.com/sed1line-notes
+</pre>
+    
+
+<h3>sed调试工具</h3>
+
+<pre><code>sedsed
+</code></pre>
+
+<h3>正则：</h3>
+
+<blockquote>
+<h4>规则</h4>
+
+<pre>
+^       表示一行的开头
+$       表示一行的结尾
+\<      表示词首。如\<abc表示以abc为首的词
+\>      表示词尾。如\>abc表示以abc为尾的词
+.       表示任意单个字符
+*       表示某个字符出现了0次或多次
++       表示某个字符出现了1次或多次
+[abc]   表示a或b或c字符
+[^c]    表示非c的字符
+&       表示被匹配的变量
+\num    被匹配的第num个分组（\(...\)括起来的部分成为分组）
+</pre>
+
+<h4>e.g.</h4>
+
+<pre>
+/[012]\{3\}/                                ###< 三个数字 [012]{3}
+sed 's/xxx/[&]/g' my.txt                    ###< 匹配项加[]
+s/(ACTIVE_CONSOLES=/dev/tty\[1-)6]/\12]/    ###< ACTIVE_CONSOLES=/dev/tty[1-6]
+                                            ###< -> ACTIVE_CONSOLES=/dev/tty[1-2]
+</pre>
+</blockquote>
+
+<h3>工作形式</h3>
+
+<pre>
+sed [option] script file
+script是由一条或多条指令(instruction)构成
+指令由正则表达式(pattern)和编辑命令(action)构成
+</pre>
+
+<h3>工作过程</h3>
+
+<pre>
+以行为单位处理
+每一行都是被读入到一块缓存空间，该空间名为模式空间(pattern space)
+</pre>
+
+<h3>sed选项</h3>
+
+<blockquote>
+<h4>-e：选项可选，在命令行中同时指定多个操作指令时用到</h4>
+
+<pre>
+sed -e 's/x/y/' -e 's/y/x/' file
+sed 's/x/y/;s/y/x/' file
+</pre>
+
+<h4>-n：抑制默认输出（sed默认会把处理过的内容全输出）</h4>
+
+<pre>
+sed 's/x/y/p' file          默认输出全部内容，等于把匹配的行输出两遍
+sed -n 's/x/y/p' file       只打印匹配的行
+</pre>
+
+<h4>-i：对文件进行修改</h4>
+
+<pre>
+默认不修改文件，输出到stdout
+作用类似 sed "s/my/jphome's/g" pets.txt > pets.txt
+sed "s/my/jphome's/g" pets.txt          ###< 输出文件到stdout，没有对文件进行修改
+</pre>
+</blockquote>
+
+<h3>sed打印命令</h3>
+
+<pre>
+# p：打印匹配行 （类似于grep）
+sed '/fish/p' my.txt        /// 会输出所有
+sed -n 'fish/p' my.txt      /// 只打印匹配行
+
+# =：打印行号
+sed '/fish/=' my.txt
+
+# l：打印行，打印在模式空间中的行，同时显示控制字符
+</pre>
+
+<h3>sed转换命令</h3>
+
+<pre>
+# [address]y/SET1/SET2/
+echo "hello world" | sed 'y/abcdefghijklmnopqrstuvwxyz/ABCDEFGHIJKLMNOPQRSTUVWXYZ/'     ###< -> HELLO WORLD
+sed 'y/abcdefghijklmnopqrstuvwxyz/ABCDEFGHIJKLMNOPQRSTUVWXYZ/' file
+</pre>
+
+<h3>sed编辑命令</h3>
+
+<pre>
+# i：前面插入
+# a：后面添加
+# c：替换行
+sed '1 i Insert' my.txt             ###< 在第一行前插入一行xxx
+sed '$ a Append' my.txt             ###< 在最后一行后添加一行xxx
+sed '/fish/a Append fish' my.txt    ###< 在匹配到fish的那行后面插入一行xxx
+sed '2 c This is monkey'            ###< 替换第二行为xxx
+sed "/fish/c this is monkey"        ###< 替换匹配到fish的行
+/fish/c\                            ###< 支持多行
+xxx\                                ###< sed -i -f xxx.sed xxx.txt
+xxx
+
+# d：删除行
+sed '/fish/d' my.txt        /// 删除匹配到fish的一行
+sed '2d' my.txt         /// 删除第二行
+sed '2,$d' my.txt       /// 删除第二到最后一行
+
+# s：匹配替换(s/xx/xx/)
+单引号内无法使用转义符/
+# 只替换每一行的第一个xx
+sed 's/xx/xx/1'
+# 只替换每一行的第二个xx
+sed 's/xx/xx/2
+# 只替换每一行的第三个以后的xx
+sed 's/xx/xx/3g'
+# 替换每一行的所有匹配
+sed 's/xx/XX/g'
+
+# r: 将文件内容读入匹配行后面
+# sed会把r后面的任何字符判断为文件名,直到回车或单引号，所以不能用;来连接其他语句
+sed '/pattern/r file1' file                     ###< 将file1文件的内容添加到匹配行后面
+sed '/pattern/{r file1' -e other cmd} file
+sed '/pattern/{r file1
+other cmd
+}' file
+
+# w: 将匹配到的内容写到文件
+sed '/pattern/w file1' file
+</pre>
+
+<h3>保持空间</h3>
+
+<pre>
+# 小写覆盖、大写追加（追加内容与原内容以\n分隔）
+h/H     将模式空间的内容复制/者追加到保持空间
+g/G     将保持空间的内容复制/者追加到模式空间
+x       交换模式空间和保持空间的内容
+</pre>
+
+<h3>其他</h3>
+
+<blockquote>
+<h4>!</h4>
+
+<pre>
+表示后面的命令对所有没有被选定的行发生作用
+/pattern/!{}
+</pre>
+
+<h4>把12，34，56&hellip;行当成同一行来匹配</h4>
+
+<pre>
+sed 'N;s/\n//' my.txt       ###< 就是把12，34，56...合并成一行
+</pre>
+
+<h4>修改指定行</h4>
+
+<pre>
+sed '3s/xx/xx/g' pets.txt               ###< 第3行
+sed '3,6s/xx/xx/g' pets.txt             ###< 第3～6行
+sed '1,${/this/d;s/^ *//g}' pets.txt
+</pre>
+
+<h4>在sed语句内使用变量</h4>
+
+<pre>
+sed -i 's/^xxx/xx=`$DIR`/' xxx.file
+</pre>
+
+<h4>条件正则</h4>
+
+<pre>
+sed '/^#define/{s/ //g}'
+</pre>
+
+<h4>n: 读取下一个输入行,用下一个命令处理新的行</h4>
+
+<pre>
+/.H1/{n;/^$/d}      ###< 删除.H1之后的第一个空行
+</pre>
+</blockquote>
+
+<h3>例子</h3>
+
+<pre>
+# 去除html文件中的tags
+sed 's/<[^>]*>//g' index.html > index.html
+# 行首加#
+sed 's/^/#/g' pets.txt
+# 行尾加 ---
+sed 's/$/ ---/g' pets.txt
+# 使用逗号,拼接行
+sed 'H;$!d;${x;s/^\n//;s/\n/,/g}' file
+
+# 命令打包
+sed '4,6 {/This/{/fish/d}}' pets.txt
+</pre>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+        <ul>
+          
+          
+            <li class="prev disabled"><a>&larr; Previous</a></li>
+          
+
+            <li><a href="/archive">Archive</a></li>
+
+          
+            <li class="next"><a href="/blog/2014/04/13/readme_slickedit.html" title="安装使用slickedit">Next &rarr;</a></li>
+          
+          
+        </ul>
+      </ul>
+    </div>
+    <hr>
+    <!-- 
+<div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+ -->
+  </div>
+  
+  <div class="span4">
+    <h4>发布时间</h4>
+    <div class="date"><span>2014-06-15 13:14:48</span></div>
+    <br>
+    <h4>分类(Categories)</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/categories/#default-ref">default <span>1</span></a>
+</li>
+    
+    </ul>
+    <br>
+    <h4>标签(Tags)</h4>
+    <ul class="tag_box">
+    
+    </ul>
+  </div>
+</div>
+
+      </div>
+
+      <footer>
+        <p>&copy; JPH 2014 
+          with help from <a href="http://github.com/wendal/gor" target="_blank" title="Gor -- Fast Blog">Gor</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+          </p>
+        <a id="Header1_HeaderTitle" class="headermaintitle" href="http://jphome.github.io/rss.xml">
+            <marquee style="FONT-SIZE: 20pt; FILTER: alpha(opacity=100,style=3); WIDTH: 100%; LINE-HEIGHT: 100%; FONT-FAMILY: 华文行楷" scrollamount="3" font="">
+                <b>人生苦短, 我却用C</b>
+            </marquee>
+        </a>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+
+    
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-123-12']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </body>
+</html>
