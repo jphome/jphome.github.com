@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>vim的相关使用</title>
+    <title>Raspberry Pi烧写Openwrt固件</title>
   
     <meta name="author" content="JPH">
 
@@ -74,167 +74,50 @@
 
       <div class="content">
         <div class="page-header">
-  <h1>vim的相关使用 </h1>
+  <h1>Raspberry Pi烧写Openwrt固件 </h1>
 </div>
 
 <div class="row">
   <div class="span8">
     <h3>说明</h3>
 
-<p>摘录vim编辑器的使用</p>
+<p>给树莓派做上Openwrt固件学习luci编程</p>
 
-<hr />
+<p>参考: <a href="http://show.smzdm.com/detail/41689">http://show.smzdm.com/detail/41689</a>
+<hr/></p>
 
-<h3>vim模式</h3>
+<h3>1.下载Openwrt固件、启动补丁文件</h3>
 
-<ul>
-<li>nromal</li>
-<li>visual（选择）</li>
-<li>insert</li>
-<li>cmd-line/Ex
+<pre><code>固件：openwrt-brcm2708-sdcard-vfat-ext4_224.img
+http://downloads.openwrt.org/attitude_adjustment/12.09/brcm2708/generic/
+启动补丁：使用OPENWRT的正确姿势.zip
+http://pan.baidu.com/share/link?shareid=496011089&amp;uk=1328231555
+</code></pre>
 
-<ul>
-<li>&lsquo;:&lsquo;进入cmd-line模式</li>
-<li>&lsquo;Q&rsquo;进入Ex模式（多cmd-line模式）</li>
-</ul></li>
-</ul>
+<h3>2.烧写固件</h3>
 
-<h3>常规插件安装方法</h3>
+<p>插上SD卡</p>
 
-<pre>
-下载插件包xxx.zip
-解压zip： xxx.txt -> ~/.vim/doc
-xxx.vim -> ~/.vim/plugin
-进~/.vim/doc
-:helptags .                 ###< 把新的xxx.txt加入helptags
-</pre>
-   
+<pre><code>sudo umount /dev/sdbn           ###&lt; 卸载/dev/sdb的所有分区
+sudo fdisk /dev/sdb             ###&lt; 删除/dev/sdb的所有分区
+sudo dd bs=1M if=openwrt-brcm2708-sdcard-vfat-ext4_224.img of=/dev/sdb
+</code></pre>
 
-<h3>map命令相关：</h3>
-
-<blockquote>
-<h4>在设置map时按键名</h4>
-
-<pre>
-<C-a>       Ctrl+a
-<A-a>       Alt+a
-<C-A-a>     Ctrl+Alt+a
-</pre>
-
-<h4>map命令前缀</h4>
-
-<pre>
-默认的map命令影响到normal和visual模式
-nore        表示非递归
-n           表示在普通模式下生效
-v           表示在可视模式下生效
-i           表示在插入模式下生效
-c           表示在命令行模式下生效
-</pre>
-#### 非递归说明
-<pre>
-:map a b
-:map c a
-对于c等效于
-:map c b
-:noremap c a                   ###< 这种就指定了非递归map
-</pre>
-#### 清除map
-<pre>
-:unmap c                       ###< 删除映射
-:mapclear                      ###< 直接清除相关模式下的所有映射
-</pre>
-</blockquote>
-
-<h3>taglist.vim中使用的tags生成</h3>
-
-<pre>
-ctags -R ./src              ###< 生成tags
-ctags -R *
-</pre>
-
-<h3>保存当前的编辑状态</h3>
-
-<h6>要恢复上次的编辑环境，需要保存session或viminfo</h6>
-
-<blockquote>
-<h4>使用Session</h4>
-
-<pre>
-:mksession [file.vim]       ###< 保存session,默认session文件名为Session.vim
-:mksession!                 ###< 已存在Session.vim的情况下
-:source Session.vim         ###< 恢复vim状态
-vim -S Session.vim          ###< 启动vim时回复session
-</pre>
-
-<h4>使用viminfo</h4>
-
-<pre>
-:wviminfo hsmart.viminfo    ###< 保存viminfo
-:rviminfo hsmart.viminfo    ###< 读入保存的viminfo文件
-</pre>
-</blockquote>
-
-<h3>设置编码格式</h3>
-
-<pre>
-encoding:       vim内部使用的字符编码方式，包括viｍ的buffer、菜单文本、消息文本等
-fileencoding:   vim中当前编辑的文件的字符编码方式，vim保存文件时也会将文件保存为这种编码方式
-fileencodings:  vim启动时会按照它所列出的字符编码方式逐一探测即将打开的文件的字符编码方式，并且将fileencoding设置为最终探测到的字符编码方式。因此最好将unicode编码方式放到这个列表的最前面，将拉丁语系编码方式latin1放到最后面
-</pre>
-
-<h3>函数</h3>
-
-<h6>内部调用还是得声明在先</h6>
-
-<pre>
-:call test()
-
-func! test()
-endfunc
-
-func test()
-endfunc
-
-function! Test()
-  if
-  else
-  endif
-endfunction
-</pre>
-
-<h3>插件管理vundle</h3>
-
-<pre>
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-:BundleInstall
-</pre>
-
-<h3>杂项</h3>
-
-<pre>
-Ctrl+z/:suspend                ###< 在shell下是挂起vim; gui下是最小化窗口
-:!{command}                    ###< 执行shell命令
-:shell                         ###< 开一个新的shell
-:!time {command}               ###< 跑完显示运行时间
-:r !date                       ###< 将shell执行结果读到正在编辑的文件
-:1,4!sort                      ###< 将几行排序
-:set fileencoding              ###< 查看变量
-</pre>
+<p>完成后使用补丁文件bootcode.bin、start.elf替换SD卡FAT分区的启动文件</p>
 
     <hr>
     <div class="pagination">
       <ul>
         <ul>
           
-            <li class="prev"><a href="/blog/2013/11/07/python_data_struct.html" title="python数据结构">&larr; Previous</a></li>
           
+            <li class="prev disabled"><a>&larr; Previous</a></li>
           
 
             <li><a href="/archive">Archive</a></li>
 
           
-            <li class="next"><a href="/blog/2013/10/27/install_ppstream.html" title="ubuntu12.04安装PPStream">Next &rarr;</a></li>
+            <li class="next"><a href="/blog/2014/06/15/readme_sed.html" title="sed">Next &rarr;</a></li>
           
           
         </ul>
@@ -260,7 +143,7 @@ Ctrl+z/:suspend                ###< 在shell下是挂起vim; gui下是最小化�
   
   <div class="span4">
     <h4>发布时间</h4>
-    <div class="date"><span>2013-11-06 22:58:35</span></div>
+    <div class="date"><span>2014-08-01 21:55:26</span></div>
     <br>
     <h4>分类(Categories)</h4>
     <ul class="tag_box">
@@ -275,7 +158,11 @@ Ctrl+z/:suspend                ###< 在shell下是挂起vim; gui下是最小化�
     <ul class="tag_box">
     
       <li>
-  <a href="/tags/#vim-ref">vim <span>2</span></a>
+  <a href="/tags/#raspberry-pi-ref">raspberry pi <span>2</span></a>
+</li>
+    
+      <li>
+  <a href="/tags/#openwrt-ref">openwrt <span>3</span></a>
 </li>
     
     </ul>
