@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>使用openwrt sdk开发ipk</title>
+    <title>使用OpenWrt SDK开发ipk(helloworld.ipk)</title>
   
     <meta name="author" content="JPH">
 
@@ -74,7 +74,7 @@
 
       <div class="content">
         <div class="page-header">
-  <h1>使用openwrt sdk开发ipk </h1>
+  <h1>使用OpenWrt SDK开发ipk(helloworld.ipk) </h1>
 </div>
 
 <div class="row">
@@ -83,17 +83,19 @@
 
 <h4>几年前想编译一个helloworld.ipk,由于以下原因当年尝试失败了</h4>
 
-<pre><code>当年太水(现在还是很湿)
+<pre>
+当年太水(现在还是很湿)
 学校网络太操蛋(ubuntu下借脚本连闪讯,时断时序,编译个固件要纯手工6+H,想想都是泪)
 太jb费时间(一个helloworld整了几天没整出来,灰心了)
-</code></pre>
+</pre>
 
 <hr/>
 
 <h4>1. 下载openwrt trunk代码</h4>
 
-<pre><code>svn co svn://svn.openwrt.org/openwrt/trunk/
-</code></pre>
+<pre>
+svn co svn://svn.openwrt.org/openwrt/trunk/
+</pre>
 
 <h4>2. 编译openwrt brcm63xx固件,注意勾上sdk</h4>
 
@@ -113,13 +115,13 @@ tar xvf OpenWrt-SDK-xxx.tar.bz2
 <h5>在package路径下建立helloworld工程</h5>
 
 <pre>
-    package
-    ├── helloworld
-    │   ├── Makefile
-    │   └── src
-    │       ├── helloworld.c
-    │       └── Makefile
-    └── Makefile
+package
+├── helloworld
+│   ├── Makefile
+│   └── src
+│       ├── helloworld.c
+│       └── Makefile
+└── Makefile
 </pre>
 
 <h5>建立staging_dir链接(交叉编译工具)</h5>
@@ -268,7 +270,7 @@ clean:
     <ul class="tag_box">
     
       <li>
-  <a href="/tags/#openwrt-ref">openwrt <span>1</span></a>
+  <a href="/tags/#OpenWrt-ref">OpenWrt <span>4</span></a>
 </li>
     
     </ul>
