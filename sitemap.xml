@@ -4,6 +4,16 @@
 		<loc>http://jphome.github.com/</loc>
 	</url>
 	<url>
+		<loc>http://jphome.github.com/blog/2014/08/03/luci_add_page.html</loc>
+		<lastmod>2014-08-03 19:21:14</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
+		<loc>http://jphome.github.com/blog/2014/08/02/fun.html</loc>
+		<lastmod>2014-08-02 22:09:16</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
 		<loc>http://jphome.github.com/blog/2014/08/01/raspberry_pi_openwrt.html</loc>
 		<lastmod>2014-08-01 21:55:26</lastmod>
 		<changefreq>weekly</changefreq>

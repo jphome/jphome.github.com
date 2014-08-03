@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>LuCI新增页面</title>
+  
+    <meta name="author" content="JPH">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/twitter/stylesheets/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/style.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/widgets/google_prettify/stylesheets/twitter-bootstrap.css" type="text/css" rel="stylesheet" media="all">
+ 
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/" style="padding-left:67px;">小蒋</a>
+          <ul class="nav">
+            
+              
+
+
+  <li><a href="/categories">Categories</a></li>
+
+
+            
+              
+
+
+  <li><a href="/tags">Tags</a></li>
+
+
+            
+              
+
+
+  <li><a href="/about">About</a></li>
+
+
+            
+              
+
+
+  <li><a href="/static">Static</a></li>
+
+
+            
+            <li>
+            <!-- <a href="/static">Static</a> -->
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        <div class="page-header">
+  <h1>LuCI新增页面 </h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <h3>说明</h3>
+
+<p>以luci-app-njitclient客户端学习luci新增页面
+<hr/></p>
+
+<h3>代码结构</h3>
+
+<pre>
+├── helloworld
+├── luci-app-njitclient-master
+│   ├── files
+│   │   └── root
+│   │       ├── etc
+│   │       │   ├── config
+│   │       │   │   └── njitclient
+│   │       │   └── init.d
+│   │       │       └── njitclient
+│   │       └── usr
+│   │           └── lib
+│   │               └── lua
+│   │                   └── luci
+│   │                       ├── controller
+│   │                       │   └── njitclient.lua
+│   │                       └── model
+│   │                           └── cbi
+│   │                               └── njitclient.lua
+│   ├── LICENSE
+│   ├── Makefile
+│   └── README.md
+└── Makefile
+</pre>
+
+<hr/>
+
+<h3>代码</h3>
+
+<h5>package/luci-app-njitclient-master/Makefile</h5>
+
+<pre>
+include $(TOPDIR)/rules.mk
+
+## 软件包名称，将在menuconfig和ipkg可以看到
+PKG_NAME:=luci-app-njitclient
+## 软件版本号
+PKG_VERSION=1.0
+## Makefile的版本号
+PKG_RELEASE:=1
+## 软件维护者
+PKG_MAINTAINER:=JPH <jphome98@163.com>
+## 源代码的文件名
+# PKG_SOURCE
+## 源代码的下载网站位置
+# PKG_SOURCE_URL
+# 获取代码方式可以为git、svn、cvs、hg、bzr等
+# 下载方法参考$(INCLUDE_DIR)/download.mk 和 $(SCRIPT_DIR)/download.pl
+#   @SF     sourceforge网站
+#   @GNU    GNU网站
+#   @GNOME
+#   @KERNEL
+## 源代码文件的效验码
+# PKG_MD5SUM
+## 源代码文件的解压方法
+# PKG_CAT
+
+## 软件包编译目录 [默认为$(BUILD_DIR)/$( PKG_NAME)$( PKG_VERSION)]
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
+
+include $(INCLUDE_DIR)/package.mk
+
+## 编译包 定义
+define Package/$(PKG_NAME)
+    # 包的类型
+    SECTION:=luci
+    # 分类, 在menuconfig的菜单下将可以找到
+    CATEGORY:=LuCI
+    # 子分类 对应menuconfig中/LuCI/3. Applications/luci-app-njitclient
+    SUBMENU:=3. Applications
+    # 软件包的简短描述
+    TITLE:=NJIT 802.1X Client for LuCI
+    # control中的 Architecture 字段, 默认为当前编译器的交叉编译环境平台
+    PKGARCH:=all
+    # URL               软件包的下载地址
+    # MAINTAINER        维护者
+    # DEPENDS           与其他软件的依赖, 即如编译或安装需要其他软件时需要说明 DEPENDS:=+libmath +libzlib
+endef
+
+## 软件包的详细描述, control中的 Description 字段, 默认为TITLE
+define Package/$(PKG_NAME)/description
+    This package contains LuCI configuration pages for njit8021xclient.
+endef
+
+## 编译准备 创建文件夹、拷贝源文件
+define Build/Prepare
+endef
+
+## 针对需要配置的软件包 Automake中./configure
+define Build/Configure
+endef
+
+## 编译方法 没特殊说明不定义 使用默认编译方法
+# $(MAKE) -C $(PKG_BUILD_DIR) \
+#   $(TARGET_CONFIGURE_OPTS) CFLAGS="$(TARGET_CFLAGS) -I$(LINUX_DIR)/include"
+define Build/Compile
+endef
+
+## 软件包的安装方法     $(1) -> 嵌入系统的镜像目录 /
+define Package/$(PKG_NAME)/install
+    $(INSTALL_DIR) $(1)/etc/config
+    $(INSTALL_DIR) $(1)/etc/init.d
+    $(INSTALL_DIR) $(1)/usr/lib/lua/luci/model/cbi
+    $(INSTALL_DIR) $(1)/usr/lib/lua/luci/controller
+    
+    $(INSTALL_CONF) ./files/root/etc/config/njitclient $(1)/etc/config/njitclient
+    $(INSTALL_BIN) ./files/root/etc/init.d/njitclient $(1)/etc/init.d/njitclient
+    $(INSTALL_DATA) ./files/root/usr/lib/lua/luci/model/cbi/njitclient.lua $(1)/usr/lib/lua/luci/model/cbi/njitclient.lua
+    $(INSTALL_DATA) ./files/root/usr/lib/lua/luci/controller/njitclient.lua $(1)/usr/lib/lua/luci/controller/njitclient.lua
+endef
+
+## 软件包安装前处理方法, 使用脚本语言
+define Package/$(PKG_NAME)/preinst
+    #!/bin/sh
+    echo "###$(PKG_MAINTAINER): To install $(PKG_NAME)"
+endef
+
+## 软件包安装后处理方法, 使用脚本语言
+define Package/$(PKG_NAME)/postinst
+    #!/bin/sh
+    echo "###$(PKG_MAINTAINER): $(PKG_NAME) install succeed"
+endef
+
+## 软件包删除前处理方法, 使用脚本语言
+define Package/$(PKG_NAME)/prerm
+    #!/bin/sh
+    echo "###$(PKG_MAINTAINER): To remove $(PKG_NAME)"
+endef
+
+## 软件包删除后处理方法, 使用脚本语言
+define Package/$(PKG_NAME)/postrm
+    #!/bin/sh
+    echo "###$(PKG_MAINTAINER): $(PKG_NAME) remove succeed"
+endef
+
+## 使用eval函数实现各种定义
+$(eval $(call BuildPackage, $(PKG_NAME))
+</pre>
+
+<h5>package/luci-app-njitclient-master/files/root/usr/lua/luci/controller/njitclient.lua</h5>
+
+<pre>
+--[[ 模块入口 ]]
+
+-- 程序模块名    /usr/lib/lua/luci/controller/njitclient.lua
+module("luci.controller.njitclient", package.seeall)
+
+function index()
+    -- 添加一个新的模块(Page)入口
+    -- entry(路径, 调用目标, _("显示名称"), 显示顺序)
+    -- 路径 以字符串数组给定 {"admin", "network", "njitclient"} -> http://ip/cgi-bin/luci/admin/network/njitclient
+    -- 调用目标：
+        -- 执行指定方法（Action）：call("function_name")
+        -- 访问指定页面（Views）：template("myapp/mymodule") 访问/usr/lib/lua/luci/view/myapp/mymodule.htm
+        -- 调用CBI(Configuration Binding Interface) Module：cbi("myapp/mymodule")  调用/usr/lib/lua/luci/model/cbi/myapp/mymodule.lua
+        -- 重定向：alias("admin", "status", "overview")
+    entry({"admin", "network", "njitclient"}, cbi("njitclient"), _("NJIT Client"), 100)
+    end
+</pre>
+
+<h5>package/luci-app-njitclient-master/files/root/usr/lua/luci/model/cbi/njitclient.lua</h5>
+
+<pre>
+--[[ 配置模块实际的代码 ]]
+
+require("luci.sys")
+
+-- 映射与存储文件的关系
+-- m = Map("配置文件文件名", "配置页面标题", "配置页面说明")
+    -- 配置文件文件名：配置文件存储的文件名，不包含路径 /etc/config/xxx
+m = Map("njitclient", translate("NJIT Client"), translate("Configure NJIT 802.11x client."))
+
+-- 配置文件中对应的section
+s = m:section(TypedSection, "login", "")
+-- 不允许增加或删除
+s.addremove = false
+-- 不显示Section的名称
+s.anonymous = true
+
+-- 配置文件中section的交互(创建Option)
+    -- Value（文本框）
+    -- ListValue（下拉框）
+    -- Flag（选择框）
+enable = s:option(Flag, "enable", translate("Enable"))
+name = s:option(Value, "username", translate("Username"))
+pass = s:option(Value, "password", translate("Password"))
+pass.password = true
+domain = s:option(Value, "domain", translate("Domain"))
+
+ifname = s:option(ListValue, "ifname", translate("Interfaces"))
+for k, v in ipairs(luci.sys.net.devices()) do
+    if v ~= "lo" then
+        ifname:value(v)
+    end
+end
+
+-- 判断是否点击了“应用”按钮
+local apply = luci.http.formvalue("cbi.apply")
+if apply then
+    io.popen("/etc/init.d/njitclient restart")
+end
+
+return m
+</pre>
+
+<h5>package/luci-app-njitclient-master/files/root/etc/init.d/njitclient</h5>
+
+<pre>
+#!/bin/sh /etc/rc.common
+START=50
+
+run_njit()
+{
+    local enable
+    # 获取变量值
+    # config_get_bool 变量名 Section名 Section参数名
+    config_get_bool enable $1 enable
+    
+    if [ $enable ]; then
+        local username
+        local password
+        local domain
+        local ifname
+        
+        # 获取变量值
+        # config_get 变量名 Section名 Section参数名
+        config_get username $1 username
+        config_get password $1 password
+        config_get domain $1 domain
+        config_get ifname $1 ifname
+        
+        if [ "$domain" != "" ]; then
+            njit-client $username@$domain $password $ifname &
+        else
+            njit-client $username $password $ifname &
+        fi
+        
+        echo "NJIT Client has started."
+    fi
+}
+
+start()
+{
+    # 读取配置文件
+    config_load njitclient
+    
+    # 遍历配置文件中的Section
+    # config_foreach 遍历函数名 Section类型
+    config_foreach run_njit login
+}
+
+stop()
+{
+    killall njit-client
+    killall udhcpc
+    
+    echo "NJIT Client has stoped."
+}
+</pre>
+
+<h5>package/luci-app-njitclient-master/files/root/etc/init.d/njitclient</h5>
+
+<pre>
+config login
+    option username ''
+    option password ''
+    option ifname 'eth0'
+    option domain ''
+</pre>
+
+<hr/>
+
+<h3>Refs</h3>
+
+<ul>
+<li><a href="http://chaochaoblog.com/archives/359">http://chaochaoblog.com/archives/359</a></li>
+<li><a href="http://www.7forz.com/1973/">http://www.7forz.com/1973/</a></li>
+<li><a href="http://www.cnblogs.com/andy-ahz/p/3722538.html">http://www.cnblogs.com/andy-ahz/p/3722538.html</a></li>
+</ul>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+        <ul>
+          
+          
+            <li class="prev disabled"><a>&larr; Previous</a></li>
+          
+
+            <li><a href="/archive">Archive</a></li>
+
+          
+            <li class="next"><a href="/blog/2014/08/02/fun.html" title="笑话合集">Next &rarr;</a></li>
+          
+          
+        </ul>
+      </ul>
+    </div>
+    <hr>
+    <!-- 
+<div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+ -->
+  </div>
+  
+  <div class="span4">
+    <h4>发布时间</h4>
+    <div class="date"><span>2014-08-03 19:21:14</span></div>
+    <br>
+    <h4>分类(Categories)</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/categories/#%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3-ref">技术相关 <span>17</span></a>
+</li>
+    
+    </ul>
+    <br>
+    <h4>标签(Tags)</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/tags/#OpenWrt-ref">OpenWrt <span>3</span></a>
+</li>
+    
+      <li>
+  <a href="/tags/#LuCI-ref">LuCI <span>1</span></a>
+</li>
+    
+    </ul>
+  </div>
+</div>
+
+      </div>
+
+      <footer>
+        <p>&copy; JPH 2014 
+          with help from <a href="http://github.com/wendal/gor" target="_blank" title="Gor -- Fast Blog">Gor</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+          </p>
+        <a id="Header1_HeaderTitle" class="headermaintitle" href="http://jphome.github.io/rss.xml">
+            <marquee style="FONT-SIZE: 20pt; FILTER: alpha(opacity=100,style=3); WIDTH: 100%; LINE-HEIGHT: 100%; FONT-FAMILY: 华文行楷" scrollamount="3" font="">
+                <b>人生苦短, 我却用C</b>
+            </marquee>
+        </a>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+
+    
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-123-12']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </body>
+</html>
