@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>学习markdown语言语法</title>
+    <title>LuCI编程</title>
   
     <meta name="author" content="JPH">
 
@@ -74,101 +74,83 @@
 
       <div class="content">
         <div class="page-header">
-  <h1>学习markdown语言语法 </h1>
+  <h1>LuCI编程 </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <p>From: <a href="http://wowubuntu.com/markdown/basic.html">basic</a></p>
+    <h3>说明</h3>
 
-<h3>回车</h3>
+<p>LuCI API
+<br/>
+LuCI template</p>
 
-<pre><code>&lt;br /&gt;
-</code></pre>
+<hr/>
 
-<h3>标题(两种语法)</h3>
+<h3>LuCI template</h3>
+
+<h4>内部常量</h4>
+
+<pre>
+REQUEST_URL         当前URL_
+controller          主分发路径
+resource            资源目录路径
+media               主题目录路径
+</pre>
+
+<pre>
+<%+template%> or <%include(template)%>              ###< 引用外部模板
+    <%+header%>                                     ###< /usr/lib/lua/luci/view/header.htm
+<%=value%> or <%write(value)%>                      ###< 插入变量值
+<%:xxx Page%> or <%=translate("xxx Page")%>         ###< 翻译
+<%code%>                                            ###< 插入lua代码
+<%#comment%>                                        ###< 注释
+</pre>
+
+<h3>LuCI API</h3>
+
+<pre>
+
+luci.util.exec("iptables -Z")
+function syslog()
+    return luci.util.exec("logread")                            ###< 返回logread的执行结果
+end
+
+luci.http.redirect(
+    luci.dispatcher.build_url("admin", "status", "iptables")    ###< 加载/admin/status/iptables
+)
+
+if luci.http.formvalue("restart") == "1" then                   ###< 获取GET参数 xxx?restart=1
+    luci.template.render("demo", {syslog=syslo})                ###< 加载view/demo.htm
+end
+
+if luci.http.formvalue("cbi.apply") then                        ###< 判断是佛点击了“应用”按钮 
+    io.popen("/etc/init.d/xxx restart")                         ###< lua与系统交互
+end
+
+</pre>
+
+<hr/>
+
+<h3>Refs</h3>
 
 <ul>
-<li><em>Setext</em>: 底线形式 === 或 &mdash;</li>
-<li><em>atx</em>: 在行首插入 1 到 6 个 #</li>
+<li><a href="http://blog.csdn.net/ruiyiin/article/details/8677785">http://blog.csdn.net/ruiyiin/article/details/8677785</a></li>
 </ul>
-
-<h3>修辞和强调</h3>
-
-<pre><code>*emphasized*        ###&lt; 斜体
-_emphasized_        ###&lt; 斜体
-**strong**          ###&lt; strong
-__strong__          ###&lt; strong
-</code></pre>
-
-<h3>行内代码</h3>
-
-<pre><code>使用反引号'`'包裹起来
-</code></pre>
-
-<h3>列表(* + - num)</h3>
-
-<pre><code>* 1                 ###&lt; 无序列表
-* 2
-* 3
-
-+ 1                 ###&lt; 无序列表
-+ 2
-+ 3
-
-- 1                 ###&lt; 无序列表
-- 2
-- 3
-
-1. a                ###&lt; 有序列表
-2. a
-3. a
-</code></pre>
-
-<h3>文字链接</h3>
-
-<pre><code>[xxx's blog](http://xxx.com &quot;title&quot;)    ###&lt; 行内形式
-
-[xxx's blog][id]                        ###&lt; 参考形式
-[id]: http://url_1.com
-</code></pre>
-
-<h3>图片链接</h3>
-
-<h4>(打算在blog中使用yunio网盘的图片外链,尚未成功 - - 貌似不被支持了)</h4>
-
-<pre><code>![alt text](/path/to/img.jpg &quot;title&quot;)   ###&lt; 行内形式
-
-![alt text][id]                         ###&lt; 参考形式
-[id]: /path/to/img.jpg &quot;title&quot;
-</code></pre>
-
-<p><br />
-<br /></p>
-
-<h3>测试几张外链的图片</h3>
-
-<p><img src="http://pic.baike.soso.com/p/20130304/bki-20130304161213-1881616484.jpg" alt="yunio" title="yunio" />
- Yunio网盘,竟然升级到1T了</p>
-
-<p><img src="http://forum.csdn.net/PointForum/ui/scripts/csdn/Plugin/003/monkey/1.gif" alt="hehe" />
-
-<img src="http://forum.csdn.net/PointForum/ui/scripts/csdn/Plugin/003/monkey/2.gif" alt="hehe" />
-</p>
 
     <hr>
     <div class="pagination">
       <ul>
         <ul>
           
-            <li class="prev"><a href="/blog/2013/10/14/config_blog.html" title="配置blog环境">&larr; Previous</a></li>
           
+            <li class="prev disabled"><a>&larr; Previous</a></li>
           
 
             <li><a href="/archive">Archive</a></li>
 
           
-            <li class="next"><a href="/blog/2013/10/13/readme_blog_init.html" title="gor搭建个人博客(github静态博客)">Next &rarr;</a></li>
+            <li class="next"><a href="/blog/2014/08/03/luci_add_page.html" title="LuCI新增页面">Next &rarr;</a></li>
           
           
         </ul>
@@ -194,7 +176,7 @@ __strong__          ###&lt; strong
   
   <div class="span4">
     <h4>发布时间</h4>
-    <div class="date"><span>2013-10-13 22:45:44</span></div>
+    <div class="date"><span>2014-08-10 12:41:23</span></div>
     <br>
     <h4>分类(Categories)</h4>
     <ul class="tag_box">
@@ -209,7 +191,11 @@ __strong__          ###&lt; strong
     <ul class="tag_box">
     
       <li>
-  <a href="/tags/#markdown-ref">markdown <span>1</span></a>
+  <a href="/tags/#OpenWrt-ref">OpenWrt <span>4</span></a>
+</li>
+    
+      <li>
+  <a href="/tags/#LuCI-ref">LuCI <span>2</span></a>
 </li>
     
     </ul>

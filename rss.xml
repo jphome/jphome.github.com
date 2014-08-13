@@ -2,7 +2,13 @@
 <rss version="2.0">  <channel>
     <title>小蒋</title>
     <link>http://jphome.github.com</link>
-    <pubDate>10 Aug 14 12:02 CST</pubDate>
+    <pubDate>13 Aug 14 23:16 CST</pubDate>
+    <item>
+      <title>LuCI编程</title>
+      <link>http://jphome.github.com/blog/2014/08/10/luci_api.html</link>
+      <pubDate>2014-08-10 12:41:23 +0800</pubDate>
+      <description>&lt;h3&gt;说明&lt;/h3&gt;&#xA;&#xA;&lt;p&gt;LuCI API&#xA;&lt;br/&gt;&#xA;LuCI template&lt;/p&gt;&#xA;&#xA;&lt;hr/&gt;&#xA;&#xA;&lt;h3&gt;LuCI template&lt;/h3&gt;&#xA;&#xA;&lt;h4&gt;内部常量&lt;/h4&gt;&#xA;&#xA;&lt;pre&gt;&#xA;REQUEST_URL         当前URL_&#xA;controller          主分发路径&#xA;resource            资源目录路径&#xA;media               主题目录路径&#xA;&lt;/pre&gt;&#xA;&#xA;&lt;pre&gt;&#xA;&lt;%+template%&gt; or &lt;%include(template)%&gt;              ###&lt; 引用外部模板&#xA;    &lt;%+header%&gt;                                     ###&lt; /usr/lib/lua/luci/view/header.htm&#xA;&lt;%=value%&gt; or &lt;%write(value)%&gt;                      ###&lt; 插入变量值&#xA;&lt;%:xxx Page%&gt; or &lt;%=translate(&#34;xxx Page&#34;)%&gt;         ###&lt; 翻译&#xA;&lt;%code%&gt;                                            ###&lt; 插入lua代码&#xA;&lt;%#comment%&gt;                                        ###&lt; 注释&#xA;&lt;/pre&gt;&#xA;&#xA;&lt;h3&gt;LuCI API&lt;/h3&gt;&#xA;&#xA;&lt;pre&gt;&#xA;&#xA;luci.util.exec(&#34;iptables -Z&#34;)&#xA;function syslog()&#xA;    return luci.util.exec(&#34;logread&#34;)                            ###&lt; 返回logread的执行结果&#xA;end&#xA;&#xA;luci.http.redirect(&#xA;    luci.dispatcher.build_url(&#34;admin&#34;, &#34;status&#34;, &#34;iptables&#34;)    ###&lt; 加载/admin/status/iptables&#xA;)&#xA;&#xA;if luci.http.formvalue(&#34;restart&#34;) == &#34;1&#34; then                   ###&lt; 获取GET参数 xxx?restart=1&#xA;    luci.template.render(&#34;demo&#34;, {syslog=syslo})                ###&lt; 加载view/demo.htm&#xA;end&#xA;&#xA;if luci.http.formvalue(&#34;cbi.apply&#34;) then                        ###&lt; 判断是佛点击了“应用”按钮 &#xA;    io.popen(&#34;/etc/init.d/xxx restart&#34;)                         ###&lt; lua与系统交互&#xA;end&#xA;&#xA;&lt;/pre&gt;&#xA;&#xA;&lt;hr/&gt;&#xA;&#xA;&lt;h3&gt;Refs&lt;/h3&gt;&#xA;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;http://blog.csdn.net/ruiyiin/article/details/8677785&#34;&gt;http://blog.csdn.net/ruiyiin/article/details/8677785&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;</description>
+    </item>
     <item>
       <title>LuCI新增页面</title>
       <link>http://jphome.github.com/blog/2014/08/03/luci_add_page.html</link>
