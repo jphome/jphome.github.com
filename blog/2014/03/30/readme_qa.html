@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>openwrt常见疑问</title>
+  
+    <meta name="author" content="JPH">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/twitter/stylesheets/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/style.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/widgets/google_prettify/stylesheets/twitter-bootstrap.css" type="text/css" rel="stylesheet" media="all">
+ 
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/" style="padding-left:67px;">小蒋</a>
+          <ul class="nav">
+            
+              
+
+
+  <li><a href="/categories">Categories</a></li>
+
+
+            
+              
+
+
+  <li><a href="/tags">Tags</a></li>
+
+
+            
+              
+
+
+  <li><a href="/about">About</a></li>
+
+
+            
+              
+
+
+  <li><a href="/static">Static</a></li>
+
+
+            
+            <li>
+            <!-- <a href="/static">Static</a> -->
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        <div class="page-header">
+  <h1>openwrt常见疑问 </h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <h3>说明</h3>
+
+<p>在使用基于OpenWrt开发的时候会碰到很多问题，汇总方便查阅</p>
+
+<hr/>
+
+<h4>openwrt的wlan0接入其他路由器上网</h4>
+
+<ol>
+<li>将openwrt的LAN口地址配成192.168.2.1</li>
+<li>WWAN配成DHCP客户端</li>
+<li>在无线中搜索热点</li>
+</ol>
+
+<h4>通过有线能连openwrt的ssh,wifi不能</h4>
+
+<ol>
+<li>openwrt通过Dropbear提供ssh&amp;scp服务</li>
+<li>配置防火墙中WWAN口入路由器的权限</li>
+</ol>
+
+<h4>配置路由器启动默认开启wifi</h4>
+
+<p>trunk/package/mac80211/files/lib/wifi/mac80211.sh
+option disabled 1</p>
+
+<h4>单独编译内核模块安装包</h4>
+
+<p>make package/kernel/xxx {compile, install} V=s
+PS: OpenWrt的kernel modules配置文件都在这儿</p>
+
+<h4>添加U盘/移动硬盘支持</h4>
+
+<p>添加USB挂载
+Base system —&gt; &lt;<em>&gt;block-mount<br />
+添加硬盘格式支持（）
+Kernel modules —&gt; Filesystems —&gt; &lt;</em>&gt; kmod-fs-ext4 (移动硬盘EXT4格式选择)
+Kernel modules —&gt; Filesystems —&gt; &lt;<em>&gt; kmod-fs-vfat(FAT16 / FAT32 格式 选择)
+Kernel modules —&gt; Filesystems —&gt; &lt;</em>&gt; kmod-fs-ntfs (NTFS 格式 选择)
+添加UTF8编码,CP437编码，ISO8859-1编码
+Kernel modules —&gt; Native Language Support —&gt; &lt;<em>&gt; kmod-nls-cp437
+Kernel modules —&gt; Native Language Support —&gt; &lt;</em>&gt; kmod-nls-iso8859-1
+Kernel modules —&gt; Native Language Support —&gt; &lt;<em>&gt; kmod-nls-utf8
+添加SCSI支持
+Kernel modules —&gt; Block Devices —&gt; &lt;</em>&gt;kmod-scsi-core
+添加USB相关支持
+Kernel modules —&gt; USB Support —&gt; &lt;<em>&gt; kmod-usb-core.
+Kernel modules —&gt; USB Support —&gt; &lt;</em>&gt; kmod-usb-ohci.
+Kernel modules —&gt; USB Support —&gt; &lt;<em>&gt; kmod-usb-storage.
+Kernel modules —&gt; USB Support —&gt; &lt;</em>&gt; kmod-usb-storage-extras.
+Kernel modules —&gt; USB Support —&gt; &lt;<em>&gt; kmod-usb2.
+添加自动挂载工具
+Utilities —&gt; Filesystem —&gt; &lt;</em>&gt; badblocks</p>
+
+<h4>取消strip</h4>
+
+<p>make package/xxx {clean, compile} V=99 STRIP=/bin/true
+也就是说如果默认使用strip破坏了你的程序、库，可以使用STRIP=/bin/true来取消strip操作，直接在Makefile中定义也是可以的</p>
+
+<h4>U-boot移植编译</h4>
+
+<p><a href="http://www.right.com.cn/forum/thread-84684-1-1.html">http://www.right.com.cn/forum/thread-84684-1-1.html</a></p>
+
+<h4>4G LTE的移植</h4>
+
+<p>大致步骤 移植4G网卡，改写网络配置文件，改写4G拨号脚本，配置WIFI和WIFI的DHCP。
+涉及文件：
+内核部分   driver/usb/serial/option.c   加PID,VID
+文件系统部分：
+/etc/config/network   加入WAN接口配置并配置为4G模式；加入WIFI接口，并配置为静态地址模式以便能自动启。
+/etc/config/wireless  将wifi-iface的network字段与 /etc/config/network中的WIFI接口匹配相同
+/etc/config/firewall    修改防火墙规则，使各个接口都可以通信。
+/etc/config/dhcp      添加WIFI接口的DHCP功能
+/etc/chatscripts/3g.ch  拨号脚本
+ 以上所有文件内容在这个网页：
+ <a href="http://blog.csdn.net/sydjm/article/details/8490357">http://blog.csdn.net/sydjm/article/details/8490357</a>
+A、4G网卡移植，参照以下，把网卡的PID VID写进内核中，否则可能不能转换MODEM模式。
+ <a href="http://wiki.openwrt.org/zh-cn/doc/recipes/3gdongle">http://wiki.openwrt.org/zh-cn/doc/recipes/3gdongle</a>
+ 内核可能需要添加USB存储支持和块设备的SCSI支持。
+ <a href="http://www.hkepc.com/forum/viewthread.php?tid=1712898">http://www.hkepc.com/forum/viewthread.php?tid=1712898</a>
+ <a href="http://www.hkepc.com/forum/viewthread.php?tid=1712898&amp;rpid=26287429&amp;ordertype=0&amp;page=1#pid26287429">http://www.hkepc.com/forum/viewthread.php?tid=1712898&amp;rpid=26287429&amp;ordertype=0&amp;page=1#pid26287429</a>
+ <a href="http://www.hkepc.com/forum/viewthread.php?tid=1661598">http://www.hkepc.com/forum/viewthread.php?tid=1661598</a>
+ 移植4G的APN是 CMNET ，需要写进/etc/config/network,/etc/chatscripts/3g.chat
+B、配置WIFI及其DHCP
+<a href="http://wiki.openwrt.org/doc/recipes/routedap">http://wiki.openwrt.org/doc/recipes/routedap</a></p>
+
+<h4>SVN版本控制</h4>
+
+<p>svn 回滚 或 svn 指定版本<br />
+需要的版本是 28007
+操作：
+1. SVN 最新的代码 ： svn co svn://svn.openwrt.org/openwrt/trunk -r 28007
+2. 回滚或到指定版本：svn up -r 28007
+指定LUCI版本
+cd trunk/feeds/luci
+svn up -r r7612</p>
+
+<h4>添加复位键支持</h4>
+
+<p>Utilities  &mdash;&gt; &lt;<em>&gt; restorefactory
+添加一键开关无线
+Utilities  &mdash;&gt; &lt;</em>&gt; wifitoggle</p>
+
+<hr/>
+
+<h3>Refs</h3>
+
+<ul>
+<li><a href="http://blog.csdn.net/sydjm/article/details/8232963">http://blog.csdn.net/sydjm/article/details/8232963</a></li>
+</ul>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+        <ul>
+          
+            <li class="prev"><a href="/blog/2014/04/13/readme_slickedit.html" title="安装使用slickedit">&larr; Previous</a></li>
+          
+          
+
+            <li><a href="/archive">Archive</a></li>
+
+          
+            <li class="next"><a href="/blog/2014/03/29/readme_nmap.html" title="Linux 下查看局域网内所有主机IP和MAC">Next &rarr;</a></li>
+          
+          
+        </ul>
+      </ul>
+    </div>
+    <hr>
+    <!-- 
+<div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+ -->
+  </div>
+  
+  <div class="span4">
+    <h4>发布时间</h4>
+    <div class="date"><span>2014-03-30 09:54:46</span></div>
+    <br>
+    <h4>分类(Categories)</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/categories/#%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3-ref">技术相关 <span>19</span></a>
+</li>
+    
+    </ul>
+    <br>
+    <h4>标签(Tags)</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/tags/#openwrt-ref">openwrt <span>2</span></a>
+</li>
+    
+    </ul>
+  </div>
+</div>
+
+      </div>
+
+      <footer>
+        <p>&copy; JPH 2014 
+          with help from <a href="http://github.com/wendal/gor" target="_blank" title="Gor -- Fast Blog">Gor</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+          </p>
+        <a id="Header1_HeaderTitle" class="headermaintitle" href="http://jphome.github.io/rss.xml">
+            <marquee style="FONT-SIZE: 20pt; FILTER: alpha(opacity=100,style=3); WIDTH: 100%; LINE-HEIGHT: 100%; FONT-FAMILY: 华文行楷" scrollamount="3" font="">
+                <b>人生苦短, 我却用C</b>
+            </marquee>
+        </a>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+
+    
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-123-12']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </body>
+</html>
