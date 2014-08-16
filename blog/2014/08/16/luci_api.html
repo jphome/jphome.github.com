@@ -83,7 +83,9 @@
 
 <p>LuCI API
 <br/>
-LuCI template</p>
+LuCI template
+<br/>
+uci usage</p>
 
 <hr/>
 
@@ -134,7 +136,13 @@ end
 
 <h3>uci API</h3>
 
+<h4>uci在读取的时候优先显示内存中的缓存，其次显示文件中的，其操作方式类似sqlite</h4>
+
 <pre>
+### 导出配置
+uci export > config_total                   ###< 导出所有配置
+uci export netowrk > config_network         ###< 只导出/etc/config/network
+
 ### 设置lan ip
 uci set network.lan.ipaddr=192.168.2.1
 
@@ -160,15 +168,57 @@ uci set wireless.@wifi-device[0].encryption=psk2    ###< 设置加密为WPA2-PSK
 uci set wireless.@wifi-device[0].key=xxx            ###< 设置无线密码
 
 ### 应用配置
-uci commit                          ###< 有点儿sqlite的味道
+uci changes [config]                ###< 显示未保存修改(commit前)
+uci commit [config]                 ###< 有点儿sqlite的味道
 /etc/init.d/network restart         ###< 重启网络服务
+
+### 该如何用uci配置某一个应用的某一个参数呢
+先找到相关配置文件，比如说/etc/config/demo
+$ cat /etc/config/demo
+config login
+    option username 'xxx'
+    option password 'xxx'
+    option ifname 'eth0'
+    option domainname 'jphome.github.com'
+
+config demo_list
+    option ip_list '192.168.1.1'
+
+$ uci -c /et/config show demo         ###< 显示配置文件demo的每一项的规则(名字)
+demo.@login[0]=login
+demo.@login[0].username=xxx
+demo.@login[0].password=xxx
+demo.@login[0].ifname=eth0
+demo.@login[0].domainname=jphome.github.com
+demo.@demo_list[0]=demo_list
+demo.@demo_list[0].ip_list=192.168.1.1
+
+然后就可以用uci get/uci set进行操作了 ^ ^
+
+### uci add
+uci add只能add section/option，无法add文件
+
+### 另外一种用法
+$ xxx << EOF        ///< 将两个EOF之间的内容作为参数传给xxx,EOF可替换成任意合法字符
+heredoc> param1
+heredoc> param2
+heredoc> EOF
+
+那就可以将uci操作写成连贯的命令脚本了
+#!/bin/sh
+uci -q batch << EOF >/dev/null
+add demo test_node xxx
+set demo.@test_node[0].init=0
+commit demo
+EOF
 </pre>
 
 <h3>Refs</h3>
 
 <ul>
 <li><a href="http://blog.csdn.net/ruiyiin/article/details/8677785">http://blog.csdn.net/ruiyiin/article/details/8677785</a></li>
-<li><a href="http://blog.csdn.net/sydjm/article/details/8224598">http://blog.csdn.net/sydjm/article/details/8224598</a></li>
+<li><a href="http://www.right.com.cn/forum/thread-50257-1-1.html">http://www.right.com.cn/forum/thread-50257-1-1.html</a></li>
+<li><a href="http://www.leiphone.com/diy-a-smart-router-topic-system-configuration.html">http://www.leiphone.com/diy-a-smart-router-topic-system-configuration.html</a></li>
 </ul>
 
     <hr>
@@ -176,14 +226,14 @@ uci commit                          ###< 有点儿sqlite的味道
       <ul>
         <ul>
           
-            <li class="prev"><a href="/blog/2014/08/13/readme_qa.html" title="OpenWrt常见疑问">&larr; Previous</a></li>
           
+            <li class="prev disabled"><a>&larr; Previous</a></li>
           
 
             <li><a href="/archive">Archive</a></li>
 
           
-            <li class="next"><a href="/blog/2014/08/03/luci_add_page.html" title="LuCI新增页面">Next &rarr;</a></li>
+            <li class="next"><a href="/blog/2014/08/13/openwrt_boot.html" title="OpenWrt启动脚本分析">Next &rarr;</a></li>
           
           
         </ul>
@@ -209,7 +259,7 @@ uci commit                          ###< 有点儿sqlite的味道
   
   <div class="span4">
     <h4>发布时间</h4>
-    <div class="date"><span>2014-08-10 12:41:23</span></div>
+    <div class="date"><span>2014-08-16 09:25:12</span></div>
     <br>
     <h4>分类(Categories)</h4>
     <ul class="tag_box">

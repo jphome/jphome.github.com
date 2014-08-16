@@ -4,6 +4,11 @@
 		<loc>http://jphome.github.com/</loc>
 	</url>
 	<url>
+		<loc>http://jphome.github.com/blog/2014/08/16/luci_api.html</loc>
+		<lastmod>2014-08-16 09:25:12</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
 		<loc>http://jphome.github.com/blog/2014/08/13/openwrt_boot.html</loc>
 		<lastmod>2014-08-13 23:38:46</lastmod>
 		<changefreq>weekly</changefreq>
@@ -11,11 +16,6 @@
 	<url>
 		<loc>http://jphome.github.com/blog/2014/08/13/readme_qa.html</loc>
 		<lastmod>2014-08-13 23:30:46</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>http://jphome.github.com/blog/2014/08/10/luci_api.html</loc>
-		<lastmod>2014-08-10 12:41:23</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
