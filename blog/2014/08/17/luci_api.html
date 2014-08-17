@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>LuCI编程</title>
+  
+    <meta name="author" content="JPH">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/twitter/stylesheets/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/style.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/widgets/google_prettify/stylesheets/twitter-bootstrap.css" type="text/css" rel="stylesheet" media="all">
+ 
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/" style="padding-left:67px;">小蒋</a>
+          <ul class="nav">
+            
+              
+
+
+  <li><a href="/categories">Categories</a></li>
+
+
+            
+              
+
+
+  <li><a href="/tags">Tags</a></li>
+
+
+            
+              
+
+
+  <li><a href="/about">About</a></li>
+
+
+            
+              
+
+
+  <li><a href="/static">Static</a></li>
+
+
+            
+            <li>
+            <!-- <a href="/static">Static</a> -->
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        <div class="page-header">
+  <h1>LuCI编程 </h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <h3>说明</h3>
+
+<p>LuCI API
+<br/>
+LuCI template
+<br/>
+uci usage</p>
+
+<hr/>
+
+<h3>LuCI template</h3>
+
+<h4>内部常量</h4>
+
+<pre>
+REQUEST_URL         当前URL_
+controller          主分发路径
+resource            资源目录路径
+media               主题目录路径
+</pre>
+
+<pre>
+<%+template%> or <%include(template)%>              ###< 引用外部模板
+    <%+header%>                                     ###< /usr/lib/lua/luci/view/header.htm
+<%=value%> or <%write(value)%>                      ###< 插入变量值
+<%:xxx Page%> or <%=translate("xxx Page")%>         ###< 翻译
+<%code%>                                            ###< 插入lua代码
+<%#comment%>                                        ###< 注释
+</pre>
+
+<hr/>
+
+<h3>LuCI API</h3>
+
+<pre>
+
+luci.util.exec("iptables -Z")
+function syslog()
+    return luci.util.exec("logread")                            ###< 返回logread的执行结果
+end
+
+luci.http.redirect(
+    luci.dispatcher.build_url("admin", "status", "iptables")    ###< 加载/admin/status/iptables
+)
+
+if luci.http.formvalue("restart") == "1" then                   ###< 获取GET参数 xxx?restart=1
+    luci.template.render("demo", {syslog=syslo})                ###< 加载view/demo.htm
+end
+
+if luci.http.formvalue("cbi.apply") then                        ###< 判断是佛点击了“应用”按钮 
+    io.popen("/etc/init.d/xxx restart")                         ###< lua与系统交互
+end
+
+</pre>
+
+<hr/>
+
+<h3>uci usage</h3>
+
+<h4>uci在读取的时候优先显示内存中的缓存，其次显示文件中的，其操作方式类似sqlite</h4>
+
+<pre>
+### 导出配置
+uci export > config_total                   ###< 导出所有配置
+uci export netowrk > config_network         ###< 只导出/etc/config/network
+
+### 设置lan ip
+uci set network.lan.ipaddr=192.168.2.1
+
+### 设置wan口pppoe拨号
+uci set network.wan.proto=pppoe
+uci set network.wan.username=xxx
+uci set network.wan.password=xxx
+
+### 设置为二级路由
+uci set network.wan.proto=none              ###< 关掉wan
+uci set network.lan.gateway=[一级路由ip]    ###< 网关指向一级路由
+uci set network.lan.dns=[一级路由ip]        ###< dns指向一级路由
+uci set dhcp.lan.ignore=1                   ###< 关掉lan的dhcp
+
+### 无线设置
+uci set wireless.@wifi-device[0].disable=0          ###< 打开无线
+uci set wireless.@wifi-device[0].txpower=17         ###< 设置功率为17dbm,太高会烧坏无线模块
+uci set wireless.@wifi-device[0].channel=6          ###< 设置无线信道为6
+uci set wireless.@wifi-device[0].mode=ap            ###< 设置无线为ap模式
+uci set wireless.@wifi-device[0].ssid=SSID
+uci set wireless.@wifi-device[0].network=lan        ###< 无线链接到lan上
+uci set wireless.@wifi-device[0].encryption=psk2    ###< 设置加密为WPA2-PSK
+uci set wireless.@wifi-device[0].key=xxx            ###< 设置无线密码
+
+### 应用配置
+uci changes [config]                ###< 显示未保存修改(commit前)
+uci commit [config]                 ###< 有点儿sqlite的味道
+/etc/init.d/network restart         ###< 重启网络服务
+
+### 该如何用uci配置某一个应用的某一个参数呢
+先找到相关配置文件，比如说/etc/config/demo
+$ cat /etc/config/demo
+config login
+    option username 'xxx'
+    option password 'xxx'
+    option ifname 'eth0'
+    option domainname 'jphome.github.com'
+
+config demo_list
+    option ip_list '192.168.1.1'
+
+$ uci -c /et/config show demo         ###< 显示配置文件demo的每一项的规则(名字)
+demo.@login[0]=login
+demo.@login[0].username=xxx
+demo.@login[0].password=xxx
+demo.@login[0].ifname=eth0
+demo.@login[0].domainname=jphome.github.com
+demo.@demo_list[0]=demo_list
+demo.@demo_list[0].ip_list=192.168.1.1
+
+然后就可以用uci get/uci set进行操作了 ^ ^
+
+### uci add
+uci add只能add section/option，无法add文件
+
+### 另外一种用法
+$ xxx << EOF        ///< 将两个EOF之间的内容作为参数传给xxx,EOF可替换成任意合法字符
+heredoc> param1
+heredoc> param2
+heredoc> EOF
+
+那就可以将uci操作写成连贯的命令脚本了
+#!/bin/sh
+uci -q batch << EOF >/dev/null
+add demo test_node xxx
+set demo.@test_node[0].init=0
+commit demo
+EOF
+</pre>
+
+<h4>如何在c代码中嵌入uci进行uci get/set操作呢</h4>
+
+<p>还需要去调用不熟悉的网络库代码来获取这种n久不会改变一次的参数么？   <code>NoNoNo!</code>
+<br/>
+当然，如果会频繁get、set建议还是用c代码实现(至少用uci的api)
+<br/>
+思路：<code>popen + sed + awk</code>
+<pre>
+char result[16] = {0};
+char *cmdline = NULL;
+cmdline = &ldquo;uci get network.lan.ipaddr&rdquo;;                     ###&lt; 获取ip地址
+cmdline = &ldquo;ifconfig | grep HWaddr | awk &lsquo;{printf $5}&rsquo;&rdquo;;     ###&lt; 获取mac地址
+FILE fp = popen(cmdline, &ldquo;r&rdquo;);
+fgets(result, 16, fp);
+pclose(fp);
+</pre></p>
+
+<h3>Refs</h3>
+
+<ul>
+<li><a href="http://blog.csdn.net/ruiyiin/article/details/8677785">http://blog.csdn.net/ruiyiin/article/details/8677785</a></li>
+<li><a href="http://www.right.com.cn/forum/thread-50257-1-1.html">http://www.right.com.cn/forum/thread-50257-1-1.html</a></li>
+<li><a href="http://www.leiphone.com/diy-a-smart-router-topic-system-configuration.html">http://www.leiphone.com/diy-a-smart-router-topic-system-configuration.html</a></li>
+</ul>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+        <ul>
+          
+          
+            <li class="prev disabled"><a>&larr; Previous</a></li>
+          
+
+            <li><a href="/archive">Archive</a></li>
+
+          
+            <li class="next"><a href="/blog/2014/08/13/openwrt_boot.html" title="OpenWrt启动脚本分析">Next &rarr;</a></li>
+          
+          
+        </ul>
+      </ul>
+    </div>
+    <hr>
+    <!-- 
+<div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+ -->
+  </div>
+  
+  <div class="span4">
+    <h4>发布时间</h4>
+    <div class="date"><span>2014-08-17 19:33:09</span></div>
+    <br>
+    <h4>分类(Categories)</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/categories/#%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3-ref">技术相关 <span>20</span></a>
+</li>
+    
+    </ul>
+    <br>
+    <h4>标签(Tags)</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/tags/#OpenWrt-ref">OpenWrt <span>6</span></a>
+</li>
+    
+      <li>
+  <a href="/tags/#LuCI-ref">LuCI <span>2</span></a>
+</li>
+    
+    </ul>
+  </div>
+</div>
+
+      </div>
+
+      <footer>
+        <p>&copy; JPH 2014 
+          with help from <a href="http://github.com/wendal/gor" target="_blank" title="Gor -- Fast Blog">Gor</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+          </p>
+        <a id="Header1_HeaderTitle" class="headermaintitle" href="http://jphome.github.io/rss.xml">
+            <marquee style="FONT-SIZE: 20pt; FILTER: alpha(opacity=100,style=3); WIDTH: 100%; LINE-HEIGHT: 100%; FONT-FAMILY: 华文行楷" scrollamount="3" font="">
+                <b>人生苦短, 我却用C</b>
+            </marquee>
+        </a>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+
+    
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-123-12']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </body>
+</html>
