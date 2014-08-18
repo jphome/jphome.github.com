@@ -108,7 +108,6 @@ xxx.vim -> ~/.vim/plugin
 进~/.vim/doc
 :helptags .                 ###< 把新的xxx.txt加入helptags
 </pre>
-   
 
 <h3>map命令相关：</h3>
 
@@ -131,7 +130,9 @@ v           表示在可视模式下生效
 i           表示在插入模式下生效
 c           表示在命令行模式下生效
 </pre>
-#### 非递归说明
+
+<h4>非递归说明</h4>
+
 <pre>
 :map a b
 :map c a
@@ -139,7 +140,9 @@ c           表示在命令行模式下生效
 :map c b
 :noremap c a                   ###< 这种就指定了非递归map
 </pre>
-#### 清除map
+
+<h4>清除map</h4>
+
 <pre>
 :unmap c                       ###< 删除映射
 :mapclear                      ###< 直接清除相关模式下的所有映射
@@ -220,6 +223,7 @@ Ctrl+z/:suspend                ###< 在shell下是挂起vim; gui下是最小化�
 :r !date                       ###< 将shell执行结果读到正在编辑的文件
 :1,4!sort                      ###< 将几行排序
 :set fileencoding              ###< 查看变量
+:verbose map <C-A>             ###< 获取C-A快捷键的绑定内容
 </pre>
 
     <hr>
@@ -266,7 +270,7 @@ Ctrl+z/:suspend                ###< 在shell下是挂起vim; gui下是最小化�
     <ul class="tag_box">
     
       <li>
-  <a href="/categories/#%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3-ref">技术相关 <span>20</span></a>
+  <a href="/categories/#%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3-ref">技术相关 <span>21</span></a>
 </li>
     
     </ul>
