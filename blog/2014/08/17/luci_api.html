@@ -198,7 +198,7 @@ demo.@demo_list[0].ip_list=192.168.1.1
 然后就可以用uci get/uci set进行操作了 ^ ^
 
 ### uci add
-uci add只能add section/option，无法add文件
+uci add只能add section，无法add文件/option
 
 ### 另外一种用法
 $ xxx << EOF        ///< 将两个EOF之间的内容作为参数传给xxx,EOF可替换成任意合法字符
@@ -209,7 +209,7 @@ heredoc> EOF
 那就可以将uci操作写成连贯的命令脚本了
 #!/bin/sh
 uci -q batch << EOF >/dev/null
-add demo test_node xxx
+add demo test_node
 set demo.@test_node[0].init=0
 commit demo
 EOF
