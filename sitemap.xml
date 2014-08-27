@@ -4,6 +4,11 @@
 		<loc>http://jphome.github.com/</loc>
 	</url>
 	<url>
+		<loc>http://jphome.github.com/blog/2014/08/27/wrtnode_refs.html</loc>
+		<lastmod>2014-08-27 21:48:00</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
 		<loc>http://jphome.github.com/blog/2014/08/18/openwrt_version.html</loc>
 		<lastmod>2014-08-18 23:12:02</lastmod>
 		<changefreq>weekly</changefreq>

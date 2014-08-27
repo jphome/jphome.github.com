@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Linux 下查看局域网内所有主机IP和MAC</title>
+    <title>WRTnode相关链接</title>
   
     <meta name="author" content="JPH">
 
@@ -74,63 +74,40 @@
 
       <div class="content">
         <div class="page-header">
-  <h1>Linux 下查看局域网内所有主机IP和MAC </h1>
+  <h1>WRTnode相关链接 </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <h3>说明</h3>
+    <h3>WRTnode相关文档链接</h3>
 
-<p>用nmap对局域网扫描一遍，然后查看arp缓存表就可以知道局域内ip对应的mac了。nmap比较强大也可以直接扫描mac地址和端口。执行扫描之后就可以 cat /proc/net/arp查看arp缓存表了。
-<br/>
-<br/>
-转自<a href="http://blog.chinaunix.net/uid-25885064-id-3483813.html">残剑</a></p>
+<p><br/></p>
 
-<hr/>
+<p><a href="http://cn.wrtnode.com/w/?p=355">WRTnode刷机(3种刷机方式web&amp;mtd&amp;ttl+tftp)</a></p>
 
-<h4>进行ping扫描，打印出对扫描做出响应的主机：</h4>
+<p><a href="http://wiki.wrtnode.com/index.php?title=Starting/zh-cn">开箱指南</a></p>
 
-<pre>
-$ nmap -sP 192.168.1.0/24
-</pre>
+<p><a href="http://wiki.wrtnode.com/index.php?title=WRTnode_add_i2c_support/zh-cn">WRTnode添加i2c支持</a></p>
 
-<h4>仅列出指定网络上的每台主机，不发送任何报文到目标主机：　</h4>
+<p><a href="http://wiki.wrtnode.com/index.php?title=WRTnode_add_spi_slave/zh-cn">WRTnode添加spi从设备</a></p>
 
-<pre>
-$ nmap -sL 192.168.1.0/24
-</pre>
+<p><a href="http://wiki.wrtnode.com/index.php?title=Compiling_WRTnode_Firmware/zh-cn">WRTnode固件编译</a></p>
 
-<h4>探测目标主机开放的端口，可以指定一个以逗号分隔的端口列表(如-PS 22，23，25，80)：</h4>
-
-<pre>
-$ nmap -PS 192.168.1.234
-</pre>
-
-<h4>使用UDP ping探测主机：</h4>
-
-<pre>
-$ nmap -PU 192.168.1.0/24
-</pre>
-
-<h4>使用频率最高的扫描选项（SYN扫描,又称为半开放扫描），它不打开一个完全的TCP连接，执行得很快：</h4>
-
-<pre>
-$ nmap -sS 192.168.1.0/24
-</pre>
+<p><a href="http://wiki.wrtnode.com/index.php?title=Release_UART/zh-cn">uart tty控制台-&gt;串口</a></p>
 
     <hr>
     <div class="pagination">
       <ul>
         <ul>
           
-            <li class="prev"><a href="/blog/2014/04/13/readme_slickedit.html" title="安装使用slickedit">&larr; Previous</a></li>
           
+            <li class="prev disabled"><a>&larr; Previous</a></li>
           
 
             <li><a href="/archive">Archive</a></li>
 
           
-            <li class="next"><a href="/blog/2014/03/29/readme_opkg.html" title="用u盘扩展openwrt路由器存储">Next &rarr;</a></li>
+            <li class="next"><a href="/blog/2014/08/18/openwrt_version.html" title="OpenWrt版本&amp;代码路径">Next &rarr;</a></li>
           
           
         </ul>
@@ -156,7 +133,7 @@ $ nmap -sS 192.168.1.0/24
   
   <div class="span4">
     <h4>发布时间</h4>
-    <div class="date"><span>2014-03-29 23:03:54</span></div>
+    <div class="date"><span>2014-08-27 21:48:00</span></div>
     <br>
     <h4>分类(Categories)</h4>
     <ul class="tag_box">
@@ -171,7 +148,7 @@ $ nmap -sS 192.168.1.0/24
     <ul class="tag_box">
     
       <li>
-  <a href="/tags/#nmap-ref">nmap <span>1</span></a>
+  <a href="/tags/#OpenWrt-ref">OpenWrt <span>8</span></a>
 </li>
     
     </ul>
