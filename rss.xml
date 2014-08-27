@@ -2,12 +2,12 @@
 <rss version="2.0">  <channel>
     <title>小蒋</title>
     <link>http://jphome.github.com</link>
-    <pubDate>28 Aug 14 00:53 CST</pubDate>
+    <pubDate>28 Aug 14 01:29 CST</pubDate>
     <item>
       <title>WRTnode相关链接</title>
       <link>http://jphome.github.com/blog/2014/08/27/wrtnode_refs.html</link>
       <pubDate>2014-08-27 09:48:00 +0800</pubDate>
-      <description>&lt;h3&gt;WRTnode相关文档链接&lt;/h3&gt;&#xA;&#xA;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&#xA;&#xA;&lt;p&gt;&lt;a href=&#34;http://cn.wrtnode.com/w/?p=355&#34;&gt;WRTnode刷机(3种刷机方式web&amp;amp;mtd&amp;amp;ttl+tftp)&lt;/a&gt;&lt;/p&gt;&#xA;&#xA;&lt;p&gt;&lt;a href=&#34;http://wiki.wrtnode.com/index.php?title=Starting/zh-cn&#34;&gt;开箱指南&lt;/a&gt;&lt;/p&gt;&#xA;&#xA;&lt;p&gt;&lt;a href=&#34;http://wiki.wrtnode.com/index.php?title=WRTnode_add_i2c_support/zh-cn&#34;&gt;WRTnode添加i2c支持&lt;/a&gt;&lt;/p&gt;&#xA;&#xA;&lt;p&gt;&lt;a href=&#34;http://wiki.wrtnode.com/index.php?title=WRTnode_add_spi_slave/zh-cn&#34;&gt;WRTnode添加spi从设备&lt;/a&gt;&lt;/p&gt;&#xA;&#xA;&lt;p&gt;&lt;a href=&#34;http://wiki.wrtnode.com/index.php?title=Compiling_WRTnode_Firmware/zh-cn&#34;&gt;WRTnode固件编译&lt;/a&gt;&lt;/p&gt;&#xA;&#xA;&lt;p&gt;&lt;a href=&#34;http://wiki.wrtnode.com/index.php?title=Release_UART/zh-cn&#34;&gt;uart tty控制台-&amp;gt;串口&lt;/a&gt;&lt;/p&gt;&#xA;</description>
+      <description>&lt;h3&gt;WRTnode相关文档链接&lt;/h3&gt;&#xA;&#xA;&lt;hr/&gt;&#xA;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://cn.wrtnode.com/w/?p=355&#34;&gt;WRTnode刷机(3种刷机方式web&amp;amp;mtd)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&#xA;&#xA;&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://cn.wrtnode.com/w/?p=342&#34;&gt;TTL+TFTP救砖&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&#xA;&#xA;&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://wiki.wrtnode.com/index.php?title=Starting/zh-cn&#34;&gt;开箱指南&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&#xA;&#xA;&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://wiki.wrtnode.com/index.php?title=WRTnode_add_i2c_support/zh-cn&#34;&gt;WRTnode添加i2c支持&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&#xA;&#xA;&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://wiki.wrtnode.com/index.php?title=WRTnode_add_spi_slave/zh-cn&#34;&gt;WRTnode添加spi从设备&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&#xA;&#xA;&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://wiki.wrtnode.com/index.php?title=Compiling_WRTnode_Firmware/zh-cn&#34;&gt;WRTnode固件编译&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&#xA;&#xA;&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://wiki.wrtnode.com/index.php?title=Release_UART/zh-cn&#34;&gt;UART tty控制台-&amp;gt;串口&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;</description>
     </item>
     <item>
       <title>OpenWrt版本&amp;代码路径</title>
