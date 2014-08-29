@@ -113,26 +113,7 @@ media               主题目录路径
 
 <h3>LuCI API</h3>
 
-<pre>
-
-luci.util.exec("iptables -Z")
-function syslog()
-    return luci.util.exec("logread")                            ###< 返回logread的执行结果
-end
-
-luci.http.redirect(
-    luci.dispatcher.build_url("admin", "status", "iptables")    ###< 加载/admin/status/iptables
-)
-
-if luci.http.formvalue("restart") == "1" then                   ###< 获取GET参数 xxx?restart=1
-    luci.template.render("demo", {syslog=syslo})                ###< 加载view/demo.htm
-end
-
-if luci.http.formvalue("cbi.apply") then                        ###< 判断是佛点击了“应用”按钮 
-    io.popen("/etc/init.d/xxx restart")                         ###< lua与系统交互
-end
-
-</pre>
+<p><a href="http://luci.subsignal.org/api/luci/index.html">http://luci.subsignal.org/api/luci/index.html</a></p>
 
 <hr/>
 
@@ -141,6 +122,31 @@ end
 <h4>uci在读取的时候优先显示内存中的缓存，其次显示文件中的，其操作方式类似sqlite</h4>
 
 <pre>
+### uci命令
+config xx1 xx2
+    option xx3 xx4
+
+xx2    section
+xx1    section type
+xx3    option名
+xx4    option值
+
+$ touch demo
+$ uci add demo stype            ###< 添加一个匿名的section
+=> config stype
+$ uci set demo.sec=stype        ###< 添加一个stype类型的section
+=> config stype 'sec'
+$ uci set demo.sec.opt=val      ###< 添加一个option
+=> config stype 'sec'
+        option opt 'val'
+$ uci add_list demo.sec.l=11    ###< 添加一个list
+=> config stype 'sec'
+        list l '11'
+$ uci delete demo.sec.l         ###< 删除一个list
+$ uci delete demo.sec.opt       ###< 删除一个option
+$ uci delete demo.sec           ###< 删除一个section
+$ uci delete demo.@stype[0]     ###< 删除section type为stype的地一个匿名section
+
 ### 导出配置
 uci export > config_total                   ###< 导出所有配置
 uci export netowrk > config_network         ###< 只导出/etc/config/network
@@ -196,9 +202,6 @@ demo.@demo_list[0]=demo_list
 demo.@demo_list[0].ip_list=192.168.1.1
 
 然后就可以用uci get/uci set进行操作了 ^ ^
-
-### uci add
-uci add只能add section，无法add文件/option
 
 ### 另外一种用法
 $ xxx << EOF        ///< 将两个EOF之间的内容作为参数传给xxx,EOF可替换成任意合法字符
