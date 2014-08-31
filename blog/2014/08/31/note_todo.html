@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>git使用相关</title>
+    <title>NOTE&amp;TODO</title>
   
     <meta name="author" content="JPH">
 
@@ -74,111 +74,62 @@
 
       <div class="content">
         <div class="page-header">
-  <h1>git使用相关 </h1>
+  <h1>NOTE&amp;TODO </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <h3>1. 安装</h3>
+    <h3>说明</h3>
 
-<pre>
-sudo apt-get install git git-core
-</pre>
+<p>记录 note &amp; todo
+<br/>
+方便随处查看，捡拾碎片时间</p>
 
-<h3>2. 配置 设置你的名字和email(提交commit时的签名)</h3>
+<hr/>
 
-<pre>
-git config --global user.name "jphome"
-git config --global user.email "jphome98@gmail.com"
-</pre>
+<h3>NOTE</h3>
 
-<h4>执行了上面的命令后,会在你的主目录(home directory)建立一个叫 ~/.gitconfig 的文件</h4>
+<ul>
+<li>可以使用bootstrap+ajax+(shell+awk+sed+cut+uci&hellip;)实现与用户交互</li>
+<li>话说这ukulele买了有俩月了&hellip;</li>
+<li>流控 tc openfree</li>
+<li>广告推送 wifidog</li>
+</ul>
 
-<h5>内容一般像下面这样:</h5>
+<hr/>
 
-<pre>
-[user]
-    name = jphome
-    email = jphome98@gmail.com
-</pre>
+<h3>TODO</h3>
 
-<p>注:这样的设置是全局设置,会影响此用户建立的每个项目.</p>
+<ul>
+<li>通过luci深入学习脚本，总结到github，方便查阅</li>
+<li>学习patch处理方式</li>
+<li>尽快完成hiksniffer</li>
+<li>封装常用工具api</li>
+<li>给老娘买双鞋 37-38码，待确认</li>
+<li>需要深入研究下怎么增长体重</li>
+</ul>
 
-<h3>3. git命令</h3>
+<hr/>
 
-<pre>
-git clone https://github.com/jphome/hSmart.git
-git add *
-git commit
-git remote add origin https://github.com/jphome/hSmart.git
-git push -u origin master
+<h3>TO READ</h3>
 
-
-本地编辑前
-git pull
-如果有冲突就会提示 处理冲突
-然后 git ci -a
-然后 git push 同步github上的数据
-
-
-编辑完了后
-git ci -a
-git push
-
-
-当本地与远程冲突时
-git fetch origin            ###< 获取冲突
-git merge origin            ###< 如果merge失败 手动编辑修改
-git ci -a
-git add *
-git push
-
-
-git init
-git add file1 file2 file3   ###< 将更新的内容（修改 & 新增）添加到索引中
-
-git commit -a               ###< 自动把所有内容被修改的文件(不包括新创建的文件)都添加到索引中,并且同时把它们提交
-git diff --cached           ###< 查看哪些文件将被提交（commit）
-git diff                    ###< 查看当前你所有已做的但没有加入到索引里的修改
-git diff HEAD               ###< 显示你工作目录与上次提交时之间的所有差别
-git commit                  ###< 提交到本地
-
-
-git push                    ###< 推到网上仓库
-git pull                    ###< 从远程仓库down更新 = git fetch + git merge
-                                ###< 当本地与远程都编辑了 git pull就会失败
-
-
-git branch experimental     ###< 新建分支
-git branch                  ###< 查看所有分支（*为当前所处分支）
-git checkout experimental   ###< 切换分支
-git merge experimental      ###< 合并分支experimental到当前分支
-git branch -d experimental  ###< 删除分支experimental
-gitk                        ###< 图形界面显示项目历史
-git reset --hard HEAD       ###< 回到合并之前的状态
-git diff master..test       ###< 显示两个分支间的差异
-git diff master...test      ###< 显示‘master’,‘test’的共有 父分支和'test'分支之间的差异
-</pre>
-
-<h3>4. 下载git仓库的文件</h3>
-
-<pre>
-wget --no-check-certificate https://raw.githubusercontent.com/jphome/WRT_package/master/helloworld/src/helloworld.c
-</pre>
+<ul>
+<li><a href="http://www.clz.me/">clz关于router的blog</a></li>
+</ul>
 
     <hr>
     <div class="pagination">
       <ul>
         <ul>
           
-            <li class="prev"><a href="/blog/2013/10/16/readme_python.html" title="readme_python">&larr; Previous</a></li>
           
+            <li class="prev disabled"><a>&larr; Previous</a></li>
           
 
             <li><a href="/archive">Archive</a></li>
 
           
-            <li class="next"><a href="/blog/2013/10/15/config_wifi.html" title="树莓派USB无线网卡配置">Next &rarr;</a></li>
+            <li class="next"><a href="/blog/2014/08/27/wrtnode_refs.html" title="WRTnode相关链接">Next &rarr;</a></li>
           
           
         </ul>
@@ -204,23 +155,19 @@ wget --no-check-certificate https://raw.githubusercontent.com/jphome/WRT_package
   
   <div class="span4">
     <h4>发布时间</h4>
-    <div class="date"><span>2013-10-16 21:37:03</span></div>
+    <div class="date"><span>2014-08-31 22:59:53</span></div>
     <br>
     <h4>分类(Categories)</h4>
     <ul class="tag_box">
     
       <li>
-  <a href="/categories/#%E6%8A%80%E6%9C%AF%E7%9B%B8%E5%85%B3-ref">技术相关 <span>22</span></a>
+  <a href="/categories/#%E7%94%9F%E6%B4%BB-ref">生活 <span>3</span></a>
 </li>
     
     </ul>
     <br>
     <h4>标签(Tags)</h4>
     <ul class="tag_box">
-    
-      <li>
-  <a href="/tags/#git-ref">git <span>1</span></a>
-</li>
     
     </ul>
   </div>

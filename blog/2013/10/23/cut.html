@@ -107,12 +107,12 @@ date | cut -b 4-            ###&lt; 取第4个B到行尾
 
 <h2><a style="display: block;" name="3.-按域(fields)" href="#3.-按域(fields)"></a>3. 按域(fields)</h2>
 
-<h4>-d 制定域分隔符(默认为Tab)</h4>
+<h4>-d 指定域分隔符(默认为Tab)</h4>
 
-<h4>-f 制定要剪出哪几个域</h4>
+<h4>-f 指定要剪出哪几个域[1, 2, 3, 4&hellip;]</h4>
 
 <pre><code>head -n5 /etc/passwd | cut -d: -f1,3-5      ###&lt; 对passwd文件的前5行进行裁剪
-cut -d&quot; &quot; -f2                               ###&lt; 空格表示
+cut -d&quot;:&quot; -f2                               ###&lt; 空格表示
 </code></pre>
 
     <hr>
