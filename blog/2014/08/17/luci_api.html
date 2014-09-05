@@ -105,8 +105,12 @@ media               主题目录路径
     <%+header%>                                     ###< /usr/lib/lua/luci/view/header.htm
 <%=value%> or <%write(value)%>                      ###< 插入变量值
 <%:xxx Page%> or <%=translate("xxx Page")%>         ###< 翻译
+
 <%code%>                                            ###< 插入lua代码
+<%- xxx -%>                                         ###< 分行代码
+
 <%#comment%>                                        ###< 注释
+<%# xxx -%>                                         ###< 分行注释
 </pre>
 
 <hr/>
