@@ -1,6 +1,6 @@
 #previewFull {
   background-color: #FEFEFE !important;
-  width: 492px !important;
+  width: 642px !important;
   color: inherit;
 }
 
@@ -53,7 +53,7 @@ body {
 }
 
 #stage2 {
-  width: 492px !important;
+  width: 642px !important;
 }
 
 .thumb, .preview {
@@ -84,7 +84,7 @@ body {
 }
 
 #wrapper_large {
-  width: 492px !important;
+  width: 642px !important;
 }
 
 .borderBottomRight {
@@ -93,7 +93,7 @@ body {
 }
 
 #previewImage {
-  maxSize: 450.00 !important;
+  maxSize: 600.00 !important;
 }
 
 .paginationLinks, .pagination, #liveUpdatePagination {
