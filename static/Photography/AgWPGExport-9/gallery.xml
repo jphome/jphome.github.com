@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gallery cellDimension="800" columns="3" zoomOutPerc="15" zoomInPerc="100" frameWidth="20" captionColor="0xFFFFFF" enableRightClickOpen="true">
+<image>
+<url>images/IMG_3471.jpg</url>
+<caption></caption>
+</image>
+<image>
+<url>images/IMG_3388.jpg</url>
+<caption></caption>
+</image>
+<image>
+<url>images/IMG_3392.jpg</url>
+<caption></caption>
+</image>
+<image>
+<url>images/IMG_3406.jpg</url>
+<caption></caption>
+</image>
+<image>
+<url>images/IMG_3486.jpg</url>
+<caption></caption>
+</image>
+<image>
+<url>images/IMG_3527.jpg</url>
+<caption></caption>
+</image>
+<image>
+<url>images/IMG_3550.jpg</url>
+<caption></caption>
+</image>
+<image>
+<url>images/IMG_3377.jpg</url>
+<caption></caption>
+</image>
+</gallery>
