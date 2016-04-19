@@ -2,7 +2,13 @@
 <rss version="2.0">  <channel>
     <title>Mr J</title>
     <link>http://jphome.github.com</link>
-    <pubDate>19 Apr 16 17:25 CST</pubDate>
+    <pubDate>19 Apr 16 19:12 CST</pubDate>
+    <item>
+      <title>【搬砖技能】网线知识</title>
+      <link>http://jphome.github.com/blog/2016/04/19/20160419_Ethernet_cable.html</link>
+      <pubDate>2016-04-19 05:45:34 +0800</pubDate>
+      <description>&lt;h3&gt;说明&lt;/h3&gt;&#xA;&#xA;&lt;p&gt;网线是工程项目中最终要的辅材之一，随着技术的演进，衍生出了一大堆各种标准网线，现科普如下。&#xA;&lt;br/&gt;&#xA;此为纯理论知识，待俺有工程经验后补充实践知识。&#xA;&lt;br/&gt;&#xA;切记，不要用太次的网线哦，否则会在短时间内氧化，影响网传/PoE供电，大大增加维护成本，血泪教训 &lt;img src=&#34;/assets/media/img/monkey/wuwuwu.gif&#34; alt=&#34;wuwuwu&#34; title=&#34;wuwuwu&#34; /&gt;&#xA;&lt;/p&gt;&#xA;&#xA;&lt;hr/&gt;&#xA;&#xA;&lt;h3&gt;思维导图 &lt;a href=&#34;/assets/media/doc/Brickmove/网线知识.mmap&#34;&gt;《网线知识.mmap》&lt;/a&gt;&lt;/h3&gt;&#xA;&#xA;&lt;p&gt;&lt;a href=&#34;/assets/media/img/Brickmove/网线知识.png&#34; target=&#34;_blank&#34;&gt;&#xA;    &lt;img src=&#34;/assets/media/img/Brickmove/网线知识.png&#34; width=&#34;942px&#34;/&gt;&#xA;&lt;/a&gt;&lt;/p&gt;&#xA;&#xA;&lt;hr/&gt;&#xA;&#xA;&lt;h3&gt;Refs&lt;/h3&gt;&#xA;&#xA;&lt;p&gt;各种百科、百度&lt;/p&gt;&#xA;</description>
+    </item>
     <item>
       <title>世界等你发现</title>
       <link>http://jphome.github.com/blog/2015/08/22/20150822_something_market.html</link>
@@ -19,7 +25,7 @@
       <title>摄影入门，NOTE</title>
       <link>http://jphome.github.com/blog/2015/08/09/20150809_%CF%86%E1%BF%B6%CF%82_phos_%CE%B3%CF%81%CE%B1%CF%86%CE%AE_%CE%B3%CF%81%CE%B1%CF%86%CE%AE.html</link>
       <pubDate>2015-08-09 11:07:07 +0800</pubDate>
-      <description>&lt;h3&gt;说明&lt;/h3&gt;&#xA;&#xA;&lt;p&gt;&lt;br/&gt;&#xA;&lt;br/&gt;&#xA;&lt;br/&gt;&#xA;&lt;br/&gt;&#xA;&lt;br/&gt;&#xA;&lt;br/&gt;&lt;/p&gt;&#xA;&#xA;&lt;hr/&gt;&#xA;&#xA;&lt;h3&gt;思维导图 &lt;a href=&#34;/assets/media/doc/关于摄影你需要知道的.mmap&#34;&gt;《关于摄影你需要知道的.mmap》&lt;/a&gt;&lt;/h3&gt;&#xA;&#xA;&lt;p&gt;&lt;a href=&#34;/assets/media/img/关于摄影你需要知道的.png&#34; target=&#34;_blank&#34;&gt;&#xA;    &lt;img src=&#34;/assets/media/img/关于摄影你需要知道的.png&#34; width=&#34;942px&#34;/&gt;&#xA;&lt;/a&gt;&lt;/p&gt;&#xA;&#xA;&lt;hr/&gt;&#xA;&#xA;&lt;h3&gt;Refs&lt;/h3&gt;&#xA;&#xA;&lt;p&gt;&lt;a href=&#34;http://www.sybiji.com/may.php?c=w&amp;amp;a=oneClass&amp;amp;t=1&amp;amp;id=27119&#34;&gt;http://www.sybiji.com/may.php?c=w&amp;amp;a=oneClass&amp;amp;t=1&amp;amp;id=27119&lt;/a&gt;&lt;/p&gt;&#xA;</description>
+      <description>&lt;h3&gt;说明&lt;/h3&gt;&#xA;&#xA;&lt;p&gt;&lt;br/&gt;&#xA;&lt;br/&gt;&lt;/p&gt;&#xA;&#xA;&lt;hr/&gt;&#xA;&#xA;&lt;h3&gt;思维导图 &lt;a href=&#34;/assets/media/doc/关于摄影你需要知道的.mmap&#34;&gt;《关于摄影你需要知道的.mmap》&lt;/a&gt;&lt;/h3&gt;&#xA;&#xA;&lt;p&gt;&lt;a href=&#34;/assets/media/img/关于摄影你需要知道的.png&#34; target=&#34;_blank&#34;&gt;&#xA;    &lt;img src=&#34;/assets/media/img/关于摄影你需要知道的.png&#34; width=&#34;942px&#34;/&gt;&#xA;&lt;/a&gt;&lt;/p&gt;&#xA;&#xA;&lt;hr/&gt;&#xA;&#xA;&lt;h3&gt;Refs&lt;/h3&gt;&#xA;&#xA;&lt;p&gt;&lt;a href=&#34;http://www.sybiji.com/may.php?c=w&amp;amp;a=oneClass&amp;amp;t=1&amp;amp;id=27119&#34;&gt;http://www.sybiji.com/may.php?c=w&amp;amp;a=oneClass&amp;amp;t=1&amp;amp;id=27119&lt;/a&gt;&lt;/p&gt;&#xA;</description>
     </item>
     <item>
       <title>陌生的城市，熟悉的角落</title>
@@ -91,7 +97,7 @@
       <title>书单计划</title>
       <link>http://jphome.github.com/blog/2015/02/16/booklist_plan.html</link>
       <pubDate>2015-02-16 12:08:23 +0800</pubDate>
-      <description>&lt;h3&gt;说明&lt;/h3&gt;&#xA;&#xA;&lt;p&gt;从小书读得少，肚子里干货少，生活面前显得小&lt;/p&gt;&#xA;&#xA;&lt;hr/&gt;&#xA;&#xA;&lt;h3&gt;大学&lt;/h3&gt;&#xA;&#xA;&lt;p&gt;&lt;img src=&#34;/assets/media/img/booklist_college.jpg&#34; alt=&#34;&#34; title=&#34;大学书单计划&#34; /&gt;&#xA;&#xA;&lt;/br&gt;&lt;/p&gt;&#xA;&#xA;&lt;p&gt;&lt;/br&gt;&lt;/p&gt;&#xA;&#xA;&lt;h3&gt;工作初期&lt;/h3&gt;&#xA;&#xA;&lt;p&gt;《正能量》&lt;/br&gt;&#xA;《吸引力法则》&lt;/br&gt;&#xA;《365天英语口语大全》&lt;/br&gt;&#xA;《跟任何人都聊得来》&lt;/br&gt;&#xA;《激荡三十年》&lt;/br&gt;&#xA;《吴敬琏转》&lt;/br&gt;&#xA;《色界》&lt;/br&gt;&#xA;《拒绝的艺术》&lt;/br&gt;&#xA;《大道至简》&lt;/br&gt;&#xA;《职场厚黑学》&lt;/br&gt;&#xA;《一课经济学》&lt;/br&gt;&#xA;&amp;hellip;&lt;/p&gt;&#xA;&#xA;&lt;p&gt;&lt;/br&gt;&lt;/p&gt;&#xA;&#xA;&lt;h3&gt;屌爆期&lt;/h3&gt;&#xA;&#xA;&lt;p&gt;&lt;img src=&#34;/assets/media/img/onion/zhuangbi.gif&#34; alt=&#34;zhuangbi&#34; title=&#34;装逼&#34; /&gt;&#xA;&#xA;&lt;/br&gt;&#xA;&amp;hellip;&lt;/p&gt;&#xA;&#xA;&lt;p&gt;&lt;/br&gt;&lt;/p&gt;&#xA;&#xA;&lt;h3&gt;暮年&lt;/h3&gt;&#xA;&#xA;&lt;p&gt;&lt;img src=&#34;/assets/media/img/onion/dead.gif&#34; alt=&#34;dead&#34; title=&#34;dead&#34; /&gt;&#xA;&#xA;&lt;/br&gt;&#xA;&amp;hellip;&lt;/p&gt;&#xA;&#xA;&lt;hr/&gt;&#xA;&#xA;&lt;h3&gt;Refs&lt;/h3&gt;&#xA;&#xA;&lt;p&gt;挚友&lt;/p&gt;&#xA;</description>
+      <description>&lt;h3&gt;说明&lt;/h3&gt;&#xA;&#xA;&lt;p&gt;从小书读得少，肚子里干货少，生活面前显得小&lt;/p&gt;&#xA;&#xA;&lt;hr/&gt;&#xA;&#xA;&lt;h3&gt;大学&lt;/h3&gt;&#xA;&#xA;&lt;p&gt;&lt;img src=&#34;/assets/media/img/booklist_college.jpg&#34; alt=&#34;&#34; title=&#34;大学书单计划&#34; /&gt;&#xA;&#xA;&lt;/br&gt;&lt;/p&gt;&#xA;&#xA;&lt;p&gt;&lt;/br&gt;&lt;/p&gt;&#xA;&#xA;&lt;h3&gt;工作初期&lt;/h3&gt;&#xA;&#xA;&lt;p&gt;《正能量》&lt;/br&gt;&#xA;《吸引力法则》&lt;/br&gt;&#xA;《365天英语口语大全》&lt;/br&gt;&#xA;《跟任何人都聊得来》&lt;/br&gt;&#xA;《激荡三十年》&lt;/br&gt;&#xA;《吴敬琏转》&lt;/br&gt;&#xA;《色界》&lt;/br&gt;&#xA;《拒绝的艺术》&lt;/br&gt;&#xA;《大道至简》&lt;/br&gt;&#xA;《职场厚黑学》&lt;/br&gt;&#xA;《一课经济学》&lt;/br&gt;&#xA;《囚徒健身》&lt;/br&gt;&#xA;《金字塔原理》&lt;/br&gt;&#xA;&amp;hellip;&#xA;&lt;/br&gt;&lt;/p&gt;&#xA;&#xA;&lt;h3&gt;屌爆期&lt;/h3&gt;&#xA;&#xA;&lt;p&gt;&lt;img src=&#34;/assets/media/img/onion/zhuangbi.gif&#34; alt=&#34;zhuangbi&#34; title=&#34;装逼&#34; /&gt;&#xA;&#xA;&lt;/br&gt;&#xA;&amp;hellip;&lt;/p&gt;&#xA;&#xA;&lt;p&gt;&lt;/br&gt;&lt;/p&gt;&#xA;&#xA;&lt;h3&gt;暮年&lt;/h3&gt;&#xA;&#xA;&lt;p&gt;&lt;img src=&#34;/assets/media/img/onion/dead.gif&#34; alt=&#34;dead&#34; title=&#34;dead&#34; /&gt;&#xA;&#xA;&lt;/br&gt;&#xA;&amp;hellip;&lt;/p&gt;&#xA;&#xA;&lt;hr/&gt;&#xA;&#xA;&lt;h3&gt;Refs&lt;/h3&gt;&#xA;&#xA;&lt;p&gt;挚友&lt;/p&gt;&#xA;</description>
     </item>
     <item>
       <title>20150208 徒步旅行</title>
