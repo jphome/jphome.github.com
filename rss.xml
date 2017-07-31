@@ -1,8 +1,14 @@
 <?xml version="1.0"?>
 <rss version="2.0">  <channel>
-    <title>小蒋</title>
+    <title>Mr J</title>
     <link>http://jphome.github.com</link>
-    <pubDate>05 Mar 16 21:41 CST</pubDate>
+    <pubDate>01 Aug 17 01:08 +0800</pubDate>
+    <item>
+      <title>【搬砖技能】网线知识</title>
+      <link>http://jphome.github.com/blog/2016/04/19/20160419_Ethernet_cable.html</link>
+      <pubDate>2016-04-19 05:45:34 +0800</pubDate>
+      <description>&lt;h3&gt;说明&lt;/h3&gt;&#xA;&#xA;&lt;p&gt;网线是工程项目中最终要的辅材之一，随着技术的演进，衍生出了一大堆各种标准网线，现科普如下。&#xA;&lt;br/&gt;&#xA;此为纯理论知识，待俺有工程经验后补充实践知识。&#xA;&lt;br/&gt;&#xA;切记，不要用太次的网线哦，否则会在短时间内氧化，影响网传/PoE供电，大大增加维护成本，血泪教训 &lt;img src=&#34;/assets/media/img/monkey/wuwuwu.gif&#34; alt=&#34;&#34; /&gt;&#xA;&lt;/p&gt;&#xA;&#xA;&lt;hr/&gt;&#xA;&#xA;&lt;h3&gt;思维导图 &lt;a href=&#34;/assets/media/doc/网线知识.mmap&#34;&gt;《网线知识.mmap》&lt;/a&gt;&lt;/h3&gt;&#xA;&#xA;&lt;p&gt;&lt;a href=&#34;/assets/media/img/网线知识.png&#34; target=&#34;_blank&#34;&gt;&#xA;    &lt;img src=&#34;/assets/media/img/Brickmove/网线知识.png&#34; width=&#34;942px&#34;/&gt;&#xA;&lt;/a&gt;&lt;/p&gt;&#xA;&#xA;&lt;hr/&gt;&#xA;&#xA;&lt;h3&gt;Refs&lt;/h3&gt;&#xA;&#xA;&lt;p&gt;各种百科、百度&lt;/p&gt;&#xA;</description>
+    </item>
     <item>
       <title>世界等你发现</title>
       <link>http://jphome.github.com/blog/2015/08/22/20150822_something_market.html</link>
@@ -17,7 +23,7 @@
     </item>
     <item>
       <title>摄影入门，NOTE</title>
-      <link>http://jphome.github.com/blog/2015/08/09/20150809_%CF%86%E1%BF%B6%CF%82_phos_%CE%B3%CF%81%CE%B1%CF%86%CE%AE_%CE%B3%CF%81%CE%B1%CF%86%CE%AE.html</link>
+      <link>http://jphome.github.com/blog/2015/08/09/20150809_%E6%91%84%E5%BD%B1%E5%85%A5%E9%97%A8%EF%BC%8CNOTE.html</link>
       <pubDate>2015-08-09 11:07:07 +0800</pubDate>
       <description>&lt;h3&gt;说明&lt;/h3&gt;&#xA;&#xA;&lt;p&gt;&lt;br/&gt;&#xA;&lt;br/&gt;&#xA;&lt;br/&gt;&#xA;&lt;br/&gt;&#xA;&lt;br/&gt;&#xA;&lt;br/&gt;&lt;/p&gt;&#xA;&#xA;&lt;hr/&gt;&#xA;&#xA;&lt;h3&gt;思维导图 &lt;a href=&#34;/assets/media/doc/关于摄影你需要知道的.mmap&#34;&gt;《关于摄影你需要知道的.mmap》&lt;/a&gt;&lt;/h3&gt;&#xA;&#xA;&lt;p&gt;&lt;a href=&#34;/assets/media/img/关于摄影你需要知道的.png&#34; target=&#34;_blank&#34;&gt;&#xA;    &lt;img src=&#34;/assets/media/img/关于摄影你需要知道的.png&#34; width=&#34;942px&#34;/&gt;&#xA;&lt;/a&gt;&lt;/p&gt;&#xA;&#xA;&lt;hr/&gt;&#xA;&#xA;&lt;h3&gt;Refs&lt;/h3&gt;&#xA;&#xA;&lt;p&gt;&lt;a href=&#34;http://www.sybiji.com/may.php?c=w&amp;amp;a=oneClass&amp;amp;t=1&amp;amp;id=27119&#34;&gt;http://www.sybiji.com/may.php?c=w&amp;amp;a=oneClass&amp;amp;t=1&amp;amp;id=27119&lt;/a&gt;&lt;/p&gt;&#xA;</description>
     </item>
